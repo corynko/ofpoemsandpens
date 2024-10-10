@@ -1,8 +1,13 @@
-# React + Vite
+# of poems and pens
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+a simple site for sharing poetry, and the love of fountain pens, inks, and paper
 
-Currently, two official plugins are available:
+## usage
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+you may clone this repo for use in your own projects, however, all logos, IP, poetry, and any other personally created assets within the repo is the sole property of Ethan Kotel and other named parties. Use of these assets without permission is considered a violation.
+
+Please ask before you use anything, if in doubt! I'm an open guy and am very willing to letting you use anything with proper attribution/credit.
+
+## instructions
+
+run `npm i` to install necessary packages, then `npm run start` to begin the dev server

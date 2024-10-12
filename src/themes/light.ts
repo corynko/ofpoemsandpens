@@ -29,4 +29,19 @@ export const lightTheme = createTheme({
       primary: '#131311',
     },
   },
+  typography: {
+    h1: {
+      fontFamily: '"Montserrat"',
+    },
+    fontFamily: '"Montserrat", "Lato", "Inter"',
+    subtitle1: {
+      fontFamily: '"Inter"',
+    },
+    body1: {
+      fontFamily: '"Inter"',
+    },
+    body2: {
+      fontFamily: '"Lato"',
+    },
+  },
 });

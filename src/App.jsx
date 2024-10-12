@@ -1,14 +1,22 @@
-import { useState } from "react";
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg";
+//init react
+import React from "react";
+
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
+
+//CSS imports
 import "./App.css";
-import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import "./index.css";
 import { lightTheme } from "./themes/light";
 import { darkTheme } from "./themes/dark";
+
+//misc package imports
+import { AppBar, createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+
+//component imports
+import Nav from "./components/navComponents/Nav";
+
+//context imports
 import { ColorContext } from "./contexts/ColorContext";
-import { SwitchModeButton } from "./components/miscComponents/switchModeButton";
-import React from "react";
-// import ResponsiveAppBar from "./components/appBarComponents/appBar";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -29,35 +37,12 @@ function App() {
 
   return (
     <ColorContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <SwitchModeButton />
-        {/* <>
-          <div>
-            <a href="https://vitejs.dev" target="_blank">
-              <img src={viteLogo} className="logo" alt="Vite logo" />
-            </a>
-            <a href="https://react.dev" target="_blank">
-              {" "}
-              vite test
-              <img src={reactLogo} className="logo react" alt="React logo" />
-            </a>
-          </div>
-          <h1>Vite + React</h1>
-          <div>
-            <button onClick={() => setCount((count) => count + 1)}>
-              count is {count}
-            </button>
-            <p>
-              Edit <code>src/App.jsx</code> and save to test HMR
-            </p>
-          </div>
-          <p className="read-the-docs">
-            Click on the Vite and React logos to learn more
-          </p>
-        </>
-        */}
-      </ThemeProvider>
+      <Router>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Nav />
+        </ThemeProvider>
+      </Router>
     </ColorContext.Provider>
   );
 }

@@ -29,4 +29,19 @@ export const darkTheme = createTheme({
       primary: '#f6f7eb',
     },
   },
+  typography: {
+    h1: {
+      fontFamily: '"Montserrat"',
+    },
+    fontFamily: '"Montserrat", "Lato", "Inter"',
+    subtitle1: {
+      fontFamily: '"Inter"',
+    },
+    body1: {
+      fontFamily: '"Inter"',
+    },
+    body2: {
+      fontFamily: '"Lato"',
+    },
+  },
 });

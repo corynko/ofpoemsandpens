@@ -9,18 +9,20 @@
 .cls-10,
 .cls-11 {
   stroke-miterlimit: 10;
+  stroke-width: 2px;
 }
 
 .cls-3,
 .cls-8,
 .cls-9,
 .cls-10 {
-  stroke-width: 0.25px;
+  stroke-width: 2px;
 }
 
 .cls-12,
 .cls-11 {
   mix-blend-mode: multiply;
+  stroke-width: 1px;
 }
 
 .cls-4,
@@ -29,9 +31,10 @@
 }
 
 .cls-6 {
-  stroke-width: 4px;
+  stroke-width: 6px;
 }
 
 .cls-13 {
   isolation: isolate;
+  stroke-width: 1.5px;
 }

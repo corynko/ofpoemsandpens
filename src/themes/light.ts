@@ -1,5 +1,33 @@
 import { createTheme } from '@mui/material/styles';
 
+import { PaletteOptions, TypeBackground } from '@mui/material/styles/createPalette';
+
+declare module '@mui/material/styles' {
+  interface TypeBackground {
+    strokeColor?: string;
+    fillColor?: string;
+  }
+  interface TypeSvg {
+    strokeColor?: string;
+    fillColor?: string;
+  }
+  interface TypeSvg2 {
+    strokeColor?: string;
+    fillColor?: string;
+  }
+  interface TypeSvg3 {
+    strokeColor?: string;
+    fillColor?: string;
+  }
+
+  interface PaletteOptions {
+    background?: Partial<TypeBackground>;
+    svg?: Partial<TypeSvg>;
+    svg2?: Partial<TypeSvg>;
+    svg3?: Partial<TypeSvg>;
+  }
+}
+
 
 export const lightTheme = createTheme({
   palette: {
@@ -24,7 +52,12 @@ export const lightTheme = createTheme({
     },
     background: {
       default: '#ffffff',
+      strokeColor: '#000000',  // Custom property
+      fillColor: '#ffffff00',    // Custom property
     },
+    svg: {fillColor: '#A37A4E' },
+    svg2: {fillColor: '#F7D59C' },
+    svg3: {fillColor: '#D9D8D1' },
     text: {
       primary: '#131311',
     },

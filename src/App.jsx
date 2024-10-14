@@ -2,6 +2,11 @@
 import React from "react";
 
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import Pens from "./pages/pens/pens";
+import Poems from "./pages/poems/poems";
+import Ink from "./pages/ink/ink";
+import Paper from "./pages/paper/paper";
+import HomePage from "./pages/home/home";
 
 //CSS imports
 import "./App.css";
@@ -41,6 +46,13 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Nav />
+          <Routes>
+            <Route path="/ink" element={<Ink />} />
+            <Route path="/paper" element={<Paper />} />
+            <Route path="/pens" element={<Pens />} />
+            <Route path="/poems" element={<Poems />} />
+            <Route path="/*" element={<HomePage />} />
+          </Routes>
         </ThemeProvider>
       </Router>
     </ColorContext.Provider>

@@ -1,11 +1,12 @@
 import { createTheme } from '@mui/material/styles';
+// import backgroundImage from "../assets/images/svg/paperBackgroundDark.svg"
 
-import { PaletteOptions, TypeBackground } from '@mui/material/styles/createPalette';
 
 declare module '@mui/material/styles' {
   interface TypeBackground {
     strokeColor?: string;
     fillColor?: string;
+    backgroundImage?: string;
   }
   interface TypeSvg {
     strokeColor?: string;
@@ -54,6 +55,7 @@ export const darkTheme = createTheme({
       default: '#111111',
       strokeColor: '#ffffff',  // Custom property
       fillColor: '#000000',    // Custom property
+      // backgroundImage: `url(${backgroundImage})`
     },
     svg: {fillColor: '#F7D59C' },
     svg2: {fillColor: '#A37A4E ' },

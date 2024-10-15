@@ -15,7 +15,7 @@ import { lightTheme } from "./themes/light";
 import { darkTheme } from "./themes/dark";
 
 //misc package imports
-import { AppBar, createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import { AppBar, createTheme, ThemeProvider } from "@mui/material";
 
 //component imports
 import Nav from "./components/navComponents/Nav";
@@ -42,9 +42,9 @@ function App() {
 
   return (
     <ColorContext.Provider value={colorMode}>
-      <Router>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
+      <ThemeProvider theme={theme}>
+        <Router>
+          {/* <CssBaseline /> */}
           <Nav />
           <Routes>
             <Route path="/ink" element={<Ink />} />
@@ -53,8 +53,8 @@ function App() {
             <Route path="/poems" element={<Poems />} />
             <Route path="/*" element={<HomePage />} />
           </Routes>
-        </ThemeProvider>
-      </Router>
+        </Router>
+      </ThemeProvider>
     </ColorContext.Provider>
   );
 }

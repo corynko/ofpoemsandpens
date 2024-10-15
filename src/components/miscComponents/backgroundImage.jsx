@@ -51,7 +51,8 @@ const BackgroundImage = () => {
           height: "100vh",
           zIndex: 1,
           opacity: fade ? 0 : 1,
-          transition: "opacity 0.75s", // Smooth fade-out effect
+          filter: "saturate(0%)",
+          transition: "opacity 0.5s linear", // Smooth fade-out effect
         }}
       />
       {/* Layer for the new image */}
@@ -71,10 +72,10 @@ const BackgroundImage = () => {
           left: 0,
           width: "100vw",
           height: "100vh",
-          zIndex: 2,
-
+          zIndex: 1,
+          filter: "saturate(0%)",
           opacity: fade ? 1 : 0,
-          transition: "opacity 0.75s", // Smooth fade-in effect
+          transition: "opacity 0.5s linear", // Smooth fade-in effect
         }}
       />
     </Box>

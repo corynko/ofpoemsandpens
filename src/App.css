@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -21,7 +21,12 @@
 }
 
 body {
-  transition: background-color 0.75s, color 0.75s;
+  transition: background-color 2s, color 0.75s;
+}
+
+.navLink:hover {
+  color: #61dafb;
+  transition: color 0.5s;
 }
 
 .flex,
@@ -87,15 +92,6 @@ body {
 
 .stroke25 {
   -webkit-text-stroke: 0.25px var(--black);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -7,6 +7,7 @@ declare module '@mui/material/styles' {
     strokeColor?: string;
     fillColor?: string;
     backgroundImage?: string;
+    inverse?: string;
   }
   interface TypeSvg {
     strokeColor?: string;
@@ -53,7 +54,8 @@ export const darkTheme = createTheme({
     },
     background: {
       default: '#111111',
-      strokeColor: '#ffffff',  // Custom property
+      inverse: "#F6F7EB",
+      strokeColor: '#F6F7EB',  // Custom property
       fillColor: '#000000',    // Custom property
       // backgroundImage: `url(${backgroundImage})`
     },

@@ -1,6 +1,7 @@
 import PrimarySearchAppBar from "../appBarComponents/appBar";
 import { SwitchModeButton } from "../miscComponents/switchModeButton";
 import FullLogoDesktop from "./desktop/fullLogoDesktop";
+import NavItemsDesktop from "./desktop/navItemsDesktop";
 // import { useContext } from "react";
 // import AppBarHeightContext from "../../contexts/AppBarHeightContext";
 
@@ -30,8 +31,23 @@ export default function Nav() {
           }}
         >
           <PrimarySearchAppBar>
-            <FullLogoDesktop />
-            <SwitchModeButton />
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <FullLogoDesktop />
+              <Box sx={{ justifyContent: "end" }}>
+                <NavItemsDesktop />
+              </Box>
+            </Box>
+
+            {/* This ensures that the SwitchModeButton remains on the right */}
+            <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+              <SwitchModeButton />
+            </Box>
           </PrimarySearchAppBar>
         </Box>
       </Toolbar>

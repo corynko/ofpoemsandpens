@@ -17,7 +17,7 @@ export const SwitchModeButton = () => {
         fontFamily: "GothamBook",
         width: "100%",
         justifyContent: "end",
-        transition: "background-color 0.1s, color 0.1s",
+        transition: "color 0.1s",
       }}
     >
       <IconButton

@@ -9,6 +9,9 @@ declare module '@mui/material/styles' {
     backgroundImage?: string;
     inverse?: string;
   }
+  interface TypeText {
+    blue?: string;
+  }
   interface TypeSvg {
     strokeColor?: string;
     fillColor?: string;
@@ -64,6 +67,7 @@ export const darkTheme = createTheme({
     svg3: {fillColor: '#D9D8D1' },
     text: {
       primary: '#f6f7eb',
+      blue: "#61dafb",
     },
   },
   typography: {

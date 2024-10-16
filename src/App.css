@@ -24,11 +24,6 @@ body {
   transition: background-color 2s, color 0.75s;
 }
 
-.navLink:hover {
-  color: #61dafb;
-  transition: color 0.5s;
-}
-
 .flex,
 .center,
 .between,

@@ -35,6 +35,8 @@ const BackgroundImage = () => {
         width: "100vw",
         height: "100vh",
         overflow: "hidden", // Ensure any overflow is hidden
+        position: "fixed",
+        zIndex: -1,
       }}
     >
       {/* Layer for the previous image */}
@@ -49,9 +51,10 @@ const BackgroundImage = () => {
           left: 0,
           width: "100vw",
           height: "100vh",
-          zIndex: 1,
+          zIndex: -1,
           opacity: fade ? 0 : 1,
           filter: "saturate(0%)",
+          transitionDelay: "3s",
           transition: "opacity 0.5s linear", // Smooth fade-out effect
         }}
       />
@@ -63,19 +66,21 @@ const BackgroundImage = () => {
               ? backgroundImageLight
               : backgroundImageDark
           })`,
+          position: "fixed",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
-          position: "fixed",
           top: 0,
           left: 0,
           width: "100vw",
           height: "100vh",
-          zIndex: 1,
+          zIndex: -1,
           filter: "saturate(0%)",
           opacity: fade ? 1 : 0,
+
           transition: "opacity 0.5s linear", // Smooth fade-in effect
+          transitionDelay: "3s",
         }}
       />
     </Box>

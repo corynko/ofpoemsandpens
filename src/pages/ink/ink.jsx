@@ -1,5 +1,9 @@
 import { Box } from "@mui/material";
 
 export default function Ink() {
-  return <Box>Hello!</Box>;
+  return (
+    <>
+      <Box>Hello!</Box>
+    </>
+  );
 }

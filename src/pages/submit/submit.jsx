@@ -1,9 +1,11 @@
 import { Box } from "@mui/material";
 
-export default function Paper() {
+const Submit = () => {
   return (
     <>
       <Box>Hello!</Box>
     </>
   );
-}
+};
+
+export default Submit;

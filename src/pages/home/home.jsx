@@ -1,10 +1,9 @@
-import BackgroundImage from "../../components/miscComponents/backgroundImage";
 import { Box } from "@mui/material";
 
 const HomePage = () => {
   return (
     <>
-      <BackgroundImage />
+      <Box sx={{ zIndex: 5, position: "relative" }}>Hello!</Box>
     </>
   );
 };

@@ -4,7 +4,6 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
@@ -14,7 +13,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import MoreIcon from "@mui/icons-material/MoreVert";
 
 const Search = styled("div")(({ theme }) => {
   const themeMode = theme.palette.mode;
@@ -163,7 +161,7 @@ export default function PrimarySearchAppBar({ children }) {
           aria-label="account of current user"
           aria-controls={menuId}
           aria-haspopup="true"
-          sx={{ color: theme.palette.text.primary }}
+          // sx={{ color: theme.palette.text.primary }}
         >
           <AccountCircle />
         </IconButton>
@@ -191,7 +189,11 @@ export default function PrimarySearchAppBar({ children }) {
             size="large"
             edge="start"
             aria-label="open drawer"
-            sx={{ mr: 2, color: theme.palette.text.primary }}
+            sx={{
+              mr: 2,
+              color: theme.palette.text.primary,
+              transition: "color 3s",
+            }}
           >
             <MenuIcon />
           </IconButton>

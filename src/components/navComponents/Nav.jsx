@@ -2,17 +2,9 @@ import PrimarySearchAppBar from "../appBarComponents/appBar";
 import { SwitchModeButton } from "../miscComponents/switchModeButton";
 import FullLogoDesktop from "./desktop/fullLogoDesktop";
 import NavItemsDesktop from "./desktop/navItemsDesktop";
-// import { useContext } from "react";
-// import AppBarHeightContext from "../../contexts/AppBarHeightContext";
-
-// non-animated imports
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
-
-// import LogoDrawDesktop from "./desktop/logoDrawDesktop";
-// import WordDrawDesktop from "./desktop/wordDrawDesktop";
-// import NavItemsDesktop from "./desktop/navItemsDesktop";
 
 export default function Nav() {
   return (

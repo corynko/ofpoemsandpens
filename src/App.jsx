@@ -7,12 +7,14 @@ import Poems from "./pages/poems/poems";
 import Ink from "./pages/ink/ink";
 import Paper from "./pages/paper/paper";
 import HomePage from "./pages/home/home";
+import Submit from "./pages/submit/submit";
 
 //CSS imports
 import "./App.css";
 import "./index.css";
 import { lightTheme } from "./themes/light";
 import { darkTheme } from "./themes/dark";
+import BackgroundImage from "./components/miscComponents/backgroundImage";
 
 //misc package imports
 import { AppBar, createTheme, ThemeProvider } from "@mui/material";
@@ -43,6 +45,7 @@ function App() {
   return (
     <ColorContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
+        <BackgroundImage />
         <Router>
           {/* <CssBaseline /> */}
           <Nav />
@@ -51,6 +54,7 @@ function App() {
             <Route path="/paper" element={<Paper />} />
             <Route path="/pens" element={<Pens />} />
             <Route path="/poems" element={<Poems />} />
+            <Route path="/submit" element={<Submit />} />
             <Route path="/*" element={<HomePage />} />
           </Routes>
         </Router>

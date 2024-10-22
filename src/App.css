@@ -2,10 +2,11 @@
 
 #root {
   /* max-width: 1280px; */
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  overflow-x: hidden;
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
+  /* max-width: 100%; */
+  /* text-align: center; */
+  /* overflow-x: hidden; */
 }
 
 .logo {
@@ -23,10 +24,29 @@
 
 body {
   transition: background-color 2s, color 0.75s;
+  width: 100%;
 }
 
 h1 {
   font-family: "GothamBook";
+  font-size: calc(1.5rem + 2vw);
+}
+
+h2 {
+  font-family: "Montserrat";
+  font-weight: 400;
+  margin-right: 5px;
+  font-size: calc(1rem + 0.5vw);
+}
+h3 {
+  font-family: "GothamBook";
+  font-weight: bold;
+  margin-right: 5px;
+  font-size: calc(0.7rem + 0.5vw);
+}
+
+.midSentenceBold {
+  font-weight: 500;
 }
 
 .center,
@@ -102,14 +122,29 @@ h1 {
   text-align: center;
 }
 
+.m25L {
+  margin-left: 25px;
+}
+.m25R {
+  margin-right: 25px;
+}
+
+.max50 {
+  max-width: 33vw;
+}
 .stroke25 {
   -webkit-text-stroke: 0.25px var(--black);
 }
 
 .homeHeaderPic {
-  max-width: 33vw;
-  max-height: 33vh;
-  object-fit: contain;
+  max-width: 45vw;
+  max-height: 45vh;
+
+  /* object-fit: contain; */
+}
+
+.appBar {
+  backdrop-filter: blur(8px); /* Add a blur effect */
 }
 
 @media (prefers-reduced-motion: no-preference) {

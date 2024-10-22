@@ -19,6 +19,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 100%;
+  /* margin-left: -5vw; */
 }
 
 a {
@@ -29,16 +31,17 @@ a {
   transition: color 0.5s, text-shadow 1s;
 }
 a:hover {
-  color: #8bbf9f;
-  text-shadow: rgba(139, 191, 159, 0.7) 0px 0px 25px;
+  color: #7ebd96;
+  text-shadow: rgba(139, 191, 159, 0.4) 0px 0px 25px;
   transition: color 0.5s, text-shadow 1s;
 }
 
 body {
-  margin: 30px;
+  /* margin: 30px; */
   display: flex;
   place-items: center;
-  min-width: 320px;
+  place-content: center;
+  min-width: 100vw;
   min-height: 100vh;
 }
 

@@ -47,7 +47,6 @@ function App() {
       <ThemeProvider theme={theme}>
         <BackgroundImage />
         <Router>
-          {/* <CssBaseline /> */}
           <Nav />
           <Routes>
             <Route path="/ink" element={<Ink />} />

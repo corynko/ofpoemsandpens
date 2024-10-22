@@ -71,7 +71,7 @@ export const lightTheme = createTheme({
   },
   typography: {
     h1: {
-      fontFamily: '"Montserrat"',
+      fontFamily: '"GothamLight"',
     },
     fontFamily: '"Montserrat", "Lato", "Inter"',
     subtitle1: {

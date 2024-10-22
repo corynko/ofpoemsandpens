@@ -24,16 +24,7 @@ const WordDrawDesktop = () => {
 
   return (
     <div className="svg-container" style={{ marginLeft: "35px" }}>
-      <Link
-        to="/"
-        whileHover={{
-          stroke: theme.palette.text.blue, // Dynamic stroke color on hover
-          transition: {
-            duration: 0.5,
-            ease: "ease-out",
-          },
-        }}
-      >
+      <Link to="/">
         <motion.svg
           version="1.0"
           id="Layer_1"

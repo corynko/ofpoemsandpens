@@ -17,7 +17,7 @@ import { darkTheme } from "./themes/dark";
 import BackgroundImage from "./components/miscComponents/backgroundImage";
 
 //misc package imports
-import { AppBar, createTheme, ThemeProvider } from "@mui/material";
+import { AppBar, createTheme, ThemeProvider, Box } from "@mui/material";
 
 //component imports
 import Nav from "./components/navComponents/Nav";
@@ -48,14 +48,16 @@ function App() {
         <BackgroundImage />
         <Router>
           <Nav />
-          <Routes>
-            <Route path="/ink" element={<Ink />} />
-            <Route path="/paper" element={<Paper />} />
-            <Route path="/pens" element={<Pens />} />
-            <Route path="/poems" element={<Poems />} />
-            <Route path="/submit" element={<Submit />} />
-            <Route path="/*" element={<HomePage />} />
-          </Routes>
+          <Box className="main-content">
+            <Routes>
+              <Route path="/ink" element={<Ink />} />
+              <Route path="/paper" element={<Paper />} />
+              <Route path="/pens" element={<Pens />} />
+              <Route path="/poems" element={<Poems />} />
+              <Route path="/submit" element={<Submit />} />
+              <Route path="/*" element={<HomePage />} />
+            </Routes>
+          </Box>
         </Router>
       </ThemeProvider>
     </ColorContext.Provider>

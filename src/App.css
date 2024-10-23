@@ -1,12 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+/* custom color variable designations */
 #root {
-  /* max-width: 1280px; */
-  /* margin: 0 auto; */
-  /* padding: 2rem; */
-  /* max-width: 100%; */
-  /* text-align: center; */
-  /* overflow-x: hidden; */
+  --yamaBudo: #b90571;
+  --tsukiYo: #50587e;
+  --amaIro: #177bb5;
+  --konPeki: #0257c3;
+  --shinRyoku: #0d523a;
+  --syoRo: #138287;
+  --murasaki: #38308e;
+  --chouKuro: #1d1c1e;
+}
+
+.main-content {
+  margin-top: 100px;
 }
 
 .logo {
@@ -43,6 +50,10 @@ h3 {
   font-weight: bold;
   margin-right: 5px;
   font-size: calc(0.7rem + 0.5vw);
+}
+
+p {
+  font-family: "Montserrat";
 }
 
 .midSentenceBold {
@@ -136,6 +147,10 @@ h3 {
   -webkit-text-stroke: 0.25px var(--black);
 }
 
+.p25 {
+  padding: 25px 25px;
+}
+
 .homeHeaderPic {
   max-width: 45vw;
   max-height: 45vh;
@@ -144,7 +159,7 @@ h3 {
 }
 
 .appBar {
-  backdrop-filter: blur(8px); /* Add a blur effect */
+  backdrop-filter: blur(2px); /* Add a blur effect */
 }
 
 @media (prefers-reduced-motion: no-preference) {

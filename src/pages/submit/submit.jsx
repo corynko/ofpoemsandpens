@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Box, TextField, MenuItem, Button } from "@mui/material";
 import { color, motion } from "framer-motion";
-import { duration, useTheme } from "@mui/material/styles";
+import { duration, useTheme, styled } from "@mui/material/styles";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const Submit = () => {
   const theme = useTheme(); // Access the theme
@@ -15,6 +16,18 @@ const Submit = () => {
 
   const hoverColor =
     themeMode === "light" ? theme.palette.text.blue : theme.palette.text.blue;
+
+  const VisuallyHiddenInput = styled("input")({
+    clip: "rect(0 0 0 0)",
+    clipPath: "inset(50%)",
+    height: 1,
+    overflow: "hidden",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    whiteSpace: "nowrap",
+    width: 1,
+  });
 
   const currencies = [
     {
@@ -119,6 +132,45 @@ const Submit = () => {
               style={{ width: "225px" }}
             />
           </div>
+          <div className="center flex column">
+            <p style={{ maxWidth: "600px", textAlign: "center" }}>
+              // if submitting a poem, please upload a picture of it below \\
+            </p>
+            <Button
+              component="label"
+              role={undefined}
+              variant="contained"
+              tabIndex={-1}
+              startIcon={<CloudUploadIcon />}
+              sx={{
+                color: textColor, // Use the dynamic text color
+                backgroundColor: theme.palette.button.default,
+                transition:
+                  "color 0.6s ease-in, background-color 0.5s ease-out",
+                "&:hover": {
+                  color: theme.palette.button.textColor, // Change hover color based on theme
+                  backgroundColor: theme.palette.button.backgroundColor,
+                  transition:
+                    "color 0.5s ease-out, background-color 0.5s ease-out, filter 1s ease-out",
+                },
+                "&:active": {
+                  filter: "drop-shadow(0 0 0.5em #646cffaa)",
+                  transition: "filter 1s ease-out",
+                },
+              }}
+            >
+              Upload Photo
+              <VisuallyHiddenInput
+                type="file"
+                onChange={(event) => console.log(event.target.files)}
+                multiple
+              />
+            </Button>
+            <p style={{ maxWidth: "400px", textAlign: "center" }}>
+              // in your message, please include the author's name (if different
+              from your name), and, if desired, your social media handle \\
+            </p>
+          </div>
           <p className="">* - required field</p>
           <Button
             className="navLink"
@@ -137,7 +189,11 @@ const Submit = () => {
                 color: theme.palette.button.textColor, // Change hover color based on theme
                 backgroundColor: theme.palette.button.backgroundColor,
                 transition:
-                  "color 0.5s ease-out, background-color 0.5s ease-out",
+                  "color 0.5s ease-out, background-color 0.5s ease-out, filter 1s ease-out",
+              },
+              "&:active": {
+                filter: "drop-shadow(0 0 0.5em #646cffaa)",
+                transition: "filter 1s ease-out",
               },
             }}
           >

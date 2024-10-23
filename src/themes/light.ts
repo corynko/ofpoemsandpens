@@ -23,12 +23,18 @@ declare module '@mui/material/styles' {
     strokeColor?: string;
     fillColor?: string;
   }
+  interface TypeButton {
+    textColor?: string;
+    backgroundColor?: string;
+    default?: string;
+  }
 
   interface PaletteOptions {
     background?: Partial<TypeBackground>;
     svg?: Partial<TypeSvg>;
     svg2?: Partial<TypeSvg>;
     svg3?: Partial<TypeSvg>;
+    button?: Partial<TypeButton>;
   }
 }
 
@@ -68,6 +74,11 @@ export const lightTheme = createTheme({
       primary: '#131311',
       blue: "#177BB5",
     },
+
+    button: {textColor: '#F2F3E2',
+      backgroundColor: '#50587E',
+      default: '#177bb588',
+    }
   },
   typography: {
     h1: {

@@ -2,8 +2,69 @@ import React, { useRef } from "react";
 import { Box, TextField, MenuItem, Button } from "@mui/material";
 import { color, motion } from "framer-motion";
 import { duration, useTheme, styled } from "@mui/material/styles";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import CloudUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import emailjs from "@emailjs/browser";
+import pcloudSdk from "pcloud-sdk-js";
+import axios from "axios";
+async function getPCloudToken() {
+  try {
+    const response = await axios.post(
+      "https://api.pcloud.com/oauth2_token",
+      null,
+      {
+        params: {
+          client_id: import.meta.env.VITE_PCLOUD_APP_ID,
+          client_secret: import.meta.env.VITE_PCLOUD_APP_SECRET,
+          grant_type: "password",
+          username: import.meta.env.VITE_PCLOUD_USERNAME,
+          password: import.meta.env.VITE_PCLOUD_PASSWORD,
+        },
+      }
+    );
+
+    if (response.data && response.data.access_token) {
+      return response.data.access_token;
+    } else {
+      console.error("Failed to get access token", response);
+      return null;
+    }
+  } catch (error) {
+    console.error("Error obtaining access token:", error);
+    return null;
+  }
+}
+
+async function uploadFileToPCloud(file) {
+  const token = await getPCloudToken();
+  if (!token) {
+    console.error("Unable to upload file. Authentication failed.");
+    return;
+  }
+
+  const client = pcloudSdk.createClient(token);
+
+  return new Promise((resolve, reject) => {
+    client
+      .upload(file, "/path/to/your/folder", {
+        onBegin: () => {
+          console.log("Upload started");
+        },
+        onProgress: (progress) => {
+          console.log(
+            `Upload progress: ${progress.loaded} / ${progress.total}`
+          );
+        },
+        onFinish: (fileMetadata) => {
+          console.log("Upload finished", fileMetadata);
+          resolve(fileMetadata);
+        },
+      })
+      .catch((error) => {
+        console.error("Upload error", error);
+        reject(error);
+      });
+  });
+}
 
 const Submit = () => {
   const theme = useTheme(); // Access the theme
@@ -60,17 +121,35 @@ const Submit = () => {
 
   const form = useRef();
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
 
+    const formData = new FormData(form.current);
+    const fileInput = document.getElementById("inputfile");
+    const file = fileInput?.files?.[0];
+
+    if (file) {
+      try {
+        // Attempt to upload the file to pCloud
+        const uploadResponse = await uploadFileToPCloud(file);
+
+        // If the upload was successful, include file details in the email
+        if (uploadResponse) {
+          formData.append("uploaded_file_name", uploadResponse.name);
+          formData.append("uploaded_file_url", uploadResponse.path);
+        }
+      } catch (error) {
+        console.error("File upload failed, proceeding with email only", error);
+      }
+    }
+
+    // Send the email using EmailJS
     emailjs
       .sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        form.current,
-        {
-          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-        }
+        formData,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
@@ -193,6 +272,7 @@ const Submit = () => {
                   onChange={(event) => console.log(event.target.files)}
                   multiple
                   name="uploaded_file"
+                  id="inputfile"
                 />
               </Button>
               <p style={{ maxWidth: "400px", textAlign: "center" }}>
@@ -207,6 +287,7 @@ const Submit = () => {
             className="navLink"
             onClick={sendEmail}
             type="submit"
+            variant="contained"
             value="Send"
             sx={{
               marginX: "2rem",

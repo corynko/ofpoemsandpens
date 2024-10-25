@@ -34,26 +34,37 @@ const poemsArray = [
   },
   {
     title: "A Coworker's Story",
-    transcription: "Lorem Ipsum",
+    transcription:
+      "But for a truth that I know to be true,\nAs I know that the river rolls on,\nAs I know that the sun will yet rise,\nAs I know it will set soon to come,\nSo too do I know that my neighbor\n(Whose wall I'm unlucky to share),\nIn a cubicle farm he lies waiting,\nTo untie my shoes, pull my hair!\nAnd yet, when I share every grievance,\nEvery passing remark, always snide,\nI'm treated as though I am lying,\nI feel like I'm losing my mind!\nIs there really no one who can see it?\nIs there really no hope for reprieve?\nWill the time ever come they believe me?\nIs my honesty hard to perceive?\nI wish that I could get him fired,\nI wish that he might just drop dead,\nI wish that I'd not got him hired,\nI wish they'd take him to the shed!\nThey're all looking at me like I'm crazy,\nLike they can't hear the things that he's said,\nThey're insisting he can't be this awful,\nThey're insisting it's all in my head!\n!!!!!!!\n!!!!\n!!\n!\nWith a *pop*, I snap back to find me\nAlone with my thoughts after all,\nIt'd been years since they had confined me,\nTo this soft cell with pads on the walls!",
     image: require("../../assets/images/png/a_coworker.JPG?url"),
     author: "Ethan Kotel",
   },
   {
     title: "The Old and the Aged",
-    transcription: "Lorem Ipsum",
+    transcription:
+      "What is it about the old, the aged,\nThe time-tempest tossed and turned, that speaks\nTo parts of me, slumbering, perhaps\nJust as ancient, waiting for release?\nWhat is it about these crumbling walls,\nThese foundations fixed fast, fixed firmly -\nThat whisper truths of belonging,\nLong after those who craved belonging here\nHave passed into memory, to live\nAmong ghosts, and the spectres who haunt\nThe darkened corners we dare not walk?\nYet within those corners, there lies\nA peculiar serenity, a\nKnowledge that what we build is timeless,\nEven if these frail, physical forms\nCan never be - a promise, a hope,\nThat some part of ourselves will survive.\nIt is here, among places so old,\nThat I feel most new, most young, that life\nFeels most worth living, worth forging a path\nTowards love, towards finding those small pieces\nOf timeless, permanent, enduring\nForces, beyond our understanding,\nThat the living still can call our own.",
     image: require("../../assets/images/png/the_old_and_aged.JPG?url"),
     author: "Ethan Kotel",
   },
   {
     title: "Alone as a Punk Cowboy",
-    transcription: "Lorem Ipsum",
+    transcription:
+      "It is an odd thing indeed\nTo find oneself, not lonely, but truly alone.\nDevoid of set, setting, and structure,\nWithout a machine, a man, nothing\nTo rage against, with exception:\nAs time...\nTime...\nTime...\nMarches on.\nIt's been years since I've heard such a sound,\nSweet, saturated, loud, fast, pulsing,\nAnd traveling, clear and free,\nThrough late summer air,\nOver leather, over studs,\nUnhampered by expectation\nNor shame,\nUnfettered, as the winds\nThat move the sands.\nYet, as the sun sets o'er the plains,\nAnd my horse sighs softly into evening,\nThe clouds settle beneath the horizon,\nAnd in the night's clarity:\nI am grateful...\nGrateful...\nGrateful...\nFor in my mind, the guitars are still racing,\nAnd in my heart, the drums are still thumping,\nAnd in my hands, we all are still raging,\nAnd in my saddle, rebellion thrives.\nYes, as long as I live, so too does the music,\nYes, systems decay and subside,\nYes, music's still loud 'till you lose it,\nAs long as I live, punk never dies.",
     image: require("../../assets/images/png/a_punk_cowboy.JPG?url"),
     author: "Ethan Kotel",
   },
   {
     title: "The Warmth of Her Flame",
-    transcription: "Lorem Ipsum",
+    transcription:
+      "O, but for the love of love's great flame,\nWould I shed the frost incurred, and\nBy the rising of the sun,\nTo return my body\nTo dust, in nebulae, swirling.\nO, but for the light of her shining smile,\nWould I embrace the darkest midnight,\nWhich swallows us whole,\nMoment by moment,\nUntil all I am is a yawning chasm,\nWhere only silence echoes.\nAnd\nO, but for the melody of her laugh,\nWould I feel my voice disappear, dissipate,\nDisperse into fog, into mist,\nTo be carried away into sunset,\nAnd scatter, as naught, into dusk.\nO, but for the presence of her soul,\nWould mine own split into quarters:\nAnd one would consume itself slowly,\nAs the widow, her lover, outlived.\nAnd one would seek death more quickly,\nAs a man too broken, bleeding, to live.\nAnd yet another, would ask for forgiveness,\nAs the penitent, gallows-bound, cries.\nAnd the last would just sit, still and dumb,\nWaiting, patient, for death yet to come.\nO, but for the warmth of the flame,\nWould I lose myself fast to the void,\nBut I still feel the warmth of her flame,\nAnd from it, my soul's warmth reclaimed!",
     image: require("../../assets/images/png/the_warmth_of_her_flame.JPG?url"),
+    author: "Ethan Kotel",
+  },
+  {
+    title: "A Lovelorn Swain, Falsely Imprisoned, Florence, 14th Century",
+    transcription:
+      "Oh, injustice!\nOh, cruelty of fate!\nHow she conspires to divide,\nTo undermine,\nTo Contaminate!\nAnd here I sit,\nLonging for naught\nBut the light of the late\nSetting sun!\nDarkness yet abounds,\nBut love, my love,\nYour father's hate\nDoes nothing\nTo dissuade,\nNor erase\nYour light, in the\nForgotten,\nDecrepit corners\nOf my mind -\nAnd, there,\nThere,\nYou are, always,\nIn the light of the late\nSetting sun!\nI will escape,\nThe power of your house\nCan not stop,\nNor dissuade\nMe\nFrom finding a way\nBack\nTo you -\nAnd, together,\nIn Spain,\nWe will sail\nInto the light of the late\nSetting sun!",
+    image: require("../../assets/images/png/lovelorn_swain.JPG?url"),
     author: "Ethan Kotel",
   },
 ];

@@ -7,6 +7,7 @@ declare module '@mui/material/styles' {
     fillColor?: string;
     backgroundImage?: string;
     inverse?: string;
+    semiTrans?: string;
   }
   interface TypeText {
     blue?: string;
@@ -27,6 +28,7 @@ declare module '@mui/material/styles' {
     textColor?: string;
     backgroundColor?: string;
     default?: string;
+    alternateHover?: string;
   }
 
   interface PaletteOptions {
@@ -65,7 +67,8 @@ export const lightTheme = createTheme({
       inverse: "#222222",
       strokeColor: '#000000',  // Custom property
       fillColor: '#ffffff00', 
-      // backgroundImage: `url(${backgroundImage})`   // Custom property
+      semiTrans: '#F6F7EB44'
+      
     },
     svg: {fillColor: '#A37A4E' },
     svg2: {fillColor: '#F7D59C' },
@@ -77,6 +80,8 @@ export const lightTheme = createTheme({
 
     button: {textColor: '#F2F3E2',
       backgroundColor: '#50587E',
+      alternateHover: '#50587E',
+      alternateText: '#F2F3E2',
       default: '#177bb588',
     }
   },
@@ -84,12 +89,21 @@ export const lightTheme = createTheme({
     h1: {
       fontFamily: '"GothamLight"',
     },
+    h2: {
+      fontFamily: '"GothamLight"',
+    },
+    h3: {
+      fontFamily: '"GothamLight"',
+    },
+    h4: {
+      fontFamily: '"GothamBook"',
+    },
     fontFamily: '"Montserrat", "Lato", "Inter"',
     subtitle1: {
       fontFamily: '"Inter"',
     },
     body1: {
-      fontFamily: '"Inter"',
+      fontFamily: '"GothamLight"',
     },
     body2: {
       fontFamily: '"Lato"',

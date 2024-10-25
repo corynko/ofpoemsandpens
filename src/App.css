@@ -88,7 +88,7 @@ p {
 }
 
 .alignEnd {
-  align-items: end;
+  align-items: flex-end;
 }
 
 .alignCenter {
@@ -159,7 +159,7 @@ p {
 }
 
 .appBar {
-  backdrop-filter: blur(2px); /* Add a blur effect */
+  backdrop-filter: blur(12px); /* Add a blur effect */
 }
 
 @media (prefers-reduced-motion: no-preference) {

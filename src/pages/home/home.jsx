@@ -54,7 +54,7 @@ const HomePage = () => {
             <div className="flex wrap textStart start">
               <span>
                 <h2>
-                  to <span className="midSentenceBold">of poems and pens,</span>{" "}
+                  to <span className="midSentenceBold">of pens and poems,</span>{" "}
                 </h2>
                 <h3 style={{ fontSize: "23px" }}>
                   a resource for reviews of fountain pens, inks, and paper.

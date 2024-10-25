@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useSpring, animated } from "@react-spring/web";
 import PropTypes from "prop-types";
+import { delay, motion, stagger } from "framer-motion";
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -56,32 +57,68 @@ export default function PoemCard({ title, transcription, image, author }) {
   const handleClose = () => setOpen(false);
   const theme = useTheme();
   //   const themeMode = theme.palette.mode;
+
+  let divVariants = {
+    initial: { opacity: 0 },
+    animate: {
+      opacity: 1,
+      transition: {
+        // duration: 1,
+        staggerChildren: 5,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  let cardVariants = {
+    initial: { opacity: 0 },
+    animate: {
+      opacity: 1,
+      transition: {
+        duration: 2,
+
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <Box className="flex center row" sx={{ margin: "20px" }}>
-      <Card
-        className="poemCard flex"
-        sx={{
-          minWidth: "300px",
-          backgroundColor: theme.palette.background.semiTrans,
-          color: theme.palette.background.inverse,
-          "&:hover": {
-            backgroundColor: theme.palette.button.alternateHover,
-            color: theme.palette.button.alternateText,
-          },
-          transition: "background-color 0.7s ease-in-out, color 1s ease-in-out",
-          cursor: "pointer",
-        }}
-        onClick={handleOpen}
-      >
-        <CardContent sx={{ alignContent: "flexEnd" }}>
-          <img
-            src={image}
-            alt={title}
-            style={{ maxWidth: "300px", height: "auto" }}
-          />
-          <h2 className="alignEnd">{title}</h2>
-        </CardContent>
-      </Card>
+      <motion.div initial="initial" animate="animate" variants={divVariants}>
+        <motion.div variants={cardVariants}>
+          <Card
+            className="poemCard flex"
+            sx={{
+              minWidth: "300px",
+              maxWidth: "400px",
+              backgroundColor: theme.palette.background.semiTrans,
+              color: theme.palette.background.inverse,
+              "&:hover": {
+                backgroundColor: theme.palette.button.alternateHover,
+                color: theme.palette.button.alternateText,
+              },
+              transition:
+                "background-color 0.7s ease-in-out, color 1s ease-in-out",
+              cursor: "pointer",
+            }}
+            onClick={handleOpen}
+          >
+            <CardContent sx={{ alignContent: "flexEnd" }}>
+              <img
+                src={image}
+                alt={title}
+                style={{
+                  maxWidth: "350px",
+                  height: "auto",
+                }}
+              />
+              <h2 className="alignEnd" style={{ maxWidth: "90%" }}>
+                {title}
+              </h2>
+            </CardContent>
+          </Card>
+        </motion.div>
+      </motion.div>
       <Modal
         keepMounted
         open={open}

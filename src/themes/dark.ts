@@ -9,6 +9,7 @@ declare module '@mui/material/styles' {
     backgroundImage?: string;
     inverse?: string;
     semiTrans?: string
+    appBar?: string
   }
   interface TypeText {
     blue?: string;
@@ -70,7 +71,8 @@ export const darkTheme = createTheme({
       inverse: "#F6F7EB",
       strokeColor: '#F6F7EB',  // Custom property
       fillColor: '#000000',    // Custom property
-      semiTrans: "#11111199"
+      semiTrans: "#11111199",
+      appBar: "#22222299"
     },
     svg: {fillColor: '#F7D59C' },
     svg2: {fillColor: '#A37A4E ' },

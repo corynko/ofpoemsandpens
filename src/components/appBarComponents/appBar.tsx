@@ -14,6 +14,10 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
+interface PrimarySearchAppBarProps {
+  children: React.ReactNode;
+}
+
 const Search = styled("div")(({ theme }) => {
   const themeMode = theme.palette.mode;
   const backgroundColorLight = alpha("#222222", 0.15);
@@ -65,7 +69,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar({ children }) {
+export default function PrimarySearchAppBar({
+  children,
+}: PrimarySearchAppBarProps) {
   const theme = useTheme();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -177,9 +183,10 @@ export default function PrimarySearchAppBar({ children }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         sx={{
-          backgroundColor: "transparent",
+          backgroundColor: theme.palette.background.appBar,
           color: theme.palette.text.primary,
           justifyItems: "center",
+          transition: "background-color 1s ease-in-out",
         }}
         position="static"
       >

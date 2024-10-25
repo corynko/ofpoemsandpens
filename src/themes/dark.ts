@@ -8,6 +8,7 @@ declare module '@mui/material/styles' {
     fillColor?: string;
     backgroundImage?: string;
     inverse?: string;
+    semiTrans?: string
   }
   interface TypeText {
     blue?: string;
@@ -29,6 +30,8 @@ declare module '@mui/material/styles' {
     textColor?: string;
     backgroundColor?: string;
     default?: string;
+    alternateHover?: string;
+    alternateText?: string;
   }
 
   interface PaletteOptions {
@@ -67,7 +70,7 @@ export const darkTheme = createTheme({
       inverse: "#F6F7EB",
       strokeColor: '#F6F7EB',  // Custom property
       fillColor: '#000000',    // Custom property
-      // backgroundImage: `url(${backgroundImage})`
+      semiTrans: "#11111199"
     },
     svg: {fillColor: '#F7D59C' },
     svg2: {fillColor: '#A37A4E ' },
@@ -79,6 +82,8 @@ export const darkTheme = createTheme({
 
     button: {textColor: '#1d1c1e',
       backgroundColor: '#138287',
+      alternateHover: '#38308e88',
+      alternateText: '#ffffff',
       default: "#B9057188",
     }
   },

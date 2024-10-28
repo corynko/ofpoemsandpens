@@ -1,13 +1,12 @@
 import * as React from "react";
 import { useTheme } from "@emotion/react";
 import { Box, Card, Modal } from "@mui/material";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useSpring, animated } from "@react-spring/web";
 import PropTypes from "prop-types";
 import { delay, motion, stagger } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -51,12 +50,33 @@ Fade.propTypes = {
   ownerState: PropTypes.any,
 };
 
-export default function PoemCard({ title, transcription, image, author }) {
+export default function PoemCard({
+  title,
+  transcription,
+  image,
+  author,
+  urlAppend,
+}) {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const theme = useTheme();
+  const navigate = useNavigate();
+  const location = useLocation();
   //   const themeMode = theme.palette.mode;
+
+  const handleOpen = () => {
+    setOpen(true);
+    navigate(`/poems/${urlAppend}`, { replace: true });
+  };
+  const handleClose = () => {
+    setOpen(false);
+    navigate("/poems", { replace: true });
+  };
+
+  React.useEffect(() => {
+    if (location.pathname === `/poems/${urlAppend}`) {
+      setOpen(true);
+    }
+  }, [location.pathname, urlAppend]);
 
   let divVariants = {
     initial: { opacity: 0 },

@@ -46,6 +46,7 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/ink" element={<Ink />} />
+              <Route path="/ink/:inkId" element={<Ink />} />
               <Route path="/paper" element={<Paper />} />
               <Route path="/pens" element={<Pens />} />
               <Route path="/submit" element={<Submit />} />

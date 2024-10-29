@@ -50,9 +50,9 @@ Fade.propTypes = {
   ownerState: PropTypes.any,
 };
 
-export default function PoemCard({
+export default function InkCard({
   title,
-  transcription,
+  description,
   image,
   author,
   urlAppend,
@@ -65,15 +65,15 @@ export default function PoemCard({
 
   const handleOpen = () => {
     setOpen(true);
-    navigate(`/poems/${urlAppend}`, { replace: true });
+    navigate(`/ink/${urlAppend}`, { replace: true });
   };
   const handleClose = () => {
     setOpen(false);
-    navigate("/poems", { replace: true });
+    navigate("/ink", { replace: true });
   };
 
   React.useEffect(() => {
-    if (location.pathname === `/poems/${urlAppend}`) {
+    if (location.pathname === `/ink/${urlAppend}`) {
       setOpen(true);
     }
   }, [location.pathname, urlAppend]);
@@ -190,7 +190,7 @@ export default function PoemCard({
                 </span>
               </Typography>
               <Typography variant="body1" id="keep-mounted-modal-description">
-                {transcription.split("\n").map((line, index) => (
+                {description.split("\n").map((line, index) => (
                   <React.Fragment key={index}>
                     {line}
                     <br />

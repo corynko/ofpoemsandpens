@@ -7,6 +7,7 @@ declare module '@mui/material/styles' {
     fillColor?: string;
     backgroundImage?: string;
     inverse?: string;
+    inverseGrey?: string;
     semiTrans?: string;
     appBar?: string;
   }
@@ -66,6 +67,7 @@ export const lightTheme = createTheme({
     background: {
       default: '#F6F7EB',
       inverse: "#222222",
+      inverseGrey: "#999999",
       strokeColor: '#000000',  // Custom property
       fillColor: '#ffffff00', 
       semiTrans: '#F6F7EB44',

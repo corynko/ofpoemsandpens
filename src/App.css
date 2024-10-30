@@ -64,9 +64,7 @@ p {
 .between,
 .around,
 .start,
-.end,
-.row,
-.column {
+.end {
   align-items: center;
 }
 .flex {
@@ -160,6 +158,37 @@ p {
 
 .appBar {
   backdrop-filter: blur(12px); /* Add a blur effect */
+}
+
+.reviewBody {
+  padding: 1em 100px;
+}
+
+.reviewBodyImageLeft {
+  padding: 1em 20px 1em 100px;
+  max-width: auto;
+  max-height: 400px;
+}
+.reviewBodyImageRight {
+  padding: 1em 100px 1em 20px;
+  max-width: auto;
+  max-height: 400px;
+}
+
+.reviewBodyImageCaptionRight {
+  padding: 0 20px 1em 100px;
+}
+.reviewBodyImageCaptionRight {
+  padding: 0 100px 1em 20px;
+}
+
+.inkSlider {
+  margin: 25px;
+  /* display: flex; */
+}
+
+.sliderLabel {
+  padding-top: 50px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

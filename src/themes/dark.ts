@@ -8,6 +8,7 @@ declare module '@mui/material/styles' {
     fillColor?: string;
     backgroundImage?: string;
     inverse?: string;
+    inverseGrey?: string;
     semiTrans?: string
     appBar?: string
   }
@@ -69,6 +70,7 @@ export const darkTheme = createTheme({
     background: {
       default: '#111111',
       inverse: "#F6F7EB",
+      inverseGrey: "#888888b0",
       strokeColor: '#F6F7EB',  // Custom property
       fillColor: '#000000',    // Custom property
       semiTrans: "#11111199",
@@ -91,14 +93,23 @@ export const darkTheme = createTheme({
   },
   typography: {
     h1: {
-      fontFamily: '"Montserrat"',
+      fontFamily: '"GothamLight"',
+    },
+    h2: {
+      fontFamily: '"GothamLight"',
+    },
+    h3: {
+      fontFamily: '"GothamLight"',
+    },
+    h4: {
+      fontFamily: '"GothamBook"',
     },
     fontFamily: '"Montserrat", "Lato", "Inter"',
     subtitle1: {
       fontFamily: '"Inter"',
     },
     body1: {
-      fontFamily: '"Inter"',
+      fontFamily: '"GothamLight"',
     },
     body2: {
       fontFamily: '"Lato"',

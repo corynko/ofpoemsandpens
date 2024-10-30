@@ -123,7 +123,7 @@ export default function InkCard({
             }}
             onClick={handleOpen}
           >
-            <CardContent sx={{ alignContent: "flexEnd", height: "600px" }}>
+            <CardContent sx={{ alignContent: "flexEnd", height: "400px" }}>
               <img
                 src={image}
                 alt={title}

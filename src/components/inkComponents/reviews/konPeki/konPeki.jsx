@@ -23,11 +23,13 @@ export default function KonPekiReview() {
         }}
       >
         <Box className="flex column center textCenter">
-          <h1>Iroshizuku Kon-Peki</h1>
-          <h2>
+          <Typography variant="h2" sx={{ margin: "20px" }}>
+            Iroshizuku Kon-Peki
+          </Typography>
+          <Typography variant="h5" sx={{ marginBottom: "20px" }}>
             a bona fide classic, Kon-Peki maintains its reputation as the king
             of cobalt
-          </h2>
+          </Typography>
         </Box>
         <Box className="flex column textStart alignStart">
           <Box className="flex">

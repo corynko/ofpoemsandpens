@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 
@@ -45,6 +45,9 @@ export default function Ink() {
       </Helmet>
 
       <Box className="flex wrap center">
+        <Typography variant="h1">Coming Soon!</Typography>
+      </Box>
+      {/* <Box className="flex wrap center">
         {inkArray.map((ink, index) => (
           <InkCard
             key={index}
@@ -56,7 +59,7 @@ export default function Ink() {
             urlAppend={ink.urlAppend}
           />
         ))}
-      </Box>
+      </Box> */}
     </>
   );
 }

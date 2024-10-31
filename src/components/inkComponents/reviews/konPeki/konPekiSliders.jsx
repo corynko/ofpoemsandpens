@@ -29,9 +29,7 @@ function ValueLabelComponent(props) {
 
 const getFilteredMarks = (type, value) => {
   const marks = InkSliderArray[type.toLowerCase()];
-  return marks.filter(
-    (mark) => mark.value === 0 || mark.value === 100 || mark.value === value
-  );
+  return marks.filter((mark) => mark.value === value);
 };
 
 export default function KonPekiSliders() {

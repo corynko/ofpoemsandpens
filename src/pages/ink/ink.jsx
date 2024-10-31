@@ -6,8 +6,6 @@ import { useParams } from "react-router-dom";
 import InkCard from "../../components/inkComponents/inkCards";
 import InkArray from "../../components/inkComponents/inkArray";
 
-// import KonPekiReview from "../../components/inkComponents/reviews/konPeki/konPeki";
-
 const inkArray = InkArray;
 
 export default function Ink() {
@@ -19,14 +17,14 @@ export default function Ink() {
       <Helmet>
         <title>
           {ink
-            ? `Read ${ink.title}, a review on Of Pens and Poems`
+            ? `${ink.title}, a review on Of Pens and Poems`
             : "Of Pens and Poems"}
         </title>
         <meta
           property="og:title"
           content={
             ink
-              ? `Read ${ink.title}, a review on Of Pens and Poems`
+              ? `${ink.title}, a review on Of Pens and Poems`
               : "Of Pens and Poems"
           }
         />
@@ -47,11 +45,11 @@ export default function Ink() {
       </Helmet>
 
       <Box className="flex wrap center">
-        {/* <KonPekiReview /> */}
         {inkArray.map((ink, index) => (
           <InkCard
             key={index}
             title={ink.title}
+            content={ink.content}
             image={ink.image}
             description={ink.description}
             author={ink.author}

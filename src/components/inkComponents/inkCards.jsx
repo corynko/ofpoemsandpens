@@ -50,13 +50,7 @@ Fade.propTypes = {
   ownerState: PropTypes.any,
 };
 
-export default function InkCard({
-  title,
-  description,
-  image,
-  author,
-  urlAppend,
-}) {
+export default function InkCard({ title, content, image, urlAppend }) {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const navigate = useNavigate();
@@ -152,52 +146,15 @@ export default function InkCard({
             sx={{
               backgroundColor: theme.palette.background.default,
               padding: "20px",
-              maxWidth: "90vw",
-              maxHeight: "90vh",
+              maxWidth: "95vw",
+              maxHeight: "85vh",
               overflow: "auto",
               margin: "50px auto",
               borderRadius: "15px",
-              display: "flex",
-              flexDirection: "row", // Place image and text side by side
-              alignItems: "center",
-              justifyContent: "space-between",
               color: theme.palette.background.inverse,
             }}
           >
-            <Box sx={{ flexBasis: "50%", paddingRight: "20px" }}>
-              <img
-                src={image}
-                alt={title}
-                style={{ width: "80%", height: "auto", borderRadius: "8px" }}
-              />
-            </Box>
-            <Box
-              sx={{
-                flexBasis: "50%",
-                paddingLeft: "20px",
-                alignSelf: "flex-start",
-                textAlign: "start",
-              }}
-            >
-              <Typography
-                variant="h4"
-                id="keep-mounted-modal-title"
-                gutterBottom
-              >
-                {title}
-                <span>
-                  <Typography variant="body1">{author}</Typography>
-                </span>
-              </Typography>
-              <Typography variant="body1" id="keep-mounted-modal-description">
-                {description.split("\n").map((line, index) => (
-                  <React.Fragment key={index}>
-                    {line}
-                    <br />
-                  </React.Fragment>
-                ))}
-              </Typography>
-            </Box>
+            {content}
           </Box>
         </Fade>
       </Modal>

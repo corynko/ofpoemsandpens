@@ -64,8 +64,8 @@ const HomePage = () => {
                 poetry posted here currently is my own - however, if you would
                 like to contribute, I welcome it! Click the submit button above
                 and fill out the form to submit your poem. Handwritten poetry is
-                preferred but not required. this site is also in active
-                development, and is open source. if you would like to play
+                preferred but not required. This site is also in active
+                development, and is open source. If you would like to play
                 around with the code, check out the repo{" "}
                 <a href="https://github.com/corynko/ofpoemsandpens">here</a>.
               </h3>

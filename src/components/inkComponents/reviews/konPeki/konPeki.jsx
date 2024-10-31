@@ -62,9 +62,9 @@ export default function KonPekiReview() {
               </Typography>
             </Box>
           </Box>
-
-          <KonPekiSliders />
-
+          <Box className="flex column between">
+            <KonPekiSliders />
+          </Box>
           <Box className="flex">
             <Box className="flex column textStart alignStart">
               <Typography variant="h4" className="reviewBody">

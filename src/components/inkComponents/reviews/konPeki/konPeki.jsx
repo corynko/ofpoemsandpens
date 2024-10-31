@@ -32,7 +32,7 @@ export default function KonPekiReview() {
           </Typography>
         </Box>
         <Box className="flex column textStart alignStart">
-          <Box className="flex">
+          <Box className="flex center">
             <img src={bottle} className="reviewBodyImageHead" />
             <Box className="flex column textStart alignStart">
               <Typography variant="body1" className="reviewBody">
@@ -67,7 +67,7 @@ export default function KonPekiReview() {
           <Box className="flex column between">
             <KonPekiSliders />
           </Box>
-          <Box className="flex">
+          <Box className="flex center">
             <Box className="flex column textStart alignStart">
               <Typography variant="h4" className="reviewBody">
                 Color
@@ -122,7 +122,7 @@ export default function KonPekiReview() {
               </div>
             </Box>
           </Box>
-          <Box className="flex">
+          <Box className="flex center">
             <div className="flex column">
               <img src={bottle} className="reviewBodyImageLeft" />
               <Typography
@@ -176,7 +176,7 @@ export default function KonPekiReview() {
               </Typography>
             </Box>
           </Box>
-          <Box className="flex">
+          <Box className="flex center">
             <Box className="flex column textStart alignStart">
               <Typography variant="h4" className="reviewBody">
                 Other Comments

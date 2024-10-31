@@ -1,9 +1,11 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function Paper() {
   return (
     <>
-      <Box>Hello!</Box>
+      <Box className="flex wrap center">
+        <Typography variant="h1">Coming Soon!</Typography>
+      </Box>
     </>
   );
 }

@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import InkCard from "../../components/inkComponents/inkCards";
 import InkArray from "../../components/inkComponents/inkArray";
 
-import KonPekiReview from "../../components/inkComponents/reviews/konPeki/konPeki";
+// import KonPekiReview from "../../components/inkComponents/reviews/konPeki/konPeki";
 
 const inkArray = InkArray;
 
@@ -47,7 +47,7 @@ export default function Ink() {
       </Helmet>
 
       <Box className="flex wrap center">
-        <KonPekiReview />
+        {/* <KonPekiReview /> */}
         {inkArray.map((ink, index) => (
           <InkCard
             key={index}

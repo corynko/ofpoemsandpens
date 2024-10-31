@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Box, Slider, Tooltip, Typography } from "@mui/material";
 import InkSliderArray from "../standardReviewComponents/inkSliderArray";
+import { useTheme } from "@emotion/react";
 
 // Helper function to get label by value
 const getLabelByValue = (type, value) => {
@@ -26,15 +27,38 @@ function ValueLabelComponent(props) {
   );
 }
 
+const getFilteredMarks = (type, value) => {
+  const marks = InkSliderArray[type.toLowerCase()];
+  return marks.filter(
+    (mark) => mark.value === 0 || mark.value === 100 || mark.value === value
+  );
+};
+
 export default function KonPekiSliders() {
+  const sliderStyles = {
+    "& .MuiSlider-track": {
+      color: "#0257c3",
+      opacity: 1,
+    },
+    "& .MuiSlider-thumb": {
+      color: "#0257c3",
+    },
+    "& .MuiSlider-rail": {
+      color: "#cfd8dc",
+    },
+  };
+
   return (
     <>
       <Box className="flex center">
-        <Typography variant="h2" className="sliderLabel">
+        <Typography variant="h3" className="sliderLabel">
           A Quick Look
         </Typography>
       </Box>
-      <Box className="flex center">
+      <Box
+        className="flex center"
+        sx={{ transition: "color 0.75s ease-in-out" }}
+      >
         <Box sx={{ width: "70vw" }} className="flex between wrap">
           <div
             className="flex center alignCenter column"
@@ -47,12 +71,13 @@ export default function KonPekiSliders() {
               aria-label="Saturation"
               defaultValue={75}
               step={null}
-              marks={InkSliderArray.saturation}
+              marks={getFilteredMarks("saturation", 75)}
               valueLabelDisplay="auto"
               slots={{ ValueLabel: ValueLabelComponent }}
               slotProps={{
                 valueLabel: { type: "saturation" },
               }}
+              sx={sliderStyles}
               disabled
               className="inkSlider"
             />
@@ -65,12 +90,13 @@ export default function KonPekiSliders() {
               aria-label="Shading"
               defaultValue={75}
               step={null}
-              marks={InkSliderArray.shading}
+              marks={getFilteredMarks("shading", 75)}
               valueLabelDisplay="auto"
               slots={{ ValueLabel: ValueLabelComponent }}
               slotProps={{
                 valueLabel: { type: "shading" },
               }}
+              sx={sliderStyles}
               disabled
               className="inkSlider"
             />
@@ -83,12 +109,13 @@ export default function KonPekiSliders() {
               aria-label="Sheen"
               defaultValue={33}
               step={null}
-              marks={InkSliderArray.sheen}
+              marks={getFilteredMarks("sheen", 33)}
               valueLabelDisplay="auto"
               slots={{ ValueLabel: ValueLabelComponent }}
               slotProps={{
                 valueLabel: { type: "sheen" },
               }}
+              sx={sliderStyles}
               disabled
               className="inkSlider"
             />
@@ -101,12 +128,13 @@ export default function KonPekiSliders() {
               aria-label="Wetness"
               defaultValue={100}
               step={null}
-              marks={InkSliderArray.wetness}
+              marks={getFilteredMarks("wetness", 100)}
               valueLabelDisplay="auto"
               slots={{ ValueLabel: ValueLabelComponent }}
               slotProps={{
                 valueLabel: { type: "wetness" },
               }}
+              sx={sliderStyles}
               disabled
               className="inkSlider"
             />
@@ -119,12 +147,13 @@ export default function KonPekiSliders() {
               aria-label="Water Resistance"
               defaultValue={0}
               step={null}
-              marks={InkSliderArray.waterresistance}
+              marks={getFilteredMarks("waterresistance", 0)}
               valueLabelDisplay="auto"
               slots={{ ValueLabel: ValueLabelComponent }}
               slotProps={{
                 valueLabel: { type: "waterresistance" },
               }}
+              sx={sliderStyles}
               disabled
               className="inkSlider"
             />
@@ -137,12 +166,13 @@ export default function KonPekiSliders() {
               aria-label="Dry Time"
               defaultValue={50}
               step={null}
-              marks={InkSliderArray.drytime}
+              marks={getFilteredMarks("drytime", 50)}
               valueLabelDisplay="auto"
               slots={{ ValueLabel: ValueLabelComponent }}
               slotProps={{
                 valueLabel: { type: "drytime" },
               }}
+              sx={sliderStyles}
               disabled
               className="inkSlider"
             />
@@ -155,12 +185,13 @@ export default function KonPekiSliders() {
               aria-label="Ease of Clean"
               defaultValue={100}
               step={null}
-              marks={InkSliderArray.easeofclean}
+              marks={getFilteredMarks("easeofclean", 100)}
               valueLabelDisplay="auto"
               slots={{ ValueLabel: ValueLabelComponent }}
               slotProps={{
                 valueLabel: { type: "easeofclean" },
               }}
+              sx={sliderStyles}
               disabled
               className="inkSlider"
             />
@@ -173,12 +204,13 @@ export default function KonPekiSliders() {
               aria-label="Value for Money"
               defaultValue={75}
               step={null}
-              marks={InkSliderArray.valueformoney}
+              marks={getFilteredMarks("valueformoney", 75)}
               valueLabelDisplay="auto"
               slots={{ ValueLabel: ValueLabelComponent }}
               slotProps={{
                 valueLabel: { type: "valueformoney" },
               }}
+              sx={sliderStyles}
               disabled
               className="inkSlider"
             />

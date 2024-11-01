@@ -61,7 +61,6 @@ export default function PoemCard({
   const theme = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
-  //   const themeMode = theme.palette.mode;
 
   const handleOpen = () => {
     setOpen(true);
@@ -83,7 +82,6 @@ export default function PoemCard({
     animate: {
       opacity: 1,
       transition: {
-        // duration: 1,
         staggerChildren: 5,
         ease: "easeInOut",
       },
@@ -158,7 +156,7 @@ export default function PoemCard({
               margin: "50px auto",
               borderRadius: "15px",
               display: "flex",
-              flexDirection: "row", // Place image and text side by side
+              flexDirection: "row",
               alignItems: "center",
               justifyContent: "space-between",
               color: theme.palette.background.inverse,

@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material/styles';
-// import backgroundImage from '../assets/images/svg/paperBackgroundLight.svg'
 
 declare module '@mui/material/styles' {
   interface TypeBackground {
@@ -68,7 +67,7 @@ export const lightTheme = createTheme({
       default: '#F6F7EB',
       inverse: "#222222",
       inverseGrey: "#999999",
-      strokeColor: '#000000',  // Custom property
+      strokeColor: '#000000',  
       fillColor: '#ffffff00', 
       semiTrans: '#F6F7EB44',
       appBar: '#DDDDDD66'

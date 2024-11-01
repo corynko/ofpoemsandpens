@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material/styles';
-// import backgroundImage from "../assets/images/svg/paperBackgroundDark.svg"
+
 
 
 declare module '@mui/material/styles' {
@@ -71,8 +71,8 @@ export const darkTheme = createTheme({
       default: '#111111',
       inverse: "#F6F7EB",
       inverseGrey: "#888888b0",
-      strokeColor: '#F6F7EB',  // Custom property
-      fillColor: '#000000',    // Custom property
+      strokeColor: '#F6F7EB',  
+      fillColor: '#000000',    
       semiTrans: "#11111199",
       appBar: "#22222299"
     },

@@ -1,9 +1,7 @@
 import * as React from "react";
 import { useTheme } from "@emotion/react";
-import { Box, Card, Modal } from "@mui/material";
-import CardContent from "@mui/material/CardContent";
+import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { delay, motion, stagger } from "framer-motion";
 
 import TsukiYoSliders from "./tsukiYoSliders";
 

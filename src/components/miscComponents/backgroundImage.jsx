@@ -12,18 +12,16 @@ const BackgroundImage = () => {
   const [fade, setFade] = useState(false);
 
   useEffect(() => {
-    // Trigger fade-in for the new image
     setFade(true);
 
-    // Update the background image after the fade transition duration
     const timeout = setTimeout(() => {
       setCurrentImage(
         theme.palette.mode === "light"
           ? backgroundImageLight
           : backgroundImageDark
       );
-      setFade(false); // Start fading in the new image
-    }, 500); // Should match the transition duration (0.5s)
+      setFade(false);
+    }, 500);
 
     return () => clearTimeout(timeout);
   }, [theme.palette.mode]);
@@ -31,15 +29,13 @@ const BackgroundImage = () => {
   return (
     <Box
       sx={{
-        // position: "relative",
         width: "100vw",
         height: "100vh",
-        overflow: "hidden", // Ensure any overflow is hidden
+        overflow: "hidden",
         position: "fixed",
         zIndex: -1,
       }}
     >
-      {/* Layer for the previous image */}
       <Box
         sx={{
           backgroundImage: `url(${currentImage})`,
@@ -55,10 +51,10 @@ const BackgroundImage = () => {
           opacity: fade ? 0 : 1,
           filter: "saturate(0%)",
           transitionDelay: "3s",
-          transition: "opacity 0.5s linear", // Smooth fade-out effect
+          transition: "opacity 0.5s linear",
         }}
       />
-      {/* Layer for the new image */}
+
       <Box
         sx={{
           backgroundImage: `url(${
@@ -79,7 +75,7 @@ const BackgroundImage = () => {
           filter: "saturate(0%)",
           opacity: fade ? 1 : 0,
 
-          transition: "opacity 0.5s linear", // Smooth fade-in effect
+          transition: "opacity 0.5s linear",
           transitionDelay: "3s",
         }}
       />

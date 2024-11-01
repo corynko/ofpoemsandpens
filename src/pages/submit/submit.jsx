@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Box, TextField, MenuItem, Button } from "@mui/material";
-import { color, motion } from "framer-motion";
-import { duration, useTheme, styled } from "@mui/material/styles";
+import { motion } from "framer-motion";
+import { useTheme, styled } from "@mui/material/styles";
 import CloudUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import emailjs from "@emailjs/browser";
 import pcloudSdk from "pcloud-sdk-js";
@@ -67,10 +67,9 @@ async function uploadFileToPCloud(file) {
 }
 
 const Submit = () => {
-  const theme = useTheme(); // Access the theme
+  const theme = useTheme();
   const themeMode = theme.palette.mode;
 
-  // Define text color based on the theme mode
   const textColor =
     themeMode === "light"
       ? theme.palette.background.inverse
@@ -113,7 +112,7 @@ const Submit = () => {
       opacity: 1,
       transition: {
         duration: 2,
-        // delay: 1,
+
         ease: "easeInOut",
       },
     },
@@ -174,7 +173,6 @@ const Submit = () => {
           transition: "color 1s ease-in",
           backgroundColor: "#33333311",
           borderRadius: "50px",
-          // justifyContent: "space-between",
         }}
       >
         <motion.div
@@ -250,12 +248,12 @@ const Submit = () => {
                 tabIndex={-1}
                 startIcon={<CloudUploadIcon />}
                 sx={{
-                  color: textColor, // Use the dynamic text color
+                  color: textColor,
                   backgroundColor: theme.palette.button.default,
                   transition:
                     "color 0.6s ease-in, background-color 0.5s ease-out",
                   "&:hover": {
-                    color: theme.palette.button.textColor, // Change hover color based on theme
+                    color: theme.palette.button.textColor,
                     backgroundColor: theme.palette.button.backgroundColor,
                     transition:
                       "color 0.5s ease-out, background-color 0.5s ease-out, filter 1s ease-out",
@@ -297,11 +295,11 @@ const Submit = () => {
               fontFamily: "GothamLight",
               whiteSpace: "nowrap",
               flexGrow: 1,
-              color: textColor, // Use the dynamic text color
+              color: textColor,
               backgroundColor: theme.palette.button.default,
               transition: "color 0.6s ease-in, background-color 0.5s ease-out",
               "&:hover": {
-                color: theme.palette.button.textColor, // Change hover color based on theme
+                color: theme.palette.button.textColor,
                 backgroundColor: theme.palette.button.backgroundColor,
                 transition:
                   "color 0.5s ease-out, background-color 0.5s ease-out, filter 1s ease-out",

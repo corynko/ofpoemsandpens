@@ -32,7 +32,7 @@ export default function Poems() {
           property="og:description"
           content={
             poem
-              ? `${poem.transcription.slice(0, 100)}...` // Take the first 100 characters for a brief description
+              ? `${poem.transcription.slice(0, 100)}...`
               : "Explore unique poems and writings."
           }
         />

@@ -1,4 +1,3 @@
-// import LogoDrawDesktop from "./logoDrawDesktop";
 import LogoDrawDesktopNoWords from "./logoDrawDesktopNoWords";
 import React from "react";
 import WordDrawDesktop from "./wordDrawDesktop";

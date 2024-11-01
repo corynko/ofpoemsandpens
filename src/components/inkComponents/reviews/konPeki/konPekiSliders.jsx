@@ -1,9 +1,7 @@
 import * as React from "react";
 import { Box, Slider, Tooltip, Typography } from "@mui/material";
 import InkSliderArray from "../standardReviewComponents/inkSliderArray";
-import { useTheme } from "@emotion/react";
 
-// Helper function to get label by value
 const getLabelByValue = (type, value) => {
   const marks = InkSliderArray[type.toLowerCase()];
   if (!marks) {
@@ -15,7 +13,6 @@ const getLabelByValue = (type, value) => {
   return mark ? mark.label : "";
 };
 
-// Custom Tooltip for displaying the label
 function ValueLabelComponent(props) {
   const { children, value, type } = props;
   const label = getLabelByValue(type, value);

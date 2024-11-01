@@ -166,14 +166,12 @@ export default function PrimarySearchAppBar({
           aria-label="account of current user"
           aria-controls={menuId}
           aria-haspopup="true"
-          // sx={{ color: theme.palette.text.primary }}
         ></IconButton>
         <p>Profile</p>
       </MenuItem>
     </Menu>
   );
 
-  // Safely handle children by converting to an array
   const childrenArray = React.Children.toArray(children);
 
   return (

@@ -55,7 +55,6 @@ export default function InkCard({ title, content, image, urlAppend }) {
   const theme = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
-  //   const themeMode = theme.palette.mode;
 
   const handleOpen = () => {
     setOpen(true);

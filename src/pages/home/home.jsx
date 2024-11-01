@@ -1,13 +1,12 @@
 import pilotPic from "../../assets/images/png/pilotCustomFineOnPaper.png";
 import { Box } from "@mui/material";
-import { color, motion } from "framer-motion";
-import { duration, useTheme } from "@mui/material/styles";
+import { motion } from "framer-motion";
+import { useTheme } from "@mui/material/styles";
 
 const HomePage = () => {
   const theme = useTheme(); // Access the theme
   const themeMode = theme.palette.mode;
 
-  // Define text color based on the theme mode
   const textColor =
     themeMode === "light"
       ? theme.palette.background.inverse
@@ -19,7 +18,6 @@ const HomePage = () => {
       opacity: 1,
       transition: {
         duration: 2,
-        // delay: 1,
         ease: "easeInOut",
       },
     },
@@ -37,7 +35,6 @@ const HomePage = () => {
           transition: "color 1s ease-in",
           backgroundColor: "#33333311",
           borderRadius: "50px",
-          // justifyContent: "space-between",
         }}
       >
         <motion.div

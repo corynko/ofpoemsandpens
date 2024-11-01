@@ -1,15 +1,14 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import { delay, motion, stagger } from "framer-motion";
-import { duration, useTheme } from "@mui/material/styles"; // Fix the theme import
-import { alpha } from "@mui/material"; // Ensure you have alpha imported
+import { motion } from "framer-motion";
+import { useTheme } from "@mui/material/styles";
+import { alpha } from "@mui/material";
 
 function NavItemsDesktop() {
-  const theme = useTheme(); // Access the theme
+  const theme = useTheme();
   const themeMode = theme.palette.mode;
 
-  // Define text color based on the theme mode
   const textColor =
     themeMode === "light"
       ? theme.palette.background.inverse // or any other color for light mode
@@ -36,7 +35,6 @@ function NavItemsDesktop() {
     animate: {
       opacity: 1,
       transition: {
-        // duration: 1,
         staggerChildren: 0.5,
         ease: "easeInOut",
       },
@@ -78,10 +76,10 @@ function NavItemsDesktop() {
                   fontFamily: "GothamLight",
                   whiteSpace: "nowrap",
                   flexGrow: 1,
-                  color: textColor, // Use the dynamic text color
+                  color: textColor,
                   transition: "color 1s ease-in",
                   "&:hover": {
-                    color: hoverColor, // Change hover color based on theme
+                    color: hoverColor,
                     transition: "color 0.5s ease-out",
                   },
                 }}
@@ -102,10 +100,10 @@ function NavItemsDesktop() {
                   fontFamily: "GothamLight",
                   whiteSpace: "nowrap",
                   flexGrow: 1,
-                  color: textColor, // Use the dynamic text color
+                  color: textColor,
                   transition: "color 1s ease-in",
                   "&:hover": {
-                    color: hoverColor, // Change hover color based on theme
+                    color: hoverColor,
                     transition: "color 0.5s ease-out",
                   },
                 }}
@@ -126,10 +124,10 @@ function NavItemsDesktop() {
                   fontFamily: "GothamLight",
                   whiteSpace: "nowrap",
                   flexGrow: 1,
-                  color: textColor, // Use the dynamic text color
+                  color: textColor,
                   transition: "color 1s ease-in",
                   "&:hover": {
-                    color: hoverColor, // Change hover color based on theme
+                    color: hoverColor,
                     transition: "color 0.5s ease-out",
                   },
                 }}
@@ -150,10 +148,10 @@ function NavItemsDesktop() {
                   fontFamily: "GothamLight",
                   whiteSpace: "nowrap",
                   flexGrow: 1,
-                  color: textColor, // Use the dynamic text color
+                  color: textColor,
                   transition: "color 1s ease-in",
                   "&:hover": {
-                    color: hoverColor, // Change hover color based on theme
+                    color: hoverColor,
                     transition: "color 0.5s ease-out",
                   },
                 }}
@@ -175,10 +173,10 @@ function NavItemsDesktop() {
                   fontFamily: "GothamLight",
                   whiteSpace: "nowrap",
                   flexGrow: 1,
-                  color: textColor, // Use the dynamic text color
+                  color: textColor,
                   transition: "color 1s ease-in",
                   "&:hover": {
-                    color: hoverColor, // Change hover color based on theme
+                    color: hoverColor,
                     transition: "color 0.5s ease-out",
                   },
                 }}

@@ -153,12 +153,10 @@ p {
 .homeHeaderPic {
   max-width: 45vw;
   max-height: 45vh;
-
-  /* object-fit: contain; */
 }
 
 .appBar {
-  backdrop-filter: blur(12px); /* Add a blur effect */
+  backdrop-filter: blur(12px);
 }
 
 .reviewBody {
@@ -203,7 +201,6 @@ p {
 
 .inkSlider {
   margin: 25px;
-  /* display: flex; */
 }
 
 .sliderLabel {

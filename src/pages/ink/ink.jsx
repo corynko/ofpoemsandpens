@@ -44,10 +44,11 @@ export default function Ink() {
         <meta property="og:type" content="article" />
       </Helmet>
 
-      <Box className="flex wrap center">
-        <Typography variant="h1">Coming Soon!</Typography>
-      </Box>
+      {/* TODO: Activate Temporary 'Coming Soon' Header For Build */}
       {/* <Box className="flex wrap center">
+        <Typography variant="h1">Coming Soon!</Typography>
+      </Box> */}
+      <Box className="flex wrap center">
         {inkArray.map((ink, index) => (
           <InkCard
             key={index}
@@ -59,7 +60,7 @@ export default function Ink() {
             urlAppend={ink.urlAppend}
           />
         ))}
-      </Box> */}
+      </Box>
     </>
   );
 }

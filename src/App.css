@@ -163,6 +163,10 @@ p {
 
 .reviewBody {
   padding: 1em 100px;
+  text-indent: 3em;
+}
+.reviewTitle {
+  padding: 1em 100px;
 }
 
 .reviewBodyImageHead {

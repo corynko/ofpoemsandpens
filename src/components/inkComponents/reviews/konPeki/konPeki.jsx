@@ -69,7 +69,7 @@ export default function KonPekiReview() {
           </Box>
           <Box className="flex center">
             <Box className="flex column textStart alignStart">
-              <Typography variant="h4" className="reviewBody">
+              <Typography variant="h4" className="reviewTitle">
                 Color
               </Typography>
               <Typography variant="body1" className="reviewBody">
@@ -84,15 +84,16 @@ export default function KonPekiReview() {
                 draw you in.
               </Typography>
               <Typography variant="body1" className="reviewBody">
-                Without a doubt, the color is one of the first things anyone
-                notices when they lay eyes on Kon-Peki. Kon-Peki is, I would
-                argue, a "royal" blue, though it may trend slightly lighter than
-                what one would ordinarily consider a royal depending on the
-                paper used and size of the nib. Kon-Peki has moderate shading,
-                and a small but noticeable pop of copper sheen under direct
-                light. It is altogether eye-catching, electrifying, and
-                enticing, yet still also rich in depth, with subtle nuances that
-                draw you in.
+                Kon-Peki, like its siblings in the Iroshizuku line, contains a
+                signature outline given to lettering on high quality papers - in
+                this case, it's a reddish-pink shade, and contains a nice,
+                hidden surprise, as this is also where its small amount of
+                copper sheen tends to show up best. Viewed in the light, this
+                adds to its engrossing quality, and makes it a real stand out in
+                the world of beautiful, but not ostentatious, inks. While there
+                is a place for the shimmers and sheen monsters of the ink world,
+                I prefer an ink that reveals its beauty in more subtle ways, and
+                Kon-Peki absolutely blows me away in that regard.
               </Typography>
               <Typography variant="body1" className="reviewBody">
                 To my eye, Kon-Peki strikes the perfect balance between a casual
@@ -138,7 +139,7 @@ export default function KonPekiReview() {
               </Typography>
             </div>
             <Box className="flex column textStart alignStart">
-              <Typography variant="h4" className="reviewBody">
+              <Typography variant="h4" className="reviewTitle">
                 Performance
               </Typography>
               <Typography variant="body1" className="reviewBody">
@@ -178,7 +179,7 @@ export default function KonPekiReview() {
           </Box>
           <Box className="flex center">
             <Box className="flex column textStart alignStart">
-              <Typography variant="h4" className="reviewBody">
+              <Typography variant="h4" className="reviewTitle">
                 Other Comments
               </Typography>
               <Typography variant="body1" className="reviewBody">
@@ -237,7 +238,7 @@ export default function KonPekiReview() {
           </Box>
           <Box className="flex column">
             <Box className="flex column alignCenter">
-              <Typography variant="h4" className="reviewBody">
+              <Typography variant="h4" className="reviewTitle">
                 In Conclusion
               </Typography>
             </Box>

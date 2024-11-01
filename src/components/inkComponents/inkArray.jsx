@@ -1,6 +1,16 @@
 import KonPekiReview from "./reviews/konPeki/konPeki";
+import TsukiYoReview from "./reviews/tsukiYo/tsukiYo";
 
 const InkArray = [
+  {
+    title: "Iroshizuku Tsuki-Yo",
+    description:
+      "An Enigmatic Blue to Blue-Black, Full of Mystery and Subtle Qualities",
+    image: require("../../assets/images/png/ink/tsuki-yo/tsukiYo.jpg?url"),
+    content: <TsukiYoReview />,
+    author: "Ethan Kotel",
+    urlAppend: "iroshizukuTsukiYo",
+  },
   {
     title: "Iroshizuku Kon-Peki",
     description:
@@ -10,15 +20,6 @@ const InkArray = [
     author: "Ethan Kotel",
     urlAppend: "iroshizukuKonPeki",
   },
-  // {
-  //   title: "Iroshizuku Kon-Peki",
-  //   description:
-  //     "The King of Cobalts, Kon-Peki Offers an Unparalleled Writing Experience",
-  //   image: require("../../assets/images/png/ink/kon-peki/kon-peki.jpg?url"),
-  //   content: <KonPekiReview />,
-  //   author: "Ethan Kotel",
-  //   urlAppend: "iroshizukuKonPeki",
-  // },
 
   // {
   //   title: "Iroshizuku Ama-Iro",

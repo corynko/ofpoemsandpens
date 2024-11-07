@@ -16,6 +16,14 @@ const PoemsArray = [
     urlAppend: "elegy",
   },
   {
+    title: "The Lament of a Librarian in Love",
+    transcription:
+      "It is a fantasy only -\nI know that of course.\nBut there you are, when I need you,\nTelling me your thoughts, your goals, your dreams,\nAnd you, you are mine.\nConfined, though you are,\nTo the black ink and ivory paper,\nI envision a world, where, given form,\nWe find function, together.\nBut it is a fantasy only,\nI know that of course.\nI heard tell of a woman -\nWith power enough to lift you from your paged prison,\nTo bring you here, to me, to love - oh, love,\nFor you, you are mine.\nBut before my hopes can fly, can soar,\nInto the wild fantasy of my perfect life,\nI am reminded:\nThat she, too, exists only\nWithin the pages, of a different tome,\nAnd she has no more power than I do\nTo bring you home to me.\nAnd so, here I sit -\nReading your thoughts, your goals, your dreams,\nAnd you, you are mine, once more.\nBut it is a fantasy only -\nI know that of course.",
+    image: require("../../assets/images/png/poems/librarian.jpg?url"),
+    author: "Ethan Kotel",
+    urlAppend: "librarian",
+  },
+  {
     title: "The Aftermath of Romeo",
     transcription:
       "The poison didn't take\nAnd I was forced to come to terms\nWith failure, and true pain, and profound disappointment\nWhile lying next to a lifeless body\nStaring into lifeless eyes\nAnd I swear I saw you breathing...\nBut now -\nI wonder if all I really saw\nWas your ghost escaping,\nMolting old skin, old shells,\nTo proceed, unhindered, into the ether.\nAre you there, still?\nDisembodied, floating into me, on my breath,\nAnd gone from me, just as quickly?\nAnd I swear I smelled you on the air...\nBut now -\nI wonder if all I really smelled\nWas a memory,\nAnother piece of you escaping\nFrom cracks in my mind, that you put there,\nWidening, metastasized,\nCutting holes in my heart, weeping blood,\nBits of you, leaving, flowing away.\nAre you gone, now?\nOr can my cells yet make more of you,\nTo replace the parts I've lost?\nAnd would I even want you, new,\nOr would I rather lose\nThe you I loved slowly, deliberately,\nIn shades of sanguine, turned dark -\nStill too in love to stop the bleeding.",

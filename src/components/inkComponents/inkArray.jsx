@@ -1,5 +1,6 @@
 import KonPekiReview from "./reviews/konPeki/konPeki";
 import TsukiYoReview from "./reviews/tsukiYo/tsukiYo";
+import HamiltonReview from "./reviews/hamilton/hamilton";
 
 const InkArray = [
   {
@@ -10,6 +11,15 @@ const InkArray = [
     content: <TsukiYoReview />,
     author: "Ethan Kotel",
     urlAppend: "iroshizukuTsukiYo",
+  },
+  {
+    title: "De Atramentis Alexander Hamilton",
+    description:
+      "An Enigmatic Blue to Blue-Black, Full of Mystery and Subtle Qualities",
+    image: require("../../assets/images/png/ink/hamilton/hamilton.jpg?url"),
+    content: <HamiltonReview />,
+    author: "Ethan Kotel",
+    urlAppend: "deatramentisAlexanderHamilton",
   },
   {
     title: "Iroshizuku Kon-Peki",

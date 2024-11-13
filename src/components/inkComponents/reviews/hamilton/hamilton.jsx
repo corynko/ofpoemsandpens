@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import HamiltonSliders from "./hamiltonSliders";
 
 const bottle = require("../../../../assets/images/png/ink/hamilton/hamilton.jpg?url");
+const swatch = require("../../../../assets/images/png/ink/hamilton/hamiltonSwatch.jpg?url");
 
 export default function HamiltonReview() {
   const theme = useTheme();
@@ -90,7 +91,12 @@ export default function HamiltonReview() {
                 to shred the envelope - rather, Dr. Franz-Josef Jansen, who
                 hand-makes all D.A. inks, seems to prefer instead to focus on
                 perfecting the most important aspects of an ink: its color, and
-                its writing experience.
+                its writing experience. It cannot be said there is nothing to
+                offer here besides the base color, however, as Alexander does
+                provide a lovely outline of light copper-gold upon drying. I can
+                never remember if that is shading or sheening, so I move the
+                sheen slider up one level above. Aside from this outline,
+                however, there is no sheen on oblique viewing.
               </Typography>
               <Typography variant="body1" className="reviewBody">
                 As I mentioned in my Kon-Peki review, I predominately - in fact,
@@ -148,19 +154,20 @@ export default function HamiltonReview() {
               </Typography>
               <Typography variant="body1" className="reviewBody">
                 Well-saturated, well-lubricated, and devoid of the annoying
-                aspects of a sheening or shimmering ink, the De Atramentis
-                experience, like their colors, is one marked by an unassuming
-                but nevertheless spectacular showcase of ink-making mastery.
+                aspects of a heavily sheening or shimmering ink, the De
+                Atramentis experience, like their colors, is one marked by an
+                unassuming but nevertheless spectacular showcase of ink-making
+                mastery.
               </Typography>
               <Typography variant="body1" className="reviewBody">
                 Hamilton's intense saturation does downgrade it a bit in the
                 ease-of-clean department, as it takes me quite a bit of flushing
                 to get the water out of the pen to run clear. That is to be
-                expected in an ink like this, and, since, again, it is not a
-                sheening nor shimmering ink, there is little risk of extra
-                particulates being left behind. It also seems to not run a risk
-                of staining the barrel, though I will admit my relatively few
-                fills with it is of limited statistical value on that front.
+                expected in an ink like this, and, since, again, it is not
+                really a sheening nor shimmering ink, there is little risk of
+                extra particulates being left behind. It also seems to not run a
+                risk of staining the barrel, though I will admit my relatively
+                few fills with it is of limited statistical value on that front.
               </Typography>
             </Box>
           </Box>
@@ -241,8 +248,8 @@ export default function HamiltonReview() {
                 Hamilton is an ink I would rely on to always be ready to write,
                 and always be ready to impress. Well-saturated in a lovely
                 color, the shading offered provides just enough uniqueness to
-                counteract the relative simplicity of this ink, possessing no
-                sheen nor shimmer.
+                counteract the relative simplicity of this ink, possessing low
+                sheen and no shimmer.
               </Typography>
               <Typography variant="body1" className="reviewBody">
                 A terrific value for money, this is an ink that is sure to
@@ -269,7 +276,7 @@ export default function HamiltonReview() {
               </Typography>
             </div>
             <div className="flex column">
-              <img src={bottle} className="reviewMorePictures" />
+              <img src={swatch} className="reviewMorePictures" />
               <Typography
                 variant="body2"
                 className="textCenter flex center "
@@ -278,7 +285,7 @@ export default function HamiltonReview() {
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                tomoe river 's' paper, pilot custom 823 medium, lamp-light
+                wearingeul color swatch paper - cotton swab - natural light
               </Typography>
             </div>
             <div className="flex column">

@@ -15,7 +15,7 @@ async function getPCloudToken() {
         params: {
           client_id: import.meta.env.VITE_PCLOUD_APP_ID,
           client_secret: import.meta.env.VITE_PCLOUD_APP_SECRET,
-          grant_type: "password",
+          grant_type: "authorization_code",
           username: import.meta.env.VITE_PCLOUD_USERNAME,
           password: import.meta.env.VITE_PCLOUD_PASSWORD,
         },

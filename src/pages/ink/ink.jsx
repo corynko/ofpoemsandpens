@@ -1,9 +1,9 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 
 //poem page imports
-import InkCard from "../../components/inkComponents/inkCards";
+// import InkCard from "../../components/inkComponents/inkCards";
 import InkArray from "../../components/inkComponents/inkArray";
 
 const inkArray = InkArray;
@@ -45,10 +45,10 @@ export default function Ink() {
       </Helmet>
 
       {/* TODO: Activate Temporary 'Coming Soon' Header For Build */}
-      {/* <Box className="flex wrap center">
-        <Typography variant="h1">Coming Soon!</Typography>
-      </Box> */}
       <Box className="flex wrap center">
+        <Typography variant="h1">Coming Soon!</Typography>
+      </Box>
+      {/* <Box className="flex wrap center">
         {inkArray.map((ink, index) => (
           <InkCard
             key={index}
@@ -60,7 +60,7 @@ export default function Ink() {
             urlAppend={ink.urlAppend}
           />
         ))}
-      </Box>
+      </Box> */}
     </>
   );
 }

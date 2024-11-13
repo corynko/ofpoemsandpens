@@ -3,7 +3,7 @@ const PoemsArray = [
     title: "Now What?",
     transcription:
       "So - from here, then where?\nThere are so many obstacles between now and then,\nAnd here and there, and us and them,\nAs November leaves grace the Earth\nWith their fleeting warmth, I am reminded:\nThat they fall,\nAnd fall,\nAnd fall, but still, the Spring!\nAnd there, from whence they fell, so too do they bloom!\nAnd is their green less verdant\nFor the yellow of their ancestors? No,\nBright, new, they remain, they are, they were,\nThey will always be.\nStunning, even in defeat by Winter's wind.\nAnd do they know?\nThat for the next generation to blossom,\nThat they had to wither? I think they do.\nI don't think they'd choose beside.\nThey know new color would take their place,\nAs it always has, always does, always will,\nSo long as branches survive the wind.\nAnd so, November leaves choose:\nTo fall,\nAnd fall,\nAnd fall,\nBut then, always, then,\nThere is the Spring!",
-    image: require("../../assets/images/png/poems/cartographer.JPG?url"),
+    image: require("../../assets/images/png/poems/nowWhat.JPG?url"),
     author: "Ethan Kotel",
     urlAppend: "nowWhat",
   },

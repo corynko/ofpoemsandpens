@@ -1,11 +1,27 @@
 const PoemsArray = [
   {
+    title: "Now What?",
+    transcription:
+      "So - from here, then where?\nThere are so many obstacles between now and then,\nAnd here and there, and us and them,\nAs November leaves grace the Earth\nWith their fleeting warmth, I am reminded:\nThat they fall,\nAnd fall,\nAnd fall, but still, the Spring!\nAnd there, from whence they fell, so too do they bloom!\nAnd is their green less verdant\nFor the yellow of their ancestors? No,\nBright, new, they remain, they are, they were,\nThey will always be.\nStunning, even in defeat by Winter's wind.\nAnd do they know?\nThat for the next generation to blossom,\nThat they had to wither? I think they do.\nI don't think they'd choose beside.\nThey know new color would take their place,\nAs it always has, always does, always will,\nSo long as branches survive the wind.\nAnd so, November leaves choose:\nTo fall,\nAnd fall,\nAnd fall,\nBut then, always, then,\nThere is the Spring!",
+    image: require("../../assets/images/png/poems/cartographer.JPG?url"),
+    author: "Ethan Kotel",
+    urlAppend: "nowWhat",
+  },
+  {
     title: "The Cartographer's Daughter",
     transcription:
       "I know my father\nThrough ink-stained hands and scent of parchment,\nThrough the scratch of pen and flicker of candlelight.\nI watch, enraptured, from the chair, just for me,\nAnd explore worlds, mine and mine alone.\nThat scribble, there - is that a river?\nOr a torrent of stardust, winding its way\nThrough the sky of a planet, far-off, forgotten.\nAnd this circle here, a lake?\nOr a yawning chasm, a portal\nTo depths undiscovered, unsafe, yet inviting nonetheless?\nI wonder if he's exploring too,\nBrow furrowed, glasses slowly moving down\nThe bridge of his nose.\nDoes he need them, there?\nOr does the journey through the wormhole\nCure his ailing eyes, straighten his back?\nCould he play with me, there, could he catch me,\nAs I bound over the cratered surface?\nCould we find her together, there, among the starlight,\nAnd would her hair still fall, soft, round her shoulders,\nThe color of Twin Suns, overhead?\nCould she play with us, there, as she once did,\nTogether, inseparable, eternal,\nBonded together, as the atoms in the soil?\nI know where I am, in this chair, just for me,\nAnd I know that he's there by the scratch of the pen,\nBut my eyes, always searching, in the candlelight's flicker:\nEach tiny mark made, is she there?",
     image: require("../../assets/images/png/poems/cartographer.JPG?url"),
     author: "Ethan Kotel",
     urlAppend: "cartographer",
+  },
+  {
+    title: "The Lament of a Librarian in Love",
+    transcription:
+      "It is a fantasy only -\nI know that of course.\nBut there you are, when I need you,\nTelling me your thoughts, your goals, your dreams,\nAnd you, you are mine.\nConfined, though you are,\nTo the black ink and ivory paper,\nI envision a world, where, given form,\nWe find function, together.\nBut it is a fantasy only,\nI know that of course.\nI heard tell of a woman -\nWith power enough to lift you from your paged prison,\nTo bring you here, to me, to love - oh, love,\nFor you, you are mine.\nBut before my hopes can fly, can soar,\nInto the wild fantasy of my perfect life,\nI am reminded:\nThat she, too, exists only\nWithin the pages, of a different tome,\nAnd she has no more power than I do\nTo bring you home to me.\nAnd so, here I sit -\nReading your thoughts, your goals, your dreams,\nAnd you, you are mine, once more.\nBut it is a fantasy only -\nI know that of course.",
+    image: require("../../assets/images/png/poems/librarian.jpg?url"),
+    author: "Ethan Kotel",
+    urlAppend: "librarian",
   },
   {
     title: "An Elegy for the Final Horse",
@@ -16,12 +32,12 @@ const PoemsArray = [
     urlAppend: "elegy",
   },
   {
-    title: "The Lament of a Librarian in Love",
+    title: "The Time-Thief's Apprentice",
     transcription:
-      "It is a fantasy only -\nI know that of course.\nBut there you are, when I need you,\nTelling me your thoughts, your goals, your dreams,\nAnd you, you are mine.\nConfined, though you are,\nTo the black ink and ivory paper,\nI envision a world, where, given form,\nWe find function, together.\nBut it is a fantasy only,\nI know that of course.\nI heard tell of a woman -\nWith power enough to lift you from your paged prison,\nTo bring you here, to me, to love - oh, love,\nFor you, you are mine.\nBut before my hopes can fly, can soar,\nInto the wild fantasy of my perfect life,\nI am reminded:\nThat she, too, exists only\nWithin the pages, of a different tome,\nAnd she has no more power than I do\nTo bring you home to me.\nAnd so, here I sit -\nReading your thoughts, your goals, your dreams,\nAnd you, you are mine, once more.\nBut it is a fantasy only -\nI know that of course.",
-    image: require("../../assets/images/png/poems/librarian.jpg?url"),
+      "He taught me how to breathe in hours,\nAnd how to stitch them onto yours -\nHe taught me how to steal seconds, without\nRegard for what gifts they may have contained.\nBut I taught myself to only take years\nFrom those who would use them to steal health, life,\nAnd I taught myself to donate them back,\nTo those who would fill them with love, and light.\nHe taught me the value within each day,\nAnd showed me the pain in realization,\nThat few remain, and those that passed, squandered,\nFrittered away on small competition.\nHe taught me the truth of classes, factions,\nThat when the last breath is spent - equalized,\nWe all spend eternity, together.\nHe taught me what matters is breath, cherished,\nAnd I taught myself to spend mine with you,\nNot stealing from others - giving myself\nYears, days, hours, seconds, even moments,\nEach, a blessing, when you were there with me.\nAnd I taught myself how to be happy,\nWith the time that I've spent, without pining\nFor more, with no urge left to steal, even\nFrom those with years to be given, freely.\nAnd so I find myself here, at the end,\nWith nothing left to teach, except for this:\nI've cherished every waking moment here,\nSince the day you filled my years, with meaning.",
+    image: require("../../assets/images/png/poems/timeThief.JPG?url"),
     author: "Ethan Kotel",
-    urlAppend: "librarian",
+    urlAppend: "thief",
   },
   {
     title: "The Aftermath of Romeo",

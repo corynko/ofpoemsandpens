@@ -102,9 +102,9 @@ export default function HamiltonSliders() {
             </Typography>
             <Slider
               aria-label="Sheen"
-              defaultValue={0}
+              defaultValue={33}
               step={null}
-              marks={getFilteredMarks("sheen", 0)}
+              marks={getFilteredMarks("sheen", 33)}
               valueLabelDisplay="auto"
               slots={{ ValueLabel: ValueLabelComponent }}
               slotProps={{

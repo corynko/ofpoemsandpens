@@ -10,13 +10,14 @@ export default {
 
 		const corsHeaders = {
 			'Access-Control-Allow-Origin': isAllowedOrigin ? origin : '',
-			'Access-Control-Allow-Methods': 'POST, OPTIONS',
+			'Access-Control-Allow-Methods': 'POST, OPTIONS, PUT, GET',
 			'Access-Control-Allow-Headers': 'Content-Type',
 			'Access-Control-Allow-Credentials': 'true',
 		};
 
 		// Handle preflight requests (OPTIONS)
 		if (request.method === 'OPTIONS') {
+			console.log('CORS Headers:', corsHeaders);
 			return new Response(null, {
 				status: 204, // No Content
 				headers: corsHeaders,
@@ -28,6 +29,8 @@ export default {
 			try {
 				const { fileName, fileType } = await request.json();
 
+				console.log('CORS Headers:', corsHeaders);
+
 				if (!fileName || !fileType) {
 					return new Response(JSON.stringify({ error: 'Missing fileName or fileType' }), {
 						status: 400,
@@ -36,7 +39,7 @@ export default {
 				}
 
 				const s3Client = new S3Client({
-					region: 'us-west-2',
+					region: 'us-east-2',
 					credentials: {
 						accessKeyId: env.AWS_ACCESS_KEY_ID,
 						secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
@@ -50,6 +53,7 @@ export default {
 				});
 
 				const signedUrl = await getSignedUrl(s3Client, command, { expiresIn: 3600 });
+				console.log('Signed URL:', signedUrl);
 
 				return new Response(JSON.stringify({ signedUrl }), {
 					status: 200,

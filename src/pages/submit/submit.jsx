@@ -37,9 +37,9 @@ async function uploadFileToS3(file) {
     }
 
     // Construct the public file URL based on your S3 bucket settings
-    const fileUrl = signedUrl.split("?")[0];
-    console.log("File uploaded successfully to:", fileUrl);
-    return fileUrl;
+    const baseUrl = signedUrl.split("?")[0];
+    console.log("File uploaded successfully to:", baseUrl);
+    return baseUrl;
   } catch (error) {
     console.error("Error uploading file:", error);
     throw error;
@@ -87,37 +87,47 @@ const Submit = () => {
   const sendEmail = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData(form.current);
-    const fileInput = document.getElementById("inputfile");
-    const file = fileInput?.files?.[0];
+    const formElement = form.current; // Explicitly reference the form element
+
+    if (!formElement) {
+      console.error("Form element not found");
+      return;
+    }
 
     try {
+      const fileInput = document.getElementById("inputfile");
+      const file = fileInput?.files?.[0];
+
       if (file) {
         // Step 1: Upload the file to S3
         const fileUrl = await uploadFileToS3(file);
 
         // Step 2: Append the file URL to the form data
+        const formData = new FormData(formElement);
         formData.append("uploaded_file_url", fileUrl);
-      }
 
-      // Step 3: Send the email using EmailJS
-      emailjs
-        .sendForm(
+        // Step 3: Send the email using EmailJS
+        await emailjs.sendForm(
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          formData,
+          formElement, // Pass the actual form element
           import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-        )
-        .then(
-          () => {
-            console.log("Email sent successfully!");
-          },
-          (error) => {
-            console.error("Email send failed:", error);
-          }
         );
+
+        console.log("Email sent successfully!");
+      } else {
+        // If no file, send email directly
+        await emailjs.sendForm(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          formElement, // Pass the actual form element
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        );
+
+        console.log("Email sent successfully (no file)!");
+      }
     } catch (error) {
-      console.error("Error handling submission:", error);
+      console.error("Email send failed:", error);
     }
   };
 
@@ -154,7 +164,7 @@ const Submit = () => {
               </h3>
             </div>
           </div>
-          <form name="submissionForm" ref={form} onSubmit={sendEmail}>
+          <form ref={form} name="submissionForm" onSubmit={sendEmail}>
             <div className="p25 wrap flex between">
               <TextField
                 required
@@ -230,7 +240,6 @@ const Submit = () => {
                   type="file"
                   onChange={(event) => console.log(event.target.files)}
                   multiple
-                  name="uploaded_file"
                   id="inputfile"
                 />
               </Button>

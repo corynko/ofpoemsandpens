@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { useTheme, styled } from "@mui/material/styles";
 import CloudUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import emailjs from "@emailjs/browser";
-import pcloudSdk from "pcloud-sdk-js";
-import axios from "axios";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 async function uploadFileToS3(file) {
   try {
@@ -95,6 +95,17 @@ const Submit = () => {
     }
 
     try {
+      Swal.fire({
+        title: "Submitting...",
+        text: "Sending your message. Please wait.",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showConfirmButton: false,
+        willOpen: () => {
+          Swal.showLoading();
+        },
+      });
+
       const fileInput = document.getElementById("inputfile");
       const file = fileInput?.files?.[0];
 
@@ -115,6 +126,11 @@ const Submit = () => {
         );
 
         console.log("Email sent successfully!");
+        Swal.fire({
+          icon: "success",
+          title: "Submission Successful",
+          text: "Your file and message have been sent successfully!",
+        });
       } else {
         // If no file, send email directly
         await emailjs.sendForm(
@@ -125,9 +141,19 @@ const Submit = () => {
         );
 
         console.log("Email sent successfully (no file)!");
+        Swal.fire({
+          icon: "success",
+          title: "Submission Successful",
+          text: "Your submission has been sent!",
+        });
       }
     } catch (error) {
       console.error("Email send failed:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Submission Failed",
+        text: "There was an issue with your submission. Please try again later.",
+      });
     }
   };
 

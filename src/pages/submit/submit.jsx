@@ -6,64 +6,44 @@ import CloudUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import emailjs from "@emailjs/browser";
 import pcloudSdk from "pcloud-sdk-js";
 import axios from "axios";
-async function getPCloudToken() {
+
+async function uploadFileToS3(file) {
   try {
-    const response = await axios.post(
-      "https://api.pcloud.com/oauth2_token",
-      null,
+    // Step 1: Request a pre-signed URL from Cloudflare Worker
+    const response = await fetch(
+      "https://upload-to-pcloud.dawn-hall-4165.workers.dev/", // Adjust this to your Worker URL
       {
-        params: {
-          client_id: import.meta.env.VITE_PCLOUD_APP_ID,
-          client_secret: import.meta.env.VITE_PCLOUD_APP_SECRET,
-          grant_type: "authorization_code",
-          username: import.meta.env.VITE_PCLOUD_USERNAME,
-          password: import.meta.env.VITE_PCLOUD_PASSWORD,
-        },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fileName: file.name, fileType: file.type }),
       }
     );
 
-    if (response.data && response.data.access_token) {
-      return response.data.access_token;
-    } else {
-      console.error("Failed to get access token", response);
-      return null;
+    if (!response.ok) {
+      throw new Error("Failed to get pre-signed URL");
     }
+
+    const { signedUrl } = await response.json();
+
+    // Step 2: Upload file directly to S3
+    const uploadResponse = await fetch(signedUrl, {
+      method: "PUT",
+      headers: { "Content-Type": file.type },
+      body: file,
+    });
+
+    if (!uploadResponse.ok) {
+      throw new Error("Failed to upload file to S3");
+    }
+
+    // Construct the public file URL based on your S3 bucket settings
+    const fileUrl = signedUrl.split("?")[0];
+    console.log("File uploaded successfully to:", fileUrl);
+    return fileUrl;
   } catch (error) {
-    console.error("Error obtaining access token:", error);
-    return null;
+    console.error("Error uploading file:", error);
+    throw error;
   }
-}
-
-async function uploadFileToPCloud(file) {
-  const token = await getPCloudToken();
-  if (!token) {
-    console.error("Unable to upload file. Authentication failed.");
-    return;
-  }
-
-  const client = pcloudSdk.createClient(token);
-
-  return new Promise((resolve, reject) => {
-    client
-      .upload(file, "/path/to/your/folder", {
-        onBegin: () => {
-          console.log("Upload started");
-        },
-        onProgress: (progress) => {
-          console.log(
-            `Upload progress: ${progress.loaded} / ${progress.total}`
-          );
-        },
-        onFinish: (fileMetadata) => {
-          console.log("Upload finished", fileMetadata);
-          resolve(fileMetadata);
-        },
-      })
-      .catch((error) => {
-        console.error("Upload error", error);
-        reject(error);
-      });
-  });
 }
 
 const Submit = () => {
@@ -88,33 +68,17 @@ const Submit = () => {
   });
 
   const currencies = [
-    {
-      value: "Poetry",
-      label: "Poetry",
-    },
-    {
-      value: "Review Request",
-      label: "Review Request",
-    },
-    {
-      value: "General Question",
-      label: "General Question",
-    },
-    {
-      value: "Feedback",
-      label: "Feedback",
-    },
+    { value: "Poetry", label: "Poetry" },
+    { value: "Review Request", label: "Review Request" },
+    { value: "General Question", label: "General Question" },
+    { value: "Feedback", label: "Feedback" },
   ];
 
   let divVariants = {
     initial: { opacity: 0 },
     animate: {
       opacity: 1,
-      transition: {
-        duration: 2,
-
-        ease: "easeInOut",
-      },
+      transition: { duration: 2, ease: "easeInOut" },
     },
   };
 
@@ -127,37 +91,34 @@ const Submit = () => {
     const fileInput = document.getElementById("inputfile");
     const file = fileInput?.files?.[0];
 
-    if (file) {
-      try {
-        // Attempt to upload the file to pCloud
-        const uploadResponse = await uploadFileToPCloud(file);
+    try {
+      if (file) {
+        // Step 1: Upload the file to S3
+        const fileUrl = await uploadFileToS3(file);
 
-        // If the upload was successful, include file details in the email
-        if (uploadResponse) {
-          formData.append("uploaded_file_name", uploadResponse.name);
-          formData.append("uploaded_file_url", uploadResponse.path);
-        }
-      } catch (error) {
-        console.error("File upload failed, proceeding with email only", error);
+        // Step 2: Append the file URL to the form data
+        formData.append("uploaded_file_url", fileUrl);
       }
-    }
 
-    // Send the email using EmailJS
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formData,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          console.log("SUCCESS!");
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-        }
-      );
+      // Step 3: Send the email using EmailJS
+      emailjs
+        .sendForm(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          formData,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        )
+        .then(
+          () => {
+            console.log("Email sent successfully!");
+          },
+          (error) => {
+            console.error("Email send failed:", error);
+          }
+        );
+    } catch (error) {
+      console.error("Error handling submission:", error);
+    }
   };
 
   return (

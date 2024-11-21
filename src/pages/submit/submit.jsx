@@ -1,17 +1,17 @@
-import React, { useRef } from "react";
-import { Box, TextField, MenuItem, Button } from "@mui/material";
+import React, { useRef, useState } from "react";
+import { Box, TextField, MenuItem, Button, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useTheme, styled } from "@mui/material/styles";
 import CloudUploadIcon from "@mui/icons-material/DriveFolderUpload";
+import { CloudDone } from "@mui/icons-material";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 async function uploadFileToS3(file) {
   try {
-    // Step 1: Request a pre-signed URL from Cloudflare Worker
     const response = await fetch(
-      "https://upload-to-pcloud.dawn-hall-4165.workers.dev/", // Adjust this to your Worker URL
+      "https://upload-to-pcloud.dawn-hall-4165.workers.dev/",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -25,7 +25,6 @@ async function uploadFileToS3(file) {
 
     const { signedUrl } = await response.json();
 
-    // Step 2: Upload file directly to S3
     const uploadResponse = await fetch(signedUrl, {
       method: "PUT",
       headers: { "Content-Type": file.type },
@@ -36,7 +35,6 @@ async function uploadFileToS3(file) {
       throw new Error("Failed to upload file to S3");
     }
 
-    // Construct the public file URL based on your S3 bucket settings
     const baseUrl = signedUrl.split("?")[0];
     console.log("File uploaded successfully to:", baseUrl);
     return baseUrl;
@@ -49,6 +47,8 @@ async function uploadFileToS3(file) {
 const Submit = () => {
   const theme = useTheme();
   const themeMode = theme.palette.mode;
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [addedFile, setAddedFile] = useState(null);
 
   const textColor =
     themeMode === "light"
@@ -84,10 +84,28 @@ const Submit = () => {
 
   const form = useRef();
 
+  const handleFileSelect = (e) => {
+    addName(e);
+  };
+
+  const addName = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setAddedFile(file);
+      console.log("File selected:", file.name);
+      setSelectedFile(file.name);
+      const e = file;
+    } else {
+      setAddedFile(null);
+      console.log("No file selected");
+      setSelectedFile(null);
+    }
+  };
+
   const sendEmail = async (e) => {
     e.preventDefault();
 
-    const formElement = form.current; // Explicitly reference the form element
+    const formElement = form.current;
 
     if (!formElement) {
       console.error("Form element not found");
@@ -106,22 +124,19 @@ const Submit = () => {
         },
       });
 
-      const fileInput = document.getElementById("inputfile");
-      const file = fileInput?.files?.[0];
+      const file = addedFile;
+      console.log(file);
 
       if (file) {
-        // Step 1: Upload the file to S3
         const fileUrl = await uploadFileToS3(file);
 
-        // Step 2: Append the file URL to the form data
         const formData = new FormData(formElement);
         formData.append("uploaded_file_url", fileUrl);
 
-        // Step 3: Send the email using EmailJS
         await emailjs.sendForm(
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          formElement, // Pass the actual form element
+          formElement,
           import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         );
 
@@ -131,12 +146,15 @@ const Submit = () => {
           title: "Submission Successful",
           text: "Your file and message have been sent successfully!",
         });
+        formElement.reset();
+        setAddedFile(null);
+        setSelectedFile(null);
       } else {
         // If no file, send email directly
         await emailjs.sendForm(
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          formElement, // Pass the actual form element
+          formElement,
           import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         );
 
@@ -146,6 +164,9 @@ const Submit = () => {
           title: "Submission Successful",
           text: "Your submission has been sent!",
         });
+        formElement.reset();
+        setAddedFile(null);
+        setSelectedFile(null);
       }
     } catch (error) {
       console.error("Email send failed:", error);
@@ -264,11 +285,19 @@ const Submit = () => {
                 Upload Photo
                 <VisuallyHiddenInput
                   type="file"
-                  onChange={(event) => console.log(event.target.files)}
+                  onChange={handleFileSelect}
                   multiple
                   id="inputfile"
                 />
               </Button>
+              {selectedFile && (
+                <>
+                  <CloudDone sx={{ marginY: "7px" }} />
+                  <Typography variant="body1">
+                    <strong>Selected File:</strong> {selectedFile}
+                  </Typography>
+                </>
+              )}
               <p style={{ maxWidth: "400px", textAlign: "center" }}>
                 // in your message, please include the author's name (if
                 different from your name), and, if desired, your social media

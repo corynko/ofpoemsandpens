@@ -1,74 +1,54 @@
-import React, { useRef } from "react";
-import { Box, TextField, MenuItem, Button } from "@mui/material";
+import React, { useRef, useState } from "react";
+import { Box, TextField, MenuItem, Button, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useTheme, styled } from "@mui/material/styles";
 import CloudUploadIcon from "@mui/icons-material/DriveFolderUpload";
+import { CloudDone } from "@mui/icons-material";
 import emailjs from "@emailjs/browser";
-import pcloudSdk from "pcloud-sdk-js";
-import axios from "axios";
-async function getPCloudToken() {
+import Swal from "sweetalert2";
+import "animate.css";
+
+async function uploadFileToS3(file) {
   try {
-    const response = await axios.post(
-      "https://api.pcloud.com/oauth2_token",
-      null,
+    const response = await fetch(
+      "https://upload-to-pcloud.dawn-hall-4165.workers.dev/",
       {
-        params: {
-          client_id: import.meta.env.VITE_PCLOUD_APP_ID,
-          client_secret: import.meta.env.VITE_PCLOUD_APP_SECRET,
-          grant_type: "authorization_code",
-          username: import.meta.env.VITE_PCLOUD_USERNAME,
-          password: import.meta.env.VITE_PCLOUD_PASSWORD,
-        },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fileName: file.name, fileType: file.type }),
       }
     );
 
-    if (response.data && response.data.access_token) {
-      return response.data.access_token;
-    } else {
-      console.error("Failed to get access token", response);
-      return null;
+    if (!response.ok) {
+      throw new Error("Failed to get pre-signed URL");
     }
+
+    const { signedUrl } = await response.json();
+
+    const uploadResponse = await fetch(signedUrl, {
+      method: "PUT",
+      headers: { "Content-Type": file.type },
+      body: file,
+    });
+
+    if (!uploadResponse.ok) {
+      throw new Error("Failed to upload file to S3");
+    }
+
+    const baseUrl = signedUrl.split("?")[0];
+    // console.log("File uploaded successfully to:", baseUrl);
+    return baseUrl;
   } catch (error) {
-    console.error("Error obtaining access token:", error);
-    return null;
+    // console.error("Error uploading file:", error);
+    throw error;
   }
-}
-
-async function uploadFileToPCloud(file) {
-  const token = await getPCloudToken();
-  if (!token) {
-    console.error("Unable to upload file. Authentication failed.");
-    return;
-  }
-
-  const client = pcloudSdk.createClient(token);
-
-  return new Promise((resolve, reject) => {
-    client
-      .upload(file, "/path/to/your/folder", {
-        onBegin: () => {
-          console.log("Upload started");
-        },
-        onProgress: (progress) => {
-          console.log(
-            `Upload progress: ${progress.loaded} / ${progress.total}`
-          );
-        },
-        onFinish: (fileMetadata) => {
-          console.log("Upload finished", fileMetadata);
-          resolve(fileMetadata);
-        },
-      })
-      .catch((error) => {
-        console.error("Upload error", error);
-        reject(error);
-      });
-  });
 }
 
 const Submit = () => {
   const theme = useTheme();
   const themeMode = theme.palette.mode;
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [addedFile, setAddedFile] = useState(null);
 
   const textColor =
     themeMode === "light"
@@ -88,76 +68,179 @@ const Submit = () => {
   });
 
   const currencies = [
-    {
-      value: "Poetry",
-      label: "Poetry",
-    },
-    {
-      value: "Review Request",
-      label: "Review Request",
-    },
-    {
-      value: "General Question",
-      label: "General Question",
-    },
-    {
-      value: "Feedback",
-      label: "Feedback",
-    },
+    { value: "Poetry", label: "Poetry" },
+    { value: "Review Request", label: "Review Request" },
+    { value: "General Question", label: "General Question" },
+    { value: "Feedback", label: "Feedback" },
   ];
 
   let divVariants = {
     initial: { opacity: 0 },
     animate: {
       opacity: 1,
-      transition: {
-        duration: 2,
-
-        ease: "easeInOut",
-      },
+      transition: { duration: 2, ease: "easeInOut" },
     },
   };
 
   const form = useRef();
 
+  const handleFileSelect = (e) => {
+    addName(e);
+  };
+
+  const addName = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setAddedFile(file);
+      // console.log("File selected:", file.name);
+      setSelectedFile(file.name);
+      const e = file;
+    } else {
+      setAddedFile(null);
+      // console.log("No file selected");
+      setSelectedFile(null);
+    }
+  };
+
   const sendEmail = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData(form.current);
-    const fileInput = document.getElementById("inputfile");
-    const file = fileInput?.files?.[0];
+    const formElement = form.current;
 
-    if (file) {
-      try {
-        // Attempt to upload the file to pCloud
-        const uploadResponse = await uploadFileToPCloud(file);
-
-        // If the upload was successful, include file details in the email
-        if (uploadResponse) {
-          formData.append("uploaded_file_name", uploadResponse.name);
-          formData.append("uploaded_file_url", uploadResponse.path);
-        }
-      } catch (error) {
-        console.error("File upload failed, proceeding with email only", error);
-      }
+    if (!formElement) {
+      console.error("Form element not found");
+      return;
     }
 
-    // Send the email using EmailJS
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formData,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          console.log("SUCCESS!");
+    try {
+      let swalWait = Swal.mixin({
+        toast: true,
+        position: "bottom",
+
+        customClass: {
+          title: "swalTitle",
+          container: "swalContainer",
+          confirmButton: "swalButton",
+          popup: "swalPopup",
         },
-        (error) => {
-          console.log("FAILED...", error.text);
-        }
-      );
+        showClass: {
+          popup: `animate__animated
+          animate__fadeInDown
+          `,
+        },
+      });
+
+      swalWait.fire({
+        title: "Submitting...",
+        text: "Sending your message. Please wait.",
+        showConfirmButton: false,
+        willOpen: () => {
+          Swal.showLoading();
+        },
+      });
+
+      const file = addedFile;
+      // console.log(file);
+
+      if (file) {
+        const fileUrl = await uploadFileToS3(file);
+
+        const formData = new FormData(formElement);
+        formData.append("uploaded_file_url", fileUrl);
+
+        await emailjs.sendForm(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          formElement,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        );
+
+        // console.log("Email sent successfully!");
+        let swalConfirm = Swal.mixin({
+          toast: true,
+          timer: 4000,
+          timerProgressBar: true,
+          position: "bottom",
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+          customClass: {
+            title: "swalTitle",
+            container: "swalContainer",
+            confirmButton: "swalButton",
+            popup: "swalPopup",
+          },
+          showClass: {
+            popup: `animate__animated
+            animate__bounceInDown
+            `,
+          },
+          hideClass: {
+            popup: `animate__animated
+            animate__backOutUp`,
+          },
+        });
+        swalConfirm.fire({
+          icon: "success",
+          title: "Submission Successful",
+          text: "Your file and message have been sent successfully!",
+        });
+        formElement.reset();
+        setAddedFile(null);
+        setSelectedFile(null);
+      } else {
+        // If no file, send email directly
+        await emailjs.sendForm(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          formElement,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        );
+        let swalConfirm = Swal.mixin({
+          toast: true,
+          timer: 4000,
+          timerProgressBar: true,
+          position: "bottom",
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+          customClass: {
+            title: "swalTitle",
+            container: "swalContainer",
+            confirmButton: "swalButton",
+            popup: "swalPopup",
+          },
+          showClass: {
+            popup: `animate__animated
+            animate__bounceInDown
+            `,
+          },
+          hideClass: {
+            popup: `animate__animated
+            animate__backOutUp`,
+          },
+        });
+
+        // console.log("Email sent successfully (no file)!");
+        swalConfirm.fire({
+          icon: "success",
+          title: "Submission Successful",
+          text: "Your submission has been sent!",
+        });
+        formElement.reset();
+        setAddedFile(null);
+        setSelectedFile(null);
+      }
+    } catch (error) {
+      console.error("Email send failed:", error);
+      Swal.fire({
+        icon: "warning",
+        title: "Submission Failed",
+        text: "There was an issue with your submission. Please try again later.",
+      });
+    }
   };
 
   return (
@@ -193,7 +276,7 @@ const Submit = () => {
               </h3>
             </div>
           </div>
-          <form name="submissionForm" ref={form} onSubmit={sendEmail}>
+          <form ref={form} name="submissionForm" onSubmit={sendEmail}>
             <div className="p25 wrap flex between">
               <TextField
                 required
@@ -267,12 +350,19 @@ const Submit = () => {
                 Upload Photo
                 <VisuallyHiddenInput
                   type="file"
-                  onChange={(event) => console.log(event.target.files)}
+                  onChange={handleFileSelect}
                   multiple
-                  name="uploaded_file"
                   id="inputfile"
                 />
               </Button>
+              {selectedFile && (
+                <>
+                  <CloudDone sx={{ marginY: "7px" }} />
+                  <Typography variant="body1">
+                    <strong>Selected File:</strong> {selectedFile}
+                  </Typography>
+                </>
+              )}
               <p style={{ maxWidth: "400px", textAlign: "center" }}>
                 // in your message, please include the author's name (if
                 different from your name), and, if desired, your social media

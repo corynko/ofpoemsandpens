@@ -1,6 +1,7 @@
 import KonPekiReview from "./reviews/konPeki/konPeki";
 import TsukiYoReview from "./reviews/tsukiYo/tsukiYo";
 import HamiltonReview from "./reviews/hamilton/hamilton";
+import SherwoodReview from "./reviews/sherwood/sherwood";
 
 const InkArray = [
   {
@@ -20,6 +21,15 @@ const InkArray = [
     content: <HamiltonReview />,
     author: "Ethan Kotel",
     urlAppend: "deatramentisAlexanderHamilton",
+  },
+  {
+    title: "Diamine Sherwood Green",
+    description:
+      "A forest green - actually, THE forest green - for lovers of summer pine",
+    image: require("../../assets/images/png/ink/kon-peki/kon-peki.jpg?url"),
+    content: <SherwoodReview />,
+    author: "Ethan Kotel",
+    urlAppend: "diamineSherwoodGreen",
   },
   {
     title: "Iroshizuku Kon-Peki",

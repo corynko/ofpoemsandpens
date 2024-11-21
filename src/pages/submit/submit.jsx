@@ -36,10 +36,10 @@ async function uploadFileToS3(file) {
     }
 
     const baseUrl = signedUrl.split("?")[0];
-    console.log("File uploaded successfully to:", baseUrl);
+    // console.log("File uploaded successfully to:", baseUrl);
     return baseUrl;
   } catch (error) {
-    console.error("Error uploading file:", error);
+    // console.error("Error uploading file:", error);
     throw error;
   }
 }
@@ -92,12 +92,12 @@ const Submit = () => {
     const file = e.target.files?.[0];
     if (file) {
       setAddedFile(file);
-      console.log("File selected:", file.name);
+      // console.log("File selected:", file.name);
       setSelectedFile(file.name);
       const e = file;
     } else {
       setAddedFile(null);
-      console.log("No file selected");
+      // console.log("No file selected");
       setSelectedFile(null);
     }
   };
@@ -125,7 +125,7 @@ const Submit = () => {
       });
 
       const file = addedFile;
-      console.log(file);
+      // console.log(file);
 
       if (file) {
         const fileUrl = await uploadFileToS3(file);
@@ -140,7 +140,7 @@ const Submit = () => {
           import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         );
 
-        console.log("Email sent successfully!");
+        // console.log("Email sent successfully!");
         Swal.fire({
           icon: "success",
           title: "Submission Successful",
@@ -158,7 +158,7 @@ const Submit = () => {
           import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         );
 
-        console.log("Email sent successfully (no file)!");
+        // console.log("Email sent successfully (no file)!");
         Swal.fire({
           icon: "success",
           title: "Submission Successful",

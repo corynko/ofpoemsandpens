@@ -6,7 +6,7 @@ import CloudUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import { CloudDone } from "@mui/icons-material";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import "animate.css";
 
 async function uploadFileToS3(file) {
   try {
@@ -113,11 +113,26 @@ const Submit = () => {
     }
 
     try {
-      Swal.fire({
+      let swalWait = Swal.mixin({
+        toast: true,
+        position: "bottom",
+
+        customClass: {
+          title: "swalTitle",
+          container: "swalContainer",
+          confirmButton: "swalButton",
+          popup: "swalPopup",
+        },
+        showClass: {
+          popup: `animate__animated
+          animate__fadeInDown
+          `,
+        },
+      });
+
+      swalWait.fire({
         title: "Submitting...",
         text: "Sending your message. Please wait.",
-        allowOutsideClick: false,
-        allowEscapeKey: false,
         showConfirmButton: false,
         willOpen: () => {
           Swal.showLoading();
@@ -141,7 +156,32 @@ const Submit = () => {
         );
 
         // console.log("Email sent successfully!");
-        Swal.fire({
+        let swalConfirm = Swal.mixin({
+          toast: true,
+          timer: 4000,
+          timerProgressBar: true,
+          position: "bottom",
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+          customClass: {
+            title: "swalTitle",
+            container: "swalContainer",
+            confirmButton: "swalButton",
+            popup: "swalPopup",
+          },
+          showClass: {
+            popup: `animate__animated
+            animate__bounceInDown
+            `,
+          },
+          hideClass: {
+            popup: `animate__animated
+            animate__backOutUp`,
+          },
+        });
+        swalConfirm.fire({
           icon: "success",
           title: "Submission Successful",
           text: "Your file and message have been sent successfully!",
@@ -157,9 +197,34 @@ const Submit = () => {
           formElement,
           import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         );
+        let swalConfirm = Swal.mixin({
+          toast: true,
+          timer: 4000,
+          timerProgressBar: true,
+          position: "bottom",
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+          customClass: {
+            title: "swalTitle",
+            container: "swalContainer",
+            confirmButton: "swalButton",
+            popup: "swalPopup",
+          },
+          showClass: {
+            popup: `animate__animated
+            animate__bounceInDown
+            `,
+          },
+          hideClass: {
+            popup: `animate__animated
+            animate__backOutUp`,
+          },
+        });
 
         // console.log("Email sent successfully (no file)!");
-        Swal.fire({
+        swalConfirm.fire({
           icon: "success",
           title: "Submission Successful",
           text: "Your submission has been sent!",
@@ -171,7 +236,7 @@ const Submit = () => {
     } catch (error) {
       console.error("Email send failed:", error);
       Swal.fire({
-        icon: "error",
+        icon: "warning",
         title: "Submission Failed",
         text: "There was an issue with your submission. Please try again later.",
       });

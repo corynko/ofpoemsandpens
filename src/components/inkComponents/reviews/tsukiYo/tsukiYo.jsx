@@ -5,7 +5,13 @@ import Typography from "@mui/material/Typography";
 
 import TsukiYoSliders from "./tsukiYoSliders";
 
-const bottle = require("../../../../assets/images/png/ink/tsuki-yo/tsukiYo.jpg?url");
+const bottle = require("../../../../assets/images/png/ink/tsuki-yo/tsukiYoHeader.jpg?url");
+const detail = require("../../../../assets/images/png/ink/tsuki-yo/tsukiYoDetail.jpg?url");
+const shading = require("../../../../assets/images/png/ink/tsuki-yo/tsukiYoShading.jpg?url");
+const sheen = require("../../../../assets/images/png/ink/tsuki-yo/tsukiYoSheen.jpg?url");
+const swatch = require("../../../../assets/images/png/ink/tsuki-yo/tsukiYoSwatch.jpg?url");
+const tomoe1 = require("../../../../assets/images/png/ink/tsuki-yo/tsukiYoTomoe1.jpg?url");
+const takasago1 = require("../../../../assets/images/png/ink/tsuki-yo/tsukiYoTakasago2.jpg?url");
 
 export default function TsukiYoReview() {
   const theme = useTheme();
@@ -102,7 +108,7 @@ export default function TsukiYoReview() {
             </Box>
             <Box className="flex">
               <div className="flex column">
-                <img src={bottle} className="reviewBodyImageRight" />
+                <img src={shading} className="reviewBodyImageRight" />
                 <Typography
                   variant="body2"
                   className="textCenter flex center reviewBodyImageCaptionRight"
@@ -111,14 +117,15 @@ export default function TsukiYoReview() {
                     transition: "color 0.75s ease-in-out",
                   }}
                 >
-                  cosmo air light paper, pilot custom 823 medium, natural light
+                  a quite cozy blue - cosmo air light paper, pilot custom 823
+                  medium
                 </Typography>
               </div>
             </Box>
           </Box>
           <Box className="flex center">
             <div className="flex column">
-              <img src={bottle} className="reviewBodyImageLeft" />
+              <img src={sheen} className="reviewBodyImageLeft" />
               <Typography
                 variant="body2"
                 className="textCenter flex center reviewBodyImageCaptionLeft"
@@ -127,8 +134,8 @@ export default function TsukiYoReview() {
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                passepied cream paper, pilot custom 823 medium, fluorescent
-                light
+                characteristic pink sheen - cosmo air light paper, pilot custom
+                823 medium
               </Typography>
             </div>
             <Box className="flex column textStart alignStart">
@@ -224,7 +231,7 @@ export default function TsukiYoReview() {
             </Box>
             <Box className="flex">
               <div className="flex column">
-                <img src={bottle} className="reviewBodyImageRight" />
+                <img src={takasago1} className="reviewBodyImageRight" />
                 <Typography
                   variant="body2"
                   className="textCenter flex center reviewBodyImageCaptionRight"
@@ -233,7 +240,7 @@ export default function TsukiYoReview() {
                     transition: "color 0.75s ease-in-out",
                   }}
                 >
-                  tomoe river 's' paper, pilot custom 823 medium, lamp-light
+                  takasago premium bank paper, waterman carène (m)
                 </Typography>
               </div>
             </Box>
@@ -278,7 +285,7 @@ export default function TsukiYoReview() {
 
           <Box className="flex around reviewBottom">
             <div className="flex column">
-              <img src={bottle} className="reviewMorePictures" />
+              <img src={tomoe1} className="reviewMorePictures" />
               <Typography
                 variant="body2"
                 className="textCenter flex center"
@@ -287,11 +294,11 @@ export default function TsukiYoReview() {
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                tomoe river 's' paper, pilot custom 823 medium, lamp-light
+                tomoe river 's' paper, waterman carène (m)
               </Typography>
             </div>
             <div className="flex column">
-              <img src={bottle} className="reviewMorePictures" />
+              <img src={swatch} className="reviewMorePictures" />
               <Typography
                 variant="body2"
                 className="textCenter flex center "
@@ -300,11 +307,11 @@ export default function TsukiYoReview() {
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                tomoe river 's' paper, pilot custom 823 medium, lamp-light
+                wearingeul swatch paper, cotton swab
               </Typography>
             </div>
             <div className="flex column">
-              <img src={bottle} className="reviewMorePictures" />
+              <img src={detail} className="reviewMorePictures" />
               <Typography
                 variant="body2"
                 className="textCenter flex center"
@@ -313,7 +320,7 @@ export default function TsukiYoReview() {
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                tomoe river 's' paper, pilot custom 823 medium, lamp-light
+                superior shading - cosmo air light paper, pilot custom 823 (m)
               </Typography>
             </div>
           </Box>

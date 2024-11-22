@@ -40,6 +40,14 @@ const PoemsArray = [
     urlAppend: "thief",
   },
   {
+    title: "Instructions for a Time Traveler",
+    transcription:
+      "Before you depart, it's important to note\nThat no matter when you arrive,\nYou will find problems that feel\nAs though they need fixing. Remember:\nThey do - your concerns are valid,\nAnd it's so hard to watch the problem unfold\nWhen you already know the solution,\nBut they are not for you to solve.\nFor the final tree, felled, taught your grandfather,\nHow to grow a new forest in haste.\nAs the island of plastic in the Pacific\nTaught his grandmother how to fish out each piece.\nAnd before that, the war -\nHow it taught us all, 'Never Again'\nAnd when Never Again fell to fury, how your mother,\nLed the march to find the friend in foe.\nAnd now here you stand, on the precipice\nOf opportunity - mind swimming with plans\nTo save us all -\nRemember:\nEach unsteady, faltering step,\nStill leads us down the road\nAnd must not be skipped.\nHave faith -\nThe solutions will be found:\nThese problems are not yours to solve.",
+    image: require("../../assets/images/png/poems/timeTraveler.jpg?url"),
+    author: "Ethan Kotel",
+    urlAppend: "timeTraveler",
+  },
+  {
     title: "The Aftermath of Romeo",
     transcription:
       "The poison didn't take\nAnd I was forced to come to terms\nWith failure, and true pain, and profound disappointment\nWhile lying next to a lifeless body\nStaring into lifeless eyes\nAnd I swear I saw you breathing...\nBut now -\nI wonder if all I really saw\nWas your ghost escaping,\nMolting old skin, old shells,\nTo proceed, unhindered, into the ether.\nAre you there, still?\nDisembodied, floating into me, on my breath,\nAnd gone from me, just as quickly?\nAnd I swear I smelled you on the air...\nBut now -\nI wonder if all I really smelled\nWas a memory,\nAnother piece of you escaping\nFrom cracks in my mind, that you put there,\nWidening, metastasized,\nCutting holes in my heart, weeping blood,\nBits of you, leaving, flowing away.\nAre you gone, now?\nOr can my cells yet make more of you,\nTo replace the parts I've lost?\nAnd would I even want you, new,\nOr would I rather lose\nThe you I loved slowly, deliberately,\nIn shades of sanguine, turned dark -\nStill too in love to stop the bleeding.",

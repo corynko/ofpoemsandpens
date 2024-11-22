@@ -2,7 +2,6 @@ import * as React from "react";
 import { useTheme } from "@emotion/react";
 import { Box, Card, Modal } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import { useSpring, animated } from "@react-spring/web";
 import PropTypes from "prop-types";
 import { delay, motion, stagger } from "framer-motion";
@@ -104,6 +103,7 @@ export default function InkCard({ title, content, image, urlAppend }) {
             sx={{
               minWidth: "300px",
               maxWidth: "400px",
+              maxHeight: "400px",
               backgroundColor: theme.palette.background.semiTrans,
               color: theme.palette.background.inverse,
               "&:hover": {

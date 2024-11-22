@@ -5,8 +5,10 @@ import Typography from "@mui/material/Typography";
 
 import HamiltonSliders from "./hamiltonSliders";
 
-const bottle = require("../../../../assets/images/png/ink/hamilton/hamilton.jpg?url");
+const bottle = require("../../../../assets/images/png/ink/hamilton/hamiltonHeader.jpg?url");
 const swatch = require("../../../../assets/images/png/ink/hamilton/hamiltonSwatch.jpg?url");
+const shading = require("../../../../assets/images/png/ink/hamilton/hamiltonShading.jpg?url");
+const sheen = require("../../../../assets/images/png/ink/hamilton/hamiltonSheen.jpg?url");
 
 export default function HamiltonReview() {
   const theme = useTheme();
@@ -110,7 +112,7 @@ export default function HamiltonReview() {
             </Box>
             <Box className="flex">
               <div className="flex column">
-                <img src={bottle} className="reviewBodyImageRight" />
+                <img src={shading} className="reviewBodyImageRight" />
                 <Typography
                   variant="body2"
                   className="textCenter flex center reviewBodyImageCaptionRight"
@@ -119,14 +121,15 @@ export default function HamiltonReview() {
                     transition: "color 0.75s ease-in-out",
                   }}
                 >
-                  cosmo air light paper, pilot custom 823 medium, natural light
+                  beautiful shading - cosmo air light paper, pilot custom
+                  heritage 92 (m), natural light
                 </Typography>
               </div>
             </Box>
           </Box>
           <Box className="flex center">
             <div className="flex column">
-              <img src={bottle} className="reviewBodyImageLeft" />
+              <img src={sheen} className="reviewBodyImageLeft" />
               <Typography
                 variant="body2"
                 className="textCenter flex center reviewBodyImageCaptionLeft"
@@ -135,8 +138,8 @@ export default function HamiltonReview() {
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                passepied cream paper, pilot custom 823 medium, fluorescent
-                light
+                gold sheen - cosmo air light paper, pilot custom heritage 92
+                (m), natural light
               </Typography>
             </div>
             <Box className="flex column textStart alignStart">

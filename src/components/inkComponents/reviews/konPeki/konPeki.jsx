@@ -5,7 +5,10 @@ import Typography from "@mui/material/Typography";
 
 import KonPekiSliders from "./konPekiSliders";
 
-const bottle = require("../../../../assets/images/png/ink/kon-peki/kon-peki.jpg?url");
+const bottle = require("../../../../assets/images/png/ink/kon-peki/konPekiHeader.jpg?url");
+const shading = require("../../../../assets/images/png/ink/kon-peki/konPekiShading.jpg?url");
+const shading2 = require("../../../../assets/images/png/ink/kon-peki/konPekiShading2.jpg?url");
+const swatch = require("../../../../assets/images/png/ink/kon-peki/konPekiSwatch.jpg?url");
 
 export default function KonPekiReview() {
   const theme = useTheme();
@@ -107,7 +110,7 @@ export default function KonPekiReview() {
             </Box>
             <Box className="flex">
               <div className="flex column">
-                <img src={bottle} className="reviewBodyImageRight" />
+                <img src={shading} className="reviewBodyImageRight" />
                 <Typography
                   variant="body2"
                   className="textCenter flex center reviewBodyImageCaptionRight"
@@ -116,7 +119,7 @@ export default function KonPekiReview() {
                     transition: "color 0.75s ease-in-out",
                   }}
                 >
-                  cosmo air light paper, pilot custom 823 medium, natural light
+                  tomoe river 's' paper, pilot custom 823 medium
                 </Typography>
               </div>
             </Box>
@@ -288,7 +291,7 @@ export default function KonPekiReview() {
               </Typography>
             </div>
             <div className="flex column">
-              <img src={bottle} className="reviewMorePictures" />
+              <img src={swatch} className="reviewMorePictures" />
               <Typography
                 variant="body2"
                 className="textCenter flex center "
@@ -297,11 +300,11 @@ export default function KonPekiReview() {
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                tomoe river 's' paper, pilot custom 823 medium, lamp-light
+                wearingeul color swatch paper, cotton swab
               </Typography>
             </div>
             <div className="flex column">
-              <img src={bottle} className="reviewMorePictures" />
+              <img src={shading2} className="reviewMorePictures" />
               <Typography
                 variant="body2"
                 className="textCenter flex center"
@@ -310,7 +313,7 @@ export default function KonPekiReview() {
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                tomoe river 's' paper, pilot custom 823 medium, lamp-light
+                tomoe river 's' paper, pilot custom 823 medium
               </Typography>
             </div>
           </Box>

@@ -5,8 +5,13 @@ import Typography from "@mui/material/Typography";
 
 import SherwoodSliders from "./sherwoodSliders";
 
-const bottle = require("../../../../assets/images/png/ink/hamilton/hamilton.jpg?url");
-const swatch = require("../../../../assets/images/png/ink/hamilton/hamiltonSwatch.jpg?url");
+const bottle = require("../../../../assets/images/png/ink/sherwood/sherwoodHeader.jpg?url");
+const swatch = require("../../../../assets/images/png/ink/sherwood/sherwoodSwatch.jpg?url");
+const shading = require("../../../../assets/images/png/ink/sherwood/sherwoodShading.jpg?url");
+const sheen = require("../../../../assets/images/png/ink/sherwood/sherwoodSheen.jpg?url");
+const tomoe1 = require("../../../../assets/images/png/ink/sherwood/sherwoodTomoe1.jpg?url");
+const tomoe2 = require("../../../../assets/images/png/ink/sherwood/sherwoodTomoe2.jpg?url");
+const takasago = require("../../../../assets/images/png/ink/sherwood/sherwoodTakasago1.jpg?url");
 
 export default function SherwoodReview() {
   const theme = useTheme();
@@ -47,7 +52,7 @@ export default function SherwoodReview() {
               </Typography>
               <Typography variant="body1" className="reviewBody">
                 Part of their 'standard' ink line, simply referred to as Diamine
-                Ink, Sherwood Green is one of their darkest (I believe it is the
+                Ink, Sherwood Green is one of the darkest (I believe it is the
                 third darkest) of their green offerings. As the name suggests,
                 Sherwood, so-called for the forest from the Robin Hood mythos,
                 is a forest green, and to my eye, perfectly captures the natural
@@ -105,7 +110,7 @@ export default function SherwoodReview() {
             </Box>
             <Box className="flex">
               <div className="flex column">
-                <img src={bottle} className="reviewBodyImageRight" />
+                <img src={shading} className="reviewBodyImageRight" />
                 <Typography
                   variant="body2"
                   className="textCenter flex center reviewBodyImageCaptionRight"
@@ -114,14 +119,15 @@ export default function SherwoodReview() {
                     transition: "color 0.75s ease-in-out",
                   }}
                 >
-                  cosmo air light paper, pilot custom 823 medium, natural light
+                  excellent shading - cosmo air light paper, pilot custom
+                  heritage 92 (m), natural light
                 </Typography>
               </div>
             </Box>
           </Box>
           <Box className="flex center">
             <div className="flex column">
-              <img src={bottle} className="reviewBodyImageLeft" />
+              <img src={sheen} className="reviewBodyImageLeft" />
               <Typography
                 variant="body2"
                 className="textCenter flex center reviewBodyImageCaptionLeft"
@@ -130,8 +136,8 @@ export default function SherwoodReview() {
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                passepied cream paper, pilot custom 823 medium, fluorescent
-                light
+                some pink sheen - cosmo air light paper, pilot custom heritage
+                92 (m), natural light
               </Typography>
             </div>
             <Box className="flex column textStart alignStart">
@@ -214,7 +220,7 @@ export default function SherwoodReview() {
             </Box>
             <Box className="flex">
               <div className="flex column">
-                <img src={bottle} className="reviewBodyImageRight" />
+                <img src={tomoe1} className="reviewBodyImageRight" />
                 <Typography
                   variant="body2"
                   className="textCenter flex center reviewBodyImageCaptionRight"
@@ -223,7 +229,7 @@ export default function SherwoodReview() {
                     transition: "color 0.75s ease-in-out",
                   }}
                 >
-                  tomoe river 's' paper, pilot custom 823 medium, lamp-light
+                  tomoe river 's' paper, pilot custom heritage 92 (m)
                 </Typography>
               </div>
             </Box>
@@ -261,7 +267,7 @@ export default function SherwoodReview() {
 
           <Box className="flex around reviewBottom">
             <div className="flex column">
-              <img src={bottle} className="reviewMorePictures" />
+              <img src={takasago} className="reviewMorePictures" />
               <Typography
                 variant="body2"
                 className="textCenter flex center"
@@ -270,24 +276,24 @@ export default function SherwoodReview() {
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                tomoe river 's' paper, pilot custom 823 medium, lamp-light
+                takasago premium bank paper, pilot custom heritage 92 (m)
               </Typography>
             </div>
             <div className="flex column">
               <img src={swatch} className="reviewMorePictures" />
               <Typography
                 variant="body2"
-                className="textCenter flex center "
+                className="textCenter flex center"
                 style={{
                   color: theme.palette.background.inverseGrey,
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                wearingeul color swatch paper - cotton swab - natural light
+                wearingeul color swatch paper, cotton swab
               </Typography>
             </div>
             <div className="flex column">
-              <img src={bottle} className="reviewMorePictures" />
+              <img src={tomoe2} className="reviewMorePictures" />
               <Typography
                 variant="body2"
                 className="textCenter flex center"
@@ -296,7 +302,7 @@ export default function SherwoodReview() {
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                tomoe river 's' paper, pilot custom 823 medium, lamp-light
+                tomoe river 's' paper, pilot custom heritage 92 (m)
               </Typography>
             </div>
           </Box>

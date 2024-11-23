@@ -1,6 +1,6 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { useTheme } from "@emotion/react";
-import { Box } from "@mui/material";
+import { Box, Dialog } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
 import TsukiYoSliders from "./tsukiYoSliders";
@@ -15,6 +15,16 @@ const takasago1 = require("../../../../assets/images/png/ink/tsuki-yo/tsukiYoTak
 
 export default function TsukiYoReview() {
   const theme = useTheme();
+
+  const [zoomedImage, setZoomedImage] = useState(null);
+
+  const handleImageClick = (src) => {
+    setZoomedImage(src);
+  };
+
+  const handleClose = () => {
+    setZoomedImage(null);
+  };
 
   return (
     <>
@@ -108,7 +118,12 @@ export default function TsukiYoReview() {
             </Box>
             <Box className="flex">
               <div className="flex column">
-                <img src={shading} className="reviewBodyImageRight" />
+                <img
+                  src={shading}
+                  onClick={() => handleImageClick(shading)}
+                  style={{ cursor: "zoom-in" }}
+                  className="reviewBodyImageRight"
+                />
                 <Typography
                   variant="body2"
                   className="textCenter flex center reviewBodyImageCaptionRight"
@@ -125,7 +140,12 @@ export default function TsukiYoReview() {
           </Box>
           <Box className="flex center">
             <div className="flex column">
-              <img src={sheen} className="reviewBodyImageLeft" />
+              <img
+                src={sheen}
+                onClick={() => handleImageClick(sheen)}
+                style={{ cursor: "zoom-in" }}
+                className="reviewBodyImageLeft"
+              />
               <Typography
                 variant="body2"
                 className="textCenter flex center reviewBodyImageCaptionLeft"
@@ -231,7 +251,12 @@ export default function TsukiYoReview() {
             </Box>
             <Box className="flex">
               <div className="flex column">
-                <img src={takasago1} className="reviewBodyImageRight" />
+                <img
+                  src={takasago1}
+                  onClick={() => handleImageClick(takasago1)}
+                  style={{ cursor: "zoom-in" }}
+                  className="reviewBodyImageRight"
+                />
                 <Typography
                   variant="body2"
                   className="textCenter flex center reviewBodyImageCaptionRight"
@@ -285,7 +310,12 @@ export default function TsukiYoReview() {
 
           <Box className="flex around reviewBottom">
             <div className="flex column">
-              <img src={tomoe1} className="reviewMorePictures" />
+              <img
+                src={tomoe1}
+                onClick={() => handleImageClick(tomoe1)}
+                style={{ cursor: "zoom-in" }}
+                className="reviewMorePictures"
+              />
               <Typography
                 variant="body2"
                 className="textCenter flex center"
@@ -298,7 +328,12 @@ export default function TsukiYoReview() {
               </Typography>
             </div>
             <div className="flex column">
-              <img src={swatch} className="reviewMorePictures" />
+              <img
+                src={swatch}
+                onClick={() => handleImageClick(swatch)}
+                style={{ cursor: "zoom-in" }}
+                className="reviewMorePictures"
+              />
               <Typography
                 variant="body2"
                 className="textCenter flex center "
@@ -311,7 +346,12 @@ export default function TsukiYoReview() {
               </Typography>
             </div>
             <div className="flex column">
-              <img src={detail} className="reviewMorePictures" />
+              <img
+                src={detail}
+                onClick={() => handleImageClick(detail)}
+                style={{ cursor: "zoom-in" }}
+                className="reviewMorePictures"
+              />
               <Typography
                 variant="body2"
                 className="textCenter flex center"
@@ -326,6 +366,24 @@ export default function TsukiYoReview() {
           </Box>
         </Box>
       </Box>
+
+      <Dialog
+        open={Boolean(zoomedImage)}
+        onClick={handleClose}
+        onClose={handleClose}
+        style={{ cursor: "zoom-out" }}
+        fullWidth
+        maxWidth="xl"
+      >
+        <img
+          src={zoomedImage || ""}
+          alt="Zoomed"
+          style={{
+            width: "100%",
+            height: "auto",
+          }}
+        />
+      </Dialog>
     </>
   );
 }

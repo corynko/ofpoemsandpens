@@ -23,7 +23,10 @@ const WordDrawDesktop = () => {
   };
 
   return (
-    <div className="svg-container" style={{ marginLeft: "35px" }}>
+    <div
+      className="svg-container logoWordDesktop"
+      style={{ marginLeft: "35px" }}
+    >
       <Link to="/">
         <motion.svg
           version="1.0"

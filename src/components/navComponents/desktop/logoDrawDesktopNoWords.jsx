@@ -23,9 +23,9 @@ const LogoDrawDesktopNoWords = () => {
   };
 
   return (
-    <div style={{ margin: "10px" }}>
+    <div className="logoDesktop" style={{ margin: "10px" }}>
       <Link to="/">
-        {/* warning, expand line 28 at your own peril */}
+        {/* warning, expand line 29 at your own peril */}
         <motion.svg
           version="1.0"
           id="Layer_1"

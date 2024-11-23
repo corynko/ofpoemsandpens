@@ -35,11 +35,11 @@ const getFilteredMarks = (type, value) => {
 export default function TsukiYoSliders() {
   const sliderStyles = {
     "& .MuiSlider-track": {
-      color: "#50587e",
+      color: "#043D63",
       opacity: 1,
     },
     "& .MuiSlider-thumb": {
-      color: "#50587e",
+      color: "#043D63",
     },
     "& .MuiSlider-rail": {
       color: "#cfd8dc",

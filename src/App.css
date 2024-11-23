@@ -211,12 +211,10 @@ p {
 }
 
 .swalContainer {
-  font-family: Inter;
+  font-family: Montserrat;
+  font-style: italic;
 }
-.swalInput {
-  font-family: "Montserrat";
-  font-weight: 900;
-}
+
 .swalButton {
   background-color: #38308e;
   transition: background-color 0.25s ease-in-out;
@@ -226,16 +224,48 @@ p {
   transition: background-color 0.25s ease-in-out;
 }
 
+.card {
+  padding: 2em;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
 
-.card {
-  padding: 2em;
+@media only screen and (max-width: 1000px) {
+  .logoDesktop {
+    display: none;
+  }
+  .logoWordDesktop {
+    display: none;
+  }
+  .logoMobile {
+    display: flex;
+    scale: 1.3;
+  }
 }
-
-.read-the-docs {
-  color: #888;
+@media only screen and (max-width: 600px) {
+  .logoDesktop {
+    display: flex;
+  }
+  .logoWordDesktop {
+    display: none;
+  }
+  .logoMobile {
+    display: none;
+    scale: 1.3;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .logoDesktop {
+    display: flex;
+  }
+  .logoWordDesktop {
+    display: flex;
+  }
+  .logoMobile {
+    display: none;
+  }
 }

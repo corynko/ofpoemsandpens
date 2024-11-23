@@ -2,6 +2,7 @@ import * as React from "react";
 import { styled, alpha, useTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
@@ -10,8 +11,11 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import ArticleIcon from "@mui/icons-material/Article";
+import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import WaterDropOutlinedIcon from "@mui/icons-material/WaterDropOutlined";
+import WifiOutlinedIcon from "@mui/icons-material/WifiOutlined";
 
 interface PrimarySearchAppBarProps {
   children: React.ReactNode;
@@ -136,39 +140,66 @@ export default function PrimarySearchAppBar({
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 4 new mails"
-          sx={{ color: theme.palette.text.primary }}
-        >
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          sx={{ color: theme.palette.text.primary }}
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls={menuId}
-          aria-haspopup="true"
-        ></IconButton>
-        <p>Profile</p>
-      </MenuItem>
+      <Link id="menuLink" to="/poems">
+        <MenuItem>
+          <IconButton
+            size="large"
+            aria-label="poems"
+            sx={{ color: theme.palette.text.primary }}
+          >
+            <ArticleIcon />
+          </IconButton>
+          <p style={{ color: theme.palette.text.primary }}>Poems</p>
+        </MenuItem>
+      </Link>
+      <Link to="/pens">
+        <MenuItem>
+          <IconButton
+            size="large"
+            aria-label="pens"
+            sx={{ color: theme.palette.text.primary }}
+          >
+            <EditOutlinedIcon />
+          </IconButton>
+          <p style={{ color: theme.palette.text.primary }}>Pens</p>
+        </MenuItem>
+      </Link>
+      <Link to="/ink">
+        <MenuItem>
+          <IconButton
+            size="large"
+            aria-label="ink"
+            sx={{ color: theme.palette.text.primary }}
+          >
+            <WaterDropOutlinedIcon />
+          </IconButton>
+          <p style={{ color: theme.palette.text.primary }}>Ink</p>
+        </MenuItem>
+      </Link>
+      <Link to="/paper">
+        <MenuItem>
+          <IconButton
+            size="large"
+            aria-label="paper"
+            sx={{ color: theme.palette.text.primary }}
+          >
+            <SendOutlinedIcon />
+          </IconButton>
+          <p style={{ color: theme.palette.text.primary }}>Paper</p>
+        </MenuItem>
+      </Link>
+      <Link to="/submit">
+        <MenuItem>
+          <IconButton
+            size="large"
+            aria-label="submit"
+            sx={{ color: theme.palette.text.primary }}
+          >
+            <WifiOutlinedIcon />
+          </IconButton>
+          <p style={{ color: theme.palette.text.primary }}>Submit</p>
+        </MenuItem>
+      </Link>
     </Menu>
   );
 
@@ -191,6 +222,7 @@ export default function PrimarySearchAppBar({
             size="large"
             edge="start"
             aria-label="open drawer"
+            onClick={handleMobileMenuOpen}
             sx={{
               mr: 2,
               color: theme.palette.text.primary,

@@ -1,6 +1,7 @@
 import LogoDrawDesktopNoWords from "./logoDrawDesktopNoWords";
 import React from "react";
 import WordDrawDesktop from "./wordDrawDesktop";
+import LogoDrawMobile from "../mobile/logoMobileDraw";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -30,6 +31,7 @@ function FullLogoDesktop() {
     <div className="flex">
       <ErrorBoundary>
         <LogoDrawDesktopNoWords />
+        <LogoDrawMobile />
         <WordDrawDesktop />
       </ErrorBoundary>
     </div>

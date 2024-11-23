@@ -1,6 +1,6 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { useTheme } from "@emotion/react";
-import { Box } from "@mui/material";
+import { Box, Dialog } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
 import HamiltonSliders from "./hamiltonSliders";
@@ -12,6 +12,16 @@ const sheen = require("../../../../assets/images/png/ink/hamilton/hamiltonSheen.
 
 export default function HamiltonReview() {
   const theme = useTheme();
+
+  const [zoomedImage, setZoomedImage] = useState(null);
+
+  const handleImageClick = (src) => {
+    setZoomedImage(src);
+  };
+
+  const handleClose = () => {
+    setZoomedImage(null);
+  };
 
   return (
     <>
@@ -112,7 +122,12 @@ export default function HamiltonReview() {
             </Box>
             <Box className="flex">
               <div className="flex column">
-                <img src={shading} className="reviewBodyImageRight" />
+                <img
+                  src={shading}
+                  onClick={() => handleImageClick(shading)}
+                  style={{ cursor: "zoom-in" }}
+                  className="reviewBodyImageRight"
+                />
                 <Typography
                   variant="body2"
                   className="textCenter flex center reviewBodyImageCaptionRight"
@@ -129,7 +144,12 @@ export default function HamiltonReview() {
           </Box>
           <Box className="flex center">
             <div className="flex column">
-              <img src={sheen} className="reviewBodyImageLeft" />
+              <img
+                src={sheen}
+                onClick={() => handleImageClick(sheen)}
+                style={{ cursor: "zoom-in" }}
+                className="reviewBodyImageLeft"
+              />
               <Typography
                 variant="body2"
                 className="textCenter flex center reviewBodyImageCaptionLeft"
@@ -219,7 +239,12 @@ export default function HamiltonReview() {
             </Box>
             <Box className="flex">
               <div className="flex column">
-                <img src={bottle} className="reviewBodyImageRight" />
+                <img
+                  src={bottle}
+                  onClick={() => handleImageClick(bottle)}
+                  style={{ cursor: "zoom-in" }}
+                  className="reviewBodyImageRight"
+                />
                 <Typography
                   variant="body2"
                   className="textCenter flex center reviewBodyImageCaptionRight"
@@ -266,7 +291,12 @@ export default function HamiltonReview() {
 
           <Box className="flex around reviewBottom">
             <div className="flex column">
-              <img src={bottle} className="reviewMorePictures" />
+              <img
+                src={bottle}
+                onClick={() => handleImageClick(bottle)}
+                style={{ cursor: "zoom-in" }}
+                className="reviewMorePictures"
+              />
               <Typography
                 variant="body2"
                 className="textCenter flex center"
@@ -279,7 +309,12 @@ export default function HamiltonReview() {
               </Typography>
             </div>
             <div className="flex column">
-              <img src={swatch} className="reviewMorePictures" />
+              <img
+                src={swatch}
+                onClick={() => handleImageClick(swatch)}
+                style={{ cursor: "zoom-in" }}
+                className="reviewMorePictures"
+              />
               <Typography
                 variant="body2"
                 className="textCenter flex center "
@@ -292,7 +327,12 @@ export default function HamiltonReview() {
               </Typography>
             </div>
             <div className="flex column">
-              <img src={bottle} className="reviewMorePictures" />
+              <img
+                src={bottle}
+                onClick={() => handleImageClick(bottle)}
+                style={{ cursor: "zoom-in" }}
+                className="reviewMorePictures"
+              />
               <Typography
                 variant="body2"
                 className="textCenter flex center"
@@ -307,6 +347,24 @@ export default function HamiltonReview() {
           </Box>
         </Box>
       </Box>
+
+      <Dialog
+        open={Boolean(zoomedImage)}
+        onClick={handleClose}
+        onClose={handleClose}
+        style={{ cursor: "zoom-out" }}
+        fullWidth
+        maxWidth="xl"
+      >
+        <img
+          src={zoomedImage || ""}
+          alt="Zoomed"
+          style={{
+            width: "100%",
+            height: "auto",
+          }}
+        />
+      </Dialog>
     </>
   );
 }

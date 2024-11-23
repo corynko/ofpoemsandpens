@@ -47,15 +47,15 @@ export default function Ink() {
       </Helmet>
 
       {/* TODO: Activate Temporary 'Coming Soon' Header For Build */}
-      <Box className="flex wrap center">
+      {/* <Box className="flex wrap center">
         <Typography
           variant="h1"
           style={{ color: theme.palette.background.inverse }}
         >
           Coming Soon!
         </Typography>
-      </Box>
-      {/* <Box className="flex wrap center">
+      </Box> */}
+      <Box className="flex wrap center">
         {inkArray.map((ink, index) => (
           <InkCard
             key={index}
@@ -67,7 +67,7 @@ export default function Ink() {
             urlAppend={ink.urlAppend}
           />
         ))}
-      </Box> */}
+      </Box>
     </>
   );
 }

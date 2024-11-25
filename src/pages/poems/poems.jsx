@@ -53,6 +53,7 @@ export default function Poems() {
             key={index}
             title={poem.title}
             image={poem.image}
+            image2={poem.image2}
             transcription={poem.transcription}
             author={poem.author}
             urlAppend={poem.urlAppend}

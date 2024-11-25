@@ -1,12 +1,14 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { useTheme } from "@emotion/react";
-import { Box, Card, Modal } from "@mui/material";
+import { Box, Card, Modal, IconButton } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { useSpring, animated } from "@react-spring/web";
 import PropTypes from "prop-types";
 import { delay, motion, stagger } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -54,10 +56,12 @@ export default function PoemCard({
   title,
   transcription,
   image,
+  image2,
   author,
   urlAppend,
 }) {
   const [open, setOpen] = React.useState(false);
+  const [currentImage, setCurrentImage] = useState(image);
   const theme = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
@@ -69,6 +73,18 @@ export default function PoemCard({
   const handleClose = () => {
     setOpen(false);
     navigate("/poems", { replace: true });
+  };
+
+  const handleNextImage = () => {
+    if (currentImage === image && image2) {
+      setCurrentImage(image2);
+    }
+  };
+
+  const handlePreviousImage = () => {
+    if (currentImage === image2) {
+      setCurrentImage(image);
+    }
   };
 
   React.useEffect(() => {
@@ -162,13 +178,33 @@ export default function PoemCard({
               color: theme.palette.background.inverse,
             }}
           >
+            <IconButton
+              sx={{
+                display: image2 ? "block" : "none",
+                marginRight: "10px",
+                color: theme.palette.text.primary,
+              }}
+              onClick={handlePreviousImage}
+            >
+              <ArrowBackIosNewIcon />
+            </IconButton>
             <Box sx={{ flexBasis: "50%", paddingRight: "20px" }}>
               <img
-                src={image}
+                src={currentImage}
                 alt={title}
                 style={{ width: "80%", height: "auto", borderRadius: "8px" }}
               />
             </Box>
+            <IconButton
+              sx={{
+                display: image2 ? "block" : "none",
+                marginLeft: "-50px",
+                color: theme.palette.text.primary,
+              }}
+              onClick={handleNextImage}
+            >
+              <ArrowForwardIosIcon />
+            </IconButton>
             <Box
               sx={{
                 flexBasis: "50%",

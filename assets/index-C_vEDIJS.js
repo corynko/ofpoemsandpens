@@ -204,7 +204,7 @@ Where dreams have gone to die:
 A river flows with waters fast,
 And on its banks sat I.
 
-Here voices float among the churn,
+Here voices float among the curls,
 And swirl o'er sand,
 And fight the swift forgetful churn:
 It's here I dip my hand.

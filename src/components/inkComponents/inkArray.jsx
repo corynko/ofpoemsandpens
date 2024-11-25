@@ -22,33 +22,33 @@ const InkArray = [
     author: "Ethan Kotel",
     urlAppend: "iroshizukuTsukiYo",
   },
-  {
-    title: "De Atramentis Alexander Hamilton",
-    description:
-      "An Enigmatic Blue to Blue-Black, Full of Mystery and Subtle Qualities",
-    image: require("../../assets/images/png/ink/hamilton/hamiltonHeader.jpg?url"),
-    content: <HamiltonReview />,
-    author: "Ethan Kotel",
-    urlAppend: "deatramentisAlexanderHamilton",
-  },
-  {
-    title: "Diamine Sherwood Green",
-    description:
-      "A forest green - actually, THE forest green - for lovers of summer pine",
-    image: require("../../assets/images/png/ink/sherwood/sherwoodHeader.jpg?url"),
-    content: <SherwoodReview />,
-    author: "Ethan Kotel",
-    urlAppend: "diamineSherwoodGreen",
-  },
-  {
-    title: "Iroshizuku Kon-Peki",
-    description:
-      "The King of Cobalts, Kon-Peki Offers an Unparalleled Writing Experience",
-    image: require("../../assets/images/png/ink/kon-peki/konPekiHeader.jpg?url"),
-    content: <KonPekiReview />,
-    author: "Ethan Kotel",
-    urlAppend: "iroshizukuKonPeki",
-  },
+  // {
+  //   title: "De Atramentis Alexander Hamilton",
+  //   description:
+  //     "An Enigmatic Blue to Blue-Black, Full of Mystery and Subtle Qualities",
+  //   image: require("../../assets/images/png/ink/hamilton/hamiltonHeader.jpg?url"),
+  //   content: <HamiltonReview />,
+  //   author: "Ethan Kotel",
+  //   urlAppend: "deatramentisAlexanderHamilton",
+  // },
+  // {
+  //   title: "Diamine Sherwood Green",
+  //   description:
+  //     "A forest green - actually, THE forest green - for lovers of summer pine",
+  //   image: require("../../assets/images/png/ink/sherwood/sherwoodHeader.jpg?url"),
+  //   content: <SherwoodReview />,
+  //   author: "Ethan Kotel",
+  //   urlAppend: "diamineSherwoodGreen",
+  // },
+  // {
+  //   title: "Iroshizuku Kon-Peki",
+  //   description:
+  //     "The King of Cobalts, Kon-Peki Offers an Unparalleled Writing Experience",
+  //   image: require("../../assets/images/png/ink/kon-peki/konPekiHeader.jpg?url"),
+  //   content: <KonPekiReview />,
+  //   author: "Ethan Kotel",
+  //   urlAppend: "iroshizukuKonPeki",
+  // },
 
   // {
   //   title: "Iroshizuku Ama-Iro",

@@ -57,6 +57,7 @@ export default function PoemCard({
   transcription,
   image,
   image2,
+  image3,
   author,
   urlAppend,
 }) {
@@ -78,12 +79,16 @@ export default function PoemCard({
   const handleNextImage = () => {
     if (currentImage === image && image2) {
       setCurrentImage(image2);
+    } else if (currentImage === image2 && image3) {
+      setCurrentImage(image3);
     }
   };
 
   const handlePreviousImage = () => {
     if (currentImage === image2) {
       setCurrentImage(image);
+    } else if (currentImage === image3) {
+      setCurrentImage(image2);
     }
   };
 

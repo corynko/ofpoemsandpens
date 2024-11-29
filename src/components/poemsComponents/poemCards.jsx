@@ -58,6 +58,7 @@ export default function PoemCard({
   image,
   image2,
   image3,
+  altText,
   author,
   urlAppend,
 }) {
@@ -145,7 +146,7 @@ export default function PoemCard({
             <CardContent sx={{ alignContent: "flexEnd", height: "600px" }}>
               <img
                 src={image}
-                alt={title}
+                alt={altText}
                 style={{
                   maxWidth: "350px",
                   height: "auto",
@@ -196,7 +197,7 @@ export default function PoemCard({
             <Box sx={{ flexBasis: "50%", paddingRight: "20px" }}>
               <img
                 src={currentImage}
-                alt={title}
+                alt={altText}
                 style={{ width: "80%", height: "auto", borderRadius: "8px" }}
               />
             </Box>

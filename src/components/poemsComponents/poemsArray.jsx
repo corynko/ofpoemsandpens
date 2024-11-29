@@ -110,7 +110,7 @@ const PoemsArray = [
     title: "The Old and the Aged",
     transcription:
       "What is it about the old, the aged,\nThe time-tempest tossed and turned, that speaks\nTo parts of me, slumbering, perhaps\nJust as ancient, waiting for release?\nWhat is it about these crumbling walls,\nThese foundations fixed fast, fixed firmly -\nThat whisper truths of belonging,\nLong after those who craved belonging here\nHave passed into memory, to live\nAmong ghosts, and the spectres who haunt\nThe darkened corners we dare not walk?\nYet within those corners, there lies\nA peculiar serenity, a\nKnowledge that what we build is timeless,\nEven if these frail, physical forms\nCan never be - a promise, a hope,\nThat some part of ourselves will survive.\nIt is here, among places so old,\nThat I feel most new, most young, that life\nFeels most worth living, worth forging a path\nTowards love, towards finding those small pieces\nOf timeless, permanent, enduring\nForces, beyond our understanding,\nThat the living still can call our own.",
-    image: require("../../assets/images/png/poems/the_old_and_aged.JPG?url"),
+    image: require("../../assets/images/png/poems/the_old_and_aged.jpg?url"),
     author: "Ethan Kotel",
     urlAppend: "aged",
   },

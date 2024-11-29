@@ -30,7 +30,7 @@ const PoemsArray = [
     title: "The Cartographer's Daughter",
     transcription:
       "I know my father\nThrough ink-stained hands and scent of parchment,\nThrough the scratch of pen and flicker of candlelight.\nI watch, enraptured, from the chair, just for me,\nAnd explore worlds, mine and mine alone.\nThat scribble, there - is that a river?\nOr a torrent of stardust, winding its way\nThrough the sky of a planet, far-off, forgotten.\nAnd this circle here, a lake?\nOr a yawning chasm, a portal\nTo depths undiscovered, unsafe, yet inviting nonetheless?\nI wonder if he's exploring too,\nBrow furrowed, glasses slowly moving down\nThe bridge of his nose.\nDoes he need them, there?\nOr does the journey through the wormhole\nCure his ailing eyes, straighten his back?\nCould he play with me, there, could he catch me,\nAs I bound over the cratered surface?\nCould we find her together, there, among the starlight,\nAnd would her hair still fall, soft, round her shoulders,\nThe color of Twin Suns, overhead?\nCould she play with us, there, as she once did,\nTogether, inseparable, eternal,\nBonded together, as the atoms in the soil?\nI know where I am, in this chair, just for me,\nAnd I know that he's there by the scratch of the pen,\nBut my eyes, always searching, in the candlelight's flicker:\nEach tiny mark made, is she there?",
-    image: require("../../assets/images/png/poems/cartographer.JPG?url"),
+    image: require("../../assets/images/png/poems/cartographer.jpg?url"),
     author: "Ethan Kotel",
     urlAppend: "cartographer",
   },

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import headerLight from "../../assets/images/png/writingDesk.jpg";
 import headerDark from "../../assets/images/png/writingDeskDark.jpg";
-import { Box } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useTheme } from "@mui/material/styles";
 
@@ -48,11 +48,6 @@ const HomePage = () => {
   };
   return (
     <>
-      {/* <img
-        src={currentImage}
-        style={{ opacity: fade ? 0.25 : 1, transition: "opacity 0.5s linear" }}
-        className="homeHeaderPic"
-      /> */}
       <div>
         <Box
           sx={{
@@ -123,7 +118,6 @@ const HomePage = () => {
             paddingBottom: "40px",
             color: textColor,
             transition: "color 1s ease-in",
-            // backgroundColor: "#33333311",
             borderRadius: "50px",
           }}
         >
@@ -144,32 +138,29 @@ const HomePage = () => {
                       poetry
                     </span>{" "}
                   </h2>
-                  <div className="flex row between">
-                    <a href="/#/poems">
-                      <h3>poems</h3>
-                    </a>
-                    <a href="/#/pens">
-                      <h3>pens</h3>
-                    </a>
-                    <a href="/#/ink">
-                      <h3>ink</h3>
-                    </a>
-                    <a href="/#/paper">
-                      <h3>paper</h3>
-                    </a>
-                    <a href="/#/submit">
-                      <h3>submit</h3>
-                    </a>
+                  <div className="flex homeHeaderButtons between">
+                    <Button id="homeHeaderButton" href="/#/poems">
+                      <Typography variant="h6">poems</Typography>
+                    </Button>
+                    <Button id="homeHeaderButton" href="/#/pens">
+                      <Typography variant="h6">pens</Typography>
+                    </Button>
+                    <Button id="homeHeaderButton" href="/#/ink">
+                      <Typography variant="h6">ink</Typography>
+                    </Button>
+                    <Button id="homeHeaderButton" href="/#/paper">
+                      <Typography variant="h6">paper</Typography>
+                    </Button>
+                    <Button id="homeHeaderButton" href="/#/submit">
+                      <Typography variant="h6">submit</Typography>
+                    </Button>
                   </div>
                 </span>
                 <h3>
                   poetry posted here currently is my own - however, if you would
                   like to contribute, I welcome it! Click the submit button
                   above and fill out the form to submit your poem. Handwritten
-                  poetry is preferred but not required. This site is also in
-                  active development, and is open source. If you would like to
-                  play around with the code, check out the repo{" "}
-                  <a href="https://github.com/corynko/ofpoemsandpens">here</a>.
+                  poetry is preferred but not required.
                 </h3>
               </div>
             </div>

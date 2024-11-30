@@ -11,10 +11,6 @@
   --chouKuro: #1d1c1e;
 }
 
-/* .main-content {
-  margin-top: 150px;
-} */
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -31,11 +27,6 @@
 body {
   transition: background-color 2s, color 0.75s;
   width: 100%;
-}
-
-.homeHeaderText {
-  /* backdrop-filter: brightness(0%); */
-  /* backdrop-filter: brightness(75%); */
 }
 
 .poemsBody {
@@ -168,8 +159,21 @@ p {
   max-width: 100vw;
   top: 0;
   left: 0;
-  /* max-height: 45vh; */
   object-fit: cover;
+}
+
+#homeHeaderButton {
+  background-color: #38308ebc;
+  border-radius: 12px;
+  color: #f6f7eb;
+  margin-right: 10px;
+  width: 100px;
+  height: 50px;
+  flex-wrap: wrap;
+  transition: all 0.5s ease-out;
+}
+#homeHeaderButton:hover {
+  background-color: var(--shinRyoku);
 }
 
 .appBar {
@@ -246,12 +250,36 @@ p {
   padding: 2em;
 }
 
+/* #homeHeaderGithub {
+  color: #1d1c1e;
+} */
+
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
 
+@media only screen and (min-width: 1000px) {
+  .logoDesktop {
+    display: flex;
+  }
+  .logoWordDesktop {
+    display: flex;
+  }
+  .logoMobile {
+    display: none;
+  }
+  #homeHeaderBox {
+    display: block;
+    place-items: end;
+    place-content: end;
+    right: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    /* margin-top: 100px; */
+  }
+}
 @media only screen and (max-width: 1000px) {
   .logoDesktop {
     display: none;
@@ -262,6 +290,14 @@ p {
   .logoMobile {
     display: flex;
     scale: 1.3;
+  }
+  #homeHeaderBox {
+    display: block;
+    place-items: center;
+    place-content: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    /* margin-top: 100px; */
   }
 }
 @media only screen and (max-width: 600px) {
@@ -275,15 +311,17 @@ p {
     display: none;
     scale: 1.3;
   }
-}
-@media only screen and (min-width: 1000px) {
-  .logoDesktop {
-    display: flex;
+  .homeHeaderButtons {
+    flex-direction: column;
   }
-  .logoWordDesktop {
-    display: flex;
+  #homeHeaderButton {
+    margin-bottom: 10px;
   }
-  .logoMobile {
-    display: none;
+  #homeHeaderBox {
+    display: block;
+    place-items: center;
+    place-content: end;
+    min-width: 100vw;
+    min-height: 100vh;
   }
 }

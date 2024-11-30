@@ -42,7 +42,7 @@ function App() {
         <BackgroundImage />
         <Router>
           <Nav />
-          <Box className="main-content">
+          <Box>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/ink" element={<Ink />} />

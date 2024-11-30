@@ -47,7 +47,7 @@ export default function Poems() {
         <meta property="og:type" content="article" />
       </Helmet>
 
-      <Box className="flex wrap center">
+      <Box className="flex wrap poemsBody center">
         {poemsArray.map((poem, index) => (
           <PoemCard
             key={index}

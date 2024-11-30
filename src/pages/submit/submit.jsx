@@ -245,165 +245,168 @@ const Submit = () => {
 
   return (
     <>
-      <Box
-        className="flex center"
-        sx={{
-          zIndex: 5,
-          maxWidth: "80vw",
-          marginTop: "20px",
-          padding: "20px 40px",
-          color: textColor,
-          transition: "color 1s ease-in",
-          backgroundColor: "#33333311",
-          borderRadius: "50px",
-        }}
-      >
-        <motion.div
-          className="flex column center"
-          variants={divVariants}
-          initial="initial"
-          animate="animate"
+      <div className="main-content">
+        <Box
+          className="flex mTop250 center"
+          sx={{
+            zIndex: 5,
+            maxWidth: "80vw",
+            padding: "20px 40px",
+            color: textColor,
+            transition: "color 1s ease-in",
+            backgroundColor: "#33333311",
+            borderRadius: "50px",
+          }}
         >
-          <div className="flex max50 column alignCenter">
-            <h1>submit</h1>
-            <div className="flex wrap textCenter">
-              <h3>
-                <span className="midSentenceBold">
-                  Want your poems to be featured here? Have a request for a
-                  review, question, or comment? Submit them here, and I will get
-                  back to you as soon as I can.
-                </span>{" "}
-              </h3>
-            </div>
-          </div>
-          <form ref={form} name="submissionForm" onSubmit={sendEmail}>
-            <div className="p25 wrap flex between">
-              <TextField
-                required
-                id="outlined-required-name"
-                label="Name"
-                defaultValue="Jillian Smithenski"
-                style={{ width: "225px" }}
-                name="from_name"
-              />
-              <TextField
-                required
-                id="outlined-required-email"
-                label="Email"
-                defaultValue="jsmithenski@poems.ua"
-                style={{ width: "225px" }}
-                name="from_email"
-              />
-            </div>
-            <div className="p25 wrap flex between">
-              <TextField
-                select
-                id="outlined-select-submissionType"
-                label="What Are You Submitting?"
-                defaultValue="Poetry"
-                style={{ width: "225px" }}
-                name="submission_type"
-              >
-                {currencies.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-              <TextField
-                multiline
-                required
-                id="outlined-multiline-submission"
-                label="Message"
-                defaultValue="Hello there!"
-                style={{ width: "225px" }}
-                name="message"
-              />
-            </div>
-            <div className="center flex column">
-              <p style={{ maxWidth: "600px", textAlign: "center" }}>
-                // if submitting a poem, please upload a picture of it below \\
-              </p>
-              <Button
-                component="label"
-                role={undefined}
-                variant="contained"
-                tabIndex={-1}
-                startIcon={<CloudUploadIcon />}
-                sx={{
-                  color: textColor,
-                  backgroundColor: theme.palette.button.default,
-                  transition:
-                    "color 0.6s ease-in, background-color 0.5s ease-out",
-                  "&:hover": {
-                    color: theme.palette.button.textColor,
-                    backgroundColor: theme.palette.button.backgroundColor,
-                    transition:
-                      "color 0.5s ease-out, background-color 0.5s ease-out, filter 1s ease-out",
-                  },
-                  "&:active": {
-                    filter: "drop-shadow(0 0 0.5em #646cffaa)",
-                    transition: "filter 1s ease-out",
-                  },
-                }}
-              >
-                Upload Photo
-                <VisuallyHiddenInput
-                  type="file"
-                  onChange={handleFileSelect}
-                  multiple
-                  id="inputfile"
-                />
-              </Button>
-              {selectedFile && (
-                <>
-                  <CloudDone sx={{ marginY: "7px" }} />
-                  <Typography variant="body1">
-                    <strong>Selected File:</strong> {selectedFile}
-                  </Typography>
-                </>
-              )}
-              <p style={{ maxWidth: "400px", textAlign: "center" }}>
-                // in your message, please include the author's name (if
-                different from your name), and, if desired, your social media
-                handle \\
-              </p>
-            </div>
-          </form>
-          <p className="">* - required field</p>
-          <Button
-            className="navLink"
-            onClick={sendEmail}
-            type="submit"
-            variant="contained"
-            value="Send"
-            sx={{
-              marginX: "2rem",
-              paddingX: "2rem",
-              fontWeight: 300,
-              fontSize: "130%",
-              fontFamily: "GothamLight",
-              whiteSpace: "nowrap",
-              flexGrow: 1,
-              color: textColor,
-              backgroundColor: theme.palette.button.default,
-              transition: "color 0.6s ease-in, background-color 0.5s ease-out",
-              "&:hover": {
-                color: theme.palette.button.textColor,
-                backgroundColor: theme.palette.button.backgroundColor,
-                transition:
-                  "color 0.5s ease-out, background-color 0.5s ease-out, filter 1s ease-out",
-              },
-              "&:active": {
-                filter: "drop-shadow(0 0 0.5em #646cffaa)",
-                transition: "filter 1s ease-out",
-              },
-            }}
+          <motion.div
+            className="flex column center"
+            variants={divVariants}
+            initial="initial"
+            animate="animate"
           >
-            Submit
-          </Button>
-        </motion.div>
-      </Box>
+            <div className="flex max50 column alignCenter">
+              <h1>submit</h1>
+              <div className="flex wrap textCenter">
+                <h3>
+                  <span className="midSentenceBold">
+                    Want your poems to be featured here? Have a request for a
+                    review, question, or comment? Submit them here, and I will
+                    get back to you as soon as I can.
+                  </span>{" "}
+                </h3>
+              </div>
+            </div>
+            <form ref={form} name="submissionForm" onSubmit={sendEmail}>
+              <div className="p25 wrap flex between">
+                <TextField
+                  required
+                  id="outlined-required-name"
+                  label="Name"
+                  defaultValue="Jillian Smithenski"
+                  style={{ width: "225px" }}
+                  name="from_name"
+                />
+                <TextField
+                  required
+                  id="outlined-required-email"
+                  label="Email"
+                  defaultValue="jsmithenski@poems.ua"
+                  style={{ width: "225px" }}
+                  name="from_email"
+                />
+              </div>
+              <div className="p25 wrap flex between">
+                <TextField
+                  select
+                  id="outlined-select-submissionType"
+                  label="What Are You Submitting?"
+                  defaultValue="Poetry"
+                  style={{ width: "225px" }}
+                  name="submission_type"
+                >
+                  {currencies.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+                <TextField
+                  multiline
+                  required
+                  id="outlined-multiline-submission"
+                  label="Message"
+                  defaultValue="Hello there!"
+                  style={{ width: "225px" }}
+                  name="message"
+                />
+              </div>
+              <div className="center flex column">
+                <p style={{ maxWidth: "600px", textAlign: "center" }}>
+                  // if submitting a poem, please upload a picture of it below
+                  \\
+                </p>
+                <Button
+                  component="label"
+                  role={undefined}
+                  variant="contained"
+                  tabIndex={-1}
+                  startIcon={<CloudUploadIcon />}
+                  sx={{
+                    color: textColor,
+                    backgroundColor: theme.palette.button.default,
+                    transition:
+                      "color 0.6s ease-in, background-color 0.5s ease-out",
+                    "&:hover": {
+                      color: theme.palette.button.textColor,
+                      backgroundColor: theme.palette.button.backgroundColor,
+                      transition:
+                        "color 0.5s ease-out, background-color 0.5s ease-out, filter 1s ease-out",
+                    },
+                    "&:active": {
+                      filter: "drop-shadow(0 0 0.5em #646cffaa)",
+                      transition: "filter 1s ease-out",
+                    },
+                  }}
+                >
+                  Upload Photo
+                  <VisuallyHiddenInput
+                    type="file"
+                    onChange={handleFileSelect}
+                    multiple
+                    id="inputfile"
+                  />
+                </Button>
+                {selectedFile && (
+                  <>
+                    <CloudDone sx={{ marginY: "7px" }} />
+                    <Typography variant="body1">
+                      <strong>Selected File:</strong> {selectedFile}
+                    </Typography>
+                  </>
+                )}
+                <p style={{ maxWidth: "400px", textAlign: "center" }}>
+                  // in your message, please include the author's name (if
+                  different from your name), and, if desired, your social media
+                  handle \\
+                </p>
+              </div>
+            </form>
+            <p className="">* - required field</p>
+            <Button
+              className="navLink"
+              onClick={sendEmail}
+              type="submit"
+              variant="contained"
+              value="Send"
+              sx={{
+                marginX: "2rem",
+                paddingX: "2rem",
+                fontWeight: 300,
+                fontSize: "130%",
+                fontFamily: "GothamLight",
+                whiteSpace: "nowrap",
+                flexGrow: 1,
+                color: textColor,
+                backgroundColor: theme.palette.button.default,
+                transition:
+                  "color 0.6s ease-in, background-color 0.5s ease-out",
+                "&:hover": {
+                  color: theme.palette.button.textColor,
+                  backgroundColor: theme.palette.button.backgroundColor,
+                  transition:
+                    "color 0.5s ease-out, background-color 0.5s ease-out, filter 1s ease-out",
+                },
+                "&:active": {
+                  filter: "drop-shadow(0 0 0.5em #646cffaa)",
+                  transition: "filter 1s ease-out",
+                },
+              }}
+            >
+              Submit
+            </Button>
+          </motion.div>
+        </Box>
+      </div>
     </>
   );
 };

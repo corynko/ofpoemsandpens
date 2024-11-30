@@ -6,7 +6,7 @@ export default function Paper() {
 
   return (
     <>
-      <Box className="flex wrap center">
+      <Box className="flex main-content wrap center">
         <Typography
           style={{ color: theme.palette.background.inverse }}
           variant="h1"

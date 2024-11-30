@@ -33,7 +33,7 @@ const BackgroundImage = () => {
         height: "100vh",
         overflow: "hidden",
         position: "fixed",
-        zIndex: -1,
+        zIndex: -5,
       }}
     >
       <Box
@@ -47,7 +47,7 @@ const BackgroundImage = () => {
           left: 0,
           width: "100vw",
           height: "100vh",
-          zIndex: -1,
+          zIndex: -5,
           opacity: fade ? 0 : 1,
           filter: "saturate(0%)",
           transitionDelay: "3s",
@@ -71,7 +71,7 @@ const BackgroundImage = () => {
           left: 0,
           width: "100vw",
           height: "100vh",
-          zIndex: -1,
+          zIndex: -5,
           filter: "saturate(0%)",
           opacity: fade ? 1 : 0,
 

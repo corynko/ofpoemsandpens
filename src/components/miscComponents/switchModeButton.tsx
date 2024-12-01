@@ -1,8 +1,6 @@
 import { Box, IconButton, useTheme } from "@mui/material";
 import DarkIcon from "@mui/icons-material/Brightness4";
 import LightIcon from "@mui/icons-material/Nightlight";
-import { useContext } from "react";
-
 import { useColorContext } from "../../contexts/ColorContext";
 
 export const SwitchModeButton = () => {

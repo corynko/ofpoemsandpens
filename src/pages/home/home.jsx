@@ -22,26 +22,18 @@ const HomePage = () => {
       ? theme.palette.background.default
       : theme.palette.background.default;
 
-  // console.log(mode);
-  // console.log(isUserToggled);
   useEffect(() => {
-    console.log("isUserToggled:", isUserToggled);
-
     if (isUserToggled) {
-      console.log("User toggle detected, initiating fade...");
       setFade(true);
 
       const timeout = setTimeout(() => {
         setCurrentImage(mode === "light" ? headerLight : headerDark);
         setFade(false);
-        console.log("Fade complete, resetting toggle...");
         resetUserToggle();
-        console.log(isUserToggled);
       }, 750);
 
       return () => clearTimeout(timeout);
     } else {
-      console.log("else");
       setCurrentImage(mode === "light" ? headerLight : headerDark);
     }
   }, [mode, isUserToggled]);

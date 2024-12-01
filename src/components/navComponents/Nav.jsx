@@ -7,7 +7,6 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { color } from "framer-motion";
 import { Link } from "@mui/material";
 
 export default function Nav() {
@@ -47,7 +46,7 @@ export default function Nav() {
               </Box>
             </Box>
 
-            {/* This ensures that the SwitchModeButton remains on the right */}
+            {/* this ensures that the SwitchModeButton remains on the right */}
             <Box
               sx={{
                 display: "flex",

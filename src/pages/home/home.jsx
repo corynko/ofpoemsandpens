@@ -4,37 +4,47 @@ import headerDark from "../../assets/images/png/writingDeskDark.jpg";
 import { Box, Button, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useTheme } from "@mui/material/styles";
+import { useColorContext } from "../../contexts/ColorContext";
 
 const HomePage = () => {
-  const theme = useTheme(); // Access the theme
-  const themeMode = theme.palette.mode;
-
+  const theme = useTheme();
+  const { mode, isUserToggled, resetUserToggle } = useColorContext();
+  const [currentImage, setCurrentImage] = useState(
+    mode === "light" ? headerLight : headerDark
+  );
+  const [fade, setFade] = useState(false);
   const textColor =
-    themeMode === "light"
+    mode === "light"
       ? theme.palette.background.inverse
       : theme.palette.background.inverse;
   const textContrast =
-    themeMode === "light"
+    mode === "light"
       ? theme.palette.background.default
       : theme.palette.background.default;
 
-  const [currentImage, setCurrentImage] = useState(
-    theme.palette.mode === "light" ? headerLight : headerDark
-  );
-  const [fade, setFade] = useState(false);
-
+  // console.log(mode);
+  // console.log(isUserToggled);
   useEffect(() => {
-    setFade(true);
+    console.log("isUserToggled:", isUserToggled);
 
-    const timeout = setTimeout(() => {
-      setCurrentImage(
-        theme.palette.mode === "light" ? headerLight : headerDark
-      );
-      setFade(false);
-    }, 750);
+    if (isUserToggled) {
+      console.log("User toggle detected, initiating fade...");
+      setFade(true);
 
-    return () => clearTimeout(timeout);
-  }, [theme.palette.mode]);
+      const timeout = setTimeout(() => {
+        setCurrentImage(mode === "light" ? headerLight : headerDark);
+        setFade(false);
+        console.log("Fade complete, resetting toggle...");
+        resetUserToggle();
+        console.log(isUserToggled);
+      }, 750);
+
+      return () => clearTimeout(timeout);
+    } else {
+      console.log("else");
+      setCurrentImage(mode === "light" ? headerLight : headerDark);
+    }
+  }, [mode, isUserToggled]);
 
   let divVariants = {
     initial: { opacity: 0 },

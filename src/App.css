@@ -173,7 +173,7 @@ p {
   transition: all 0.5s ease-out;
 }
 #homeHeaderButton:hover {
-  background-color: var(--shinRyoku);
+  background-color: var(--konPeki);
 }
 
 .appBar {

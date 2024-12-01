@@ -18,7 +18,7 @@ import { darkTheme } from "./themes/dark";
 import BackgroundImage from "./components/miscComponents/backgroundImage";
 import { AppBar, createTheme, ThemeProvider, Box } from "@mui/material";
 import Nav from "./components/navComponents/Nav";
-import { ColorContext } from "./contexts/ColorContext";
+import { useColorContext, ColorProvider } from "./contexts/ColorContext";
 
 function App() {
   const [mode, setMode] = React.useState("light");
@@ -37,7 +37,7 @@ function App() {
   );
 
   return (
-    <ColorContext.Provider value={colorMode}>
+    <ColorProvider>
       <ThemeProvider theme={theme}>
         <BackgroundImage />
         <Router>
@@ -57,7 +57,7 @@ function App() {
           </Box>
         </Router>
       </ThemeProvider>
-    </ColorContext.Provider>
+    </ColorProvider>
   );
 }
 

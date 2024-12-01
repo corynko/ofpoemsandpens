@@ -80,7 +80,7 @@ const HomePage = () => {
         <Box
           sx={{
             backgroundColor:
-              theme.palette.mode === "light" ? "#ffffff88" : "#22222288",
+              theme.palette.mode === "light" ? "#fecb8388" : "#22222288",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",

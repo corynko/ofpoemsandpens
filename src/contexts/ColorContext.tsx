@@ -5,11 +5,15 @@ import React, {
   ReactNode,
   useContext,
 } from "react";
+import { createTheme, ThemeProvider } from "@mui/material";
+import { lightTheme } from "../themes/light";
+import { darkTheme } from "../themes/dark";
 
 type ColorModeContextType = {
   toggleColorMode: (isUserInitiated?: boolean) => void;
   mode: "light" | "dark";
   isUserToggled: boolean;
+  resetUserToggle: () => void;
 };
 
 export const ColorContext = createContext<ColorModeContextType | null>(null);
@@ -22,27 +26,30 @@ export const ColorProvider: React.FC<ColorProviderProps> = ({ children }) => {
   const [mode, setMode] = useState<"light" | "dark">("light");
   const [isUserToggled, setIsUserToggled] = useState(false);
 
+  const theme = useMemo(
+    () => createTheme(mode === "light" ? lightTheme : darkTheme),
+    [mode]
+  );
+
   const colorMode = useMemo(
     () => ({
       mode,
       isUserToggled,
       toggleColorMode: (isUserInitiated: boolean = false) => {
         if (isUserInitiated) {
-          console.log("User-initiated toggle triggered.");
           setIsUserToggled(true);
         }
         setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
       },
-      resetUserToggle: () => {
-        console.log("Resetting user toggle flag...");
-        setIsUserToggled(false); // Explicitly reset the flag here
-      },
+      resetUserToggle: () => setIsUserToggled(false),
     }),
     [mode, isUserToggled]
   );
 
   return (
-    <ColorContext.Provider value={colorMode}>{children}</ColorContext.Provider>
+    <ColorContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </ColorContext.Provider>
   );
 };
 

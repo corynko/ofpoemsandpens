@@ -21,42 +21,40 @@ import Nav from "./components/navComponents/Nav";
 import { useColorContext, ColorProvider } from "./contexts/ColorContext";
 
 function App() {
-  const [mode, setMode] = React.useState("light");
-  const colorMode = React.useMemo(
-    () => ({
-      toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-      },
-    }),
-    []
-  );
+  // const [mode, setMode] = React.useState("light");
+  // const colorMode = React.useMemo(
+  //   () => ({
+  //     toggleColorMode: () => {
+  //       setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+  //     },
+  //   }),
+  //   []
+  // );
 
-  const theme = React.useMemo(
-    () => createTheme(mode === "light" ? lightTheme : darkTheme),
-    [mode]
-  );
+  // const theme = React.useMemo(
+  //   () => createTheme(mode === "light" ? lightTheme : darkTheme),
+  //   [mode]
+  // );
 
   return (
     <ColorProvider>
-      <ThemeProvider theme={theme}>
-        <BackgroundImage />
-        <Router>
-          <Nav />
-          <Box>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/ink" element={<Ink />} />
-              <Route path="/ink/:inkId" element={<Ink />} />
-              <Route path="/paper" element={<Paper />} />
-              <Route path="/pens" element={<Pens />} />
-              <Route path="/submit" element={<Submit />} />
-              <Route path="/poems" element={<Poems />} />
-              <Route path="/poems/:poemId" element={<Poems />} />
-              <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
-          </Box>
-        </Router>
-      </ThemeProvider>
+      <BackgroundImage />
+      <Router>
+        <Nav />
+        <Box>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/ink" element={<Ink />} />
+            <Route path="/ink/:inkId" element={<Ink />} />
+            <Route path="/paper" element={<Paper />} />
+            <Route path="/pens" element={<Pens />} />
+            <Route path="/submit" element={<Submit />} />
+            <Route path="/poems" element={<Poems />} />
+            <Route path="/poems/:poemId" element={<Poems />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Box>
+      </Router>
     </ColorProvider>
   );
 }

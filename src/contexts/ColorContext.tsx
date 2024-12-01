@@ -1,28 +1,62 @@
-import React, { useState, useMemo } from "react";
+import React, {
+  createContext,
+  useState,
+  useMemo,
+  ReactNode,
+  useContext,
+} from "react";
+import { createTheme, ThemeProvider } from "@mui/material";
+import { lightTheme } from "../themes/light";
+import { darkTheme } from "../themes/dark";
 
-interface ColorContextSchema {
-  toggleColorMode: () => void;
+type ColorModeContextType = {
+  toggleColorMode: (isUserInitiated?: boolean) => void;
   mode: "light" | "dark";
-}
+  isUserToggled: boolean;
+  resetUserToggle: () => void;
+};
 
-export const ColorContext = React.createContext<ColorContextSchema>(
-  {} as ColorContextSchema
-);
+export const ColorContext = createContext<ColorModeContextType | null>(null);
 
-export const ColorContextProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+type ColorProviderProps = {
+  children: ReactNode;
+};
+
+export const ColorProvider: React.FC<ColorProviderProps> = ({ children }) => {
   const [mode, setMode] = useState<"light" | "dark">("light");
+  const [isUserToggled, setIsUserToggled] = useState(false);
 
-  const toggleColorMode = () => {
-    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-  };
+  const theme = useMemo(
+    () => createTheme(mode === "light" ? lightTheme : darkTheme),
+    [mode]
+  );
 
-  const contextValue = useMemo(() => ({ mode, toggleColorMode }), [mode]);
+  const colorMode = useMemo(
+    () => ({
+      mode,
+      isUserToggled,
+      toggleColorMode: (isUserInitiated: boolean = false) => {
+        if (isUserInitiated) {
+          setIsUserToggled(true);
+        }
+        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+      },
+      resetUserToggle: () => setIsUserToggled(false),
+    }),
+    [mode, isUserToggled]
+  );
 
   return (
-    <ColorContext.Provider value={contextValue}>
-      {children}
+    <ColorContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </ColorContext.Provider>
   );
+};
+
+export const useColorContext = (): ColorModeContextType => {
+  const context = useContext(ColorContext);
+  if (!context) {
+    throw new Error("useColorContext must be used within a ColorProvider");
+  }
+  return context;
 };

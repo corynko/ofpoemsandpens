@@ -97,28 +97,26 @@ export default function PrimarySearchAppBar({
   };
 
   const menuId = "primary-search-account-menu";
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
+  // const renderMenu = (
+  //   <Menu
+  //     anchorEl={anchorEl}
+  //     anchorOrigin={{
+  //       vertical: "top",
+  //       horizontal: "right",
+  //     }}
+  //     id={menuId}
+  //     keepMounted
+  //     transformOrigin={{
+  //       vertical: "top",
+  //       horizontal: "right",
+  //     }}
+  //     open={isMenuOpen}
+  //     onClose={handleMenuClose}
+  //   >
+  //   </Menu>
+  // );
 
-  const mobileMenuId = "primary-search-account-menu-mobile";
+  const mobileMenuId = "appBarMenu";
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
@@ -218,6 +216,7 @@ export default function PrimarySearchAppBar({
             edge="start"
             aria-label="open drawer"
             onClick={handleMobileMenuOpen}
+            id="appBarMenu"
             sx={{
               mr: 2,
               color: theme.palette.text.primary,
@@ -245,7 +244,7 @@ export default function PrimarySearchAppBar({
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-      {renderMenu}
+      {/* {renderMenu} */}
     </Box>
   );
 }

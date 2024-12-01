@@ -4,37 +4,39 @@ import headerDark from "../../assets/images/png/writingDeskDark.jpg";
 import { Box, Button, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useTheme } from "@mui/material/styles";
+import { useColorContext } from "../../contexts/ColorContext";
 
 const HomePage = () => {
-  const theme = useTheme(); // Access the theme
-  const themeMode = theme.palette.mode;
-
+  const theme = useTheme();
+  const { mode, isUserToggled, resetUserToggle } = useColorContext();
+  const [currentImage, setCurrentImage] = useState(
+    mode === "light" ? headerLight : headerDark
+  );
+  const [fade, setFade] = useState(false);
   const textColor =
-    themeMode === "light"
+    mode === "light"
       ? theme.palette.background.inverse
       : theme.palette.background.inverse;
   const textContrast =
-    themeMode === "light"
+    mode === "light"
       ? theme.palette.background.default
       : theme.palette.background.default;
 
-  const [currentImage, setCurrentImage] = useState(
-    theme.palette.mode === "light" ? headerLight : headerDark
-  );
-  const [fade, setFade] = useState(false);
-
   useEffect(() => {
-    setFade(true);
+    if (isUserToggled) {
+      setFade(true);
 
-    const timeout = setTimeout(() => {
-      setCurrentImage(
-        theme.palette.mode === "light" ? headerLight : headerDark
-      );
-      setFade(false);
-    }, 750);
+      const timeout = setTimeout(() => {
+        setCurrentImage(mode === "light" ? headerLight : headerDark);
+        setFade(false);
+        resetUserToggle();
+      }, 750);
 
-    return () => clearTimeout(timeout);
-  }, [theme.palette.mode]);
+      return () => clearTimeout(timeout);
+    } else {
+      setCurrentImage(mode === "light" ? headerLight : headerDark);
+    }
+  }, [mode, isUserToggled]);
 
   let divVariants = {
     initial: { opacity: 0 },
@@ -70,7 +72,7 @@ const HomePage = () => {
         <Box
           sx={{
             backgroundColor:
-              theme.palette.mode === "light" ? "#ffffff88" : "#22222288",
+              theme.palette.mode === "light" ? "#fecb8388" : "#22222288",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",

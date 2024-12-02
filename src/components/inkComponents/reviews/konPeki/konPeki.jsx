@@ -6,9 +6,13 @@ import Typography from "@mui/material/Typography";
 import KonPekiSliders from "./konPekiSliders";
 
 const bottle = require("../../../../assets/images/png/ink/kon-peki/konPekiHeader.jpg?url");
-const shading = require("../../../../assets/images/png/ink/kon-peki/konPekiShading.jpg?url");
+const shading = require("../../../../assets/images/png/ink/kon-peki/konPekiShading1.jpg?url");
 const shading2 = require("../../../../assets/images/png/ink/kon-peki/konPekiShading2.jpg?url");
 const swatch = require("../../../../assets/images/png/ink/kon-peki/konPekiSwatch.jpg?url");
+const sheen2 = require("../../../../assets/images/png/ink/kon-peki/konPekiSheen2.jpg?url");
+const tomoe1 = require("../../../../assets/images/png/ink/kon-peki/konPekiTomoe1.jpg?url");
+const takasago1 = require("../../../../assets/images/png/ink/kon-peki/konPekiTakasago1.jpg?url");
+const detail = require("../../../../assets/images/png/ink/kon-peki/konPekiDetail.jpg?url");
 
 export default function KonPekiReview() {
   const theme = useTheme();
@@ -42,10 +46,10 @@ export default function KonPekiReview() {
             of cobalt
           </Typography>
         </Box>
-        <Box className="flex column textStart alignStart">
-          <Box className="flex center">
+        <Box className="flex reviewBodyContent textStart alignStart">
+          <Box className="flex reviewBodyContent2 center">
             <img src={bottle} className="reviewBodyImageHead" />
-            <Box className="flex column textStart alignStart">
+            <Box className="flex reviewBodyContent textStart alignStart">
               <Typography variant="body1" className="reviewBody">
                 I am far, far, far from the first to do a review of Kon-Peki,
                 the brilliant royal blue from Pilot's esteemed line of
@@ -78,8 +82,8 @@ export default function KonPekiReview() {
           <Box className="flex column between">
             <KonPekiSliders />
           </Box>
-          <Box className="flex center">
-            <Box className="flex column textStart alignStart">
+          <Box className="flex reviewBodyContent2 center">
+            <Box className="flex column reviewTextMobile textStart alignStart">
               <Typography variant="h4" className="reviewTitle">
                 Color
               </Typography>
@@ -118,11 +122,11 @@ export default function KonPekiReview() {
                 mainstay in my rotation.
               </Typography>
             </Box>
-            <Box className="flex">
+            <Box className="flex reviewBodyContent2">
               <div className="flex column">
                 <img
-                  src={shading}
-                  onClick={() => handleImageClick(shading)}
+                  src={shading2}
+                  onClick={() => handleImageClick(shading2)}
                   style={{ cursor: "zoom-in" }}
                   className="reviewBodyImageRight"
                 />
@@ -134,16 +138,17 @@ export default function KonPekiReview() {
                     transition: "color 0.75s ease-in-out",
                   }}
                 >
-                  tomoe river 's' paper, pilot custom 823 medium
+                  a blue-lover's blue, pilot custom 912 waverly, cosmo air light
+                  paper
                 </Typography>
               </div>
             </Box>
           </Box>
-          <Box className="flex center">
+          <Box className="flex reviewBodyContent2 center">
             <div className="flex column">
               <img
-                src={bottle}
-                onClick={() => handleImageClick(bottle)}
+                src={sheen2}
+                onClick={() => handleImageClick(sheen2)}
                 style={{ cursor: "zoom-in" }}
                 className="reviewBodyImageLeft"
               />
@@ -155,11 +160,11 @@ export default function KonPekiReview() {
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                passepied cream paper, pilot custom 823 medium, fluorescent
-                light
+                small bit of pink sheen in direct light, pilot custom 912
+                waverly, cosmo air light paper
               </Typography>
             </div>
-            <Box className="flex column textStart alignStart">
+            <Box className="flex column reviewTextMobile textStart alignStart">
               <Typography variant="h4" className="reviewTitle">
                 Performance
               </Typography>
@@ -198,8 +203,8 @@ export default function KonPekiReview() {
               </Typography>
             </Box>
           </Box>
-          <Box className="flex center">
-            <Box className="flex column textStart alignStart">
+          <Box className="flex reviewBodyContent2 center">
+            <Box className="flex column reviewTextMobile textStart alignStart">
               <Typography variant="h4" className="reviewTitle">
                 Other Comments
               </Typography>
@@ -244,8 +249,8 @@ export default function KonPekiReview() {
             <Box className="flex">
               <div className="flex column">
                 <img
-                  src={bottle}
-                  onClick={() => handleImageClick(bottle)}
+                  src={tomoe1}
+                  onClick={() => handleImageClick(tomoe1)}
                   style={{ cursor: "zoom-in" }}
                   className="reviewBodyImageRight"
                 />
@@ -257,12 +262,12 @@ export default function KonPekiReview() {
                     transition: "color 0.75s ease-in-out",
                   }}
                 >
-                  tomoe river 's' paper, pilot custom 823 medium, lamp-light
+                  tomoe river 's' paper, pilot custom 912 waverly
                 </Typography>
               </div>
             </Box>
           </Box>
-          <Box className="flex column">
+          <Box className="flex reviewInConclusion column">
             <Box className="flex column alignCenter">
               <Typography variant="h4" className="reviewTitle">
                 In Conclusion
@@ -301,11 +306,11 @@ export default function KonPekiReview() {
             </Box>
           </Box>
 
-          <Box className="flex around reviewBottom">
-            <div className="flex column">
+          <Box className="flex around reviewBodyContent2 reviewBottom">
+            <div className="flex reviewBottomImages column">
               <img
-                src={bottle}
-                onClick={() => handleImageClick(bottle)}
+                src={takasago1}
+                onClick={() => handleImageClick(takasago1)}
                 style={{ cursor: "zoom-in" }}
                 className="reviewMorePictures"
               />
@@ -317,19 +322,19 @@ export default function KonPekiReview() {
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                tomoe river 's' paper, pilot custom 823 medium, lamp-light
+                takasago premium bank paper, pilot custom 912 waverly
               </Typography>
             </div>
-            <div className="flex column">
+            <div className="flex reviewBottomImages column">
               <img
                 src={swatch}
                 onClick={() => handleImageClick(swatch)}
                 style={{ cursor: "zoom-in" }}
-                className="reviewMorePictures"
+                className="reviewMorePicturesSwatch"
               />
               <Typography
                 variant="body2"
-                className="textCenter flex center "
+                className="textCenter flex center"
                 style={{
                   color: theme.palette.background.inverseGrey,
                   transition: "color 0.75s ease-in-out",
@@ -338,10 +343,10 @@ export default function KonPekiReview() {
                 wearingeul color swatch paper, cotton swab
               </Typography>
             </div>
-            <div className="flex column">
+            <div className="flex reviewBottomImages column">
               <img
-                src={shading2}
-                onClick={() => handleImageClick(shading2)}
+                src={detail}
+                onClick={() => handleImageClick(detail)}
                 style={{ cursor: "zoom-in" }}
                 className="reviewMorePictures"
               />
@@ -353,7 +358,7 @@ export default function KonPekiReview() {
                   transition: "color 0.75s ease-in-out",
                 }}
               >
-                tomoe river 's' paper, pilot custom 823 medium
+                pilot custom 912 waverly, cosmo air light paper
               </Typography>
             </div>
           </Box>

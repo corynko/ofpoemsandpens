@@ -15,9 +15,9 @@ const InkSliderArray = {
   ],
   sheen: [
     { value: 0, label: "no sheen" },
-    { value: 33, label: "low sheen" },
-    { value: 67, label: "medium sheen" },
-    { value: 100, label: "high sheen" },
+    { value: 33, label: "low/medium sheen" },
+    { value: 67, label: "medium/high sheen" },
+    { value: 100, label: "high/monster sheen" },
   ],
   wetness: [
     { value: 0, label: "very dry" },

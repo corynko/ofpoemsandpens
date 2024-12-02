@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { useSpring, animated } from "@react-spring/web";
 import PropTypes from "prop-types";
-import { delay, motion, stagger } from "framer-motion";
+import { motion } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -58,6 +58,8 @@ export default function PoemCard({
   image,
   image2,
   image3,
+  image4,
+  image5,
   altText,
   author,
   urlAppend,
@@ -98,6 +100,8 @@ export default function PoemCard({
       setOpen(true);
     }
   }, [location.pathname, urlAppend]);
+
+  const images = [image, image2, image3, image4, image5].filter(Boolean);
 
   let divVariants = {
     initial: { opacity: 0 },
@@ -186,7 +190,8 @@ export default function PoemCard({
           >
             <IconButton
               sx={{
-                display: image2 ? "block" : "none",
+                opacity: currentImage !== image ? 1 : 0.3,
+                pointerEvents: currentImage !== image ? "auto" : "none",
                 marginRight: "10px",
                 color: theme.palette.text.primary,
               }}
@@ -203,7 +208,9 @@ export default function PoemCard({
             </Box>
             <IconButton
               sx={{
-                display: image2 ? "block" : "none",
+                opacity: currentImage !== images[images.length - 1] ? 1 : 0.3,
+                pointerEvents:
+                  currentImage !== images[images.length - 1] ? "auto" : "none",
                 marginLeft: "-50px",
                 color: theme.palette.text.primary,
               }}

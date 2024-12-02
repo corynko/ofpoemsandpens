@@ -55,6 +55,8 @@ export default function Poems() {
             image={poem.image}
             image2={poem.image2}
             image3={poem.image3}
+            image4={poem.image4}
+            image5={poem.image5}
             altText={poem.alt}
             transcription={poem.transcription}
             author={poem.author}

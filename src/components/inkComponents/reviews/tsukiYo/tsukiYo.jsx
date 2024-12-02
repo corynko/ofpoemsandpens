@@ -61,8 +61,8 @@ export default function TsukiYoReview() {
                 Tsuki-Yo, when compared to other blues, trends more towards a
                 blue-black, but doesn't quite make it into that category. It
                 offers the characteristic buttery-smooth writing experience and
-                wet flow of an Iroshizuku ink, and maintains the lines
-                consistent quality and fascinating qualities. It offers a
+                wet flow of an Iroshizuku ink, and maintains the line's
+                consistent craftsmanship and fascinating qualities. It offers a
                 slightly faster drying time than its siblings in my experience,
                 and is a joy to use.
               </Typography>

@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { useTheme } from "@emotion/react";
-import { Box, Dialog } from "@mui/material";
+import { Box, Dialog, IconButton, Container } from "@mui/material";
 import Typography from "@mui/material/Typography";
+import {
+  ArrowForwardIosOutlined,
+  ArrowBackIosOutlined,
+} from "@mui/icons-material";
 
 import KonPekiSliders from "./konPekiSliders";
 
 const bottle = require("../../../../assets/images/png/ink/kon-peki/konPekiHeader.jpg?url");
-const shading = require("../../../../assets/images/png/ink/kon-peki/konPekiShading1.jpg?url");
+// const shading = require("../../../../assets/images/png/ink/kon-peki/konPekiShading1.jpg?url");
 const shading2 = require("../../../../assets/images/png/ink/kon-peki/konPekiShading2.jpg?url");
-const swatch = require("../../../../assets/images/png/ink/kon-peki/konPekiSwatch.jpg?url");
 const sheen2 = require("../../../../assets/images/png/ink/kon-peki/konPekiSheen2.jpg?url");
 const tomoe1 = require("../../../../assets/images/png/ink/kon-peki/konPekiTomoe1.jpg?url");
 const takasago1 = require("../../../../assets/images/png/ink/kon-peki/konPekiTakasago1.jpg?url");
+const swatch = require("../../../../assets/images/png/ink/kon-peki/konPekiSwatch.jpg?url");
 const detail = require("../../../../assets/images/png/ink/kon-peki/konPekiDetail.jpg?url");
 
 export default function KonPekiReview() {
@@ -19,12 +23,46 @@ export default function KonPekiReview() {
 
   const [zoomedImage, setZoomedImage] = useState(null);
 
+  const imageArray = [
+    bottle,
+    shading2,
+    sheen2,
+    tomoe1,
+    takasago1,
+    swatch,
+    detail,
+  ];
+
+  const [currentImage, setCurrentImage] = useState(imageArray[0]);
+
   const handleImageClick = (src) => {
+    setCurrentImage(src);
     setZoomedImage(src);
   };
 
   const handleClose = () => {
     setZoomedImage(null);
+  };
+
+  const handleNextImage = () => {
+    setCurrentImage((currentImage) => {
+      const currentIndex = imageArray.indexOf(currentImage);
+      const nextIndex = (currentIndex + 1) % imageArray.length;
+      const nextImage = imageArray[nextIndex];
+      setZoomedImage(nextImage);
+      return nextImage;
+    });
+  };
+
+  const handlePreviousImage = () => {
+    setCurrentImage((currentImage) => {
+      const currentIndex = imageArray.indexOf(currentImage);
+      const prevIndex =
+        (currentIndex - 1 + imageArray.length) % imageArray.length;
+      const prevImage = imageArray[prevIndex];
+      setZoomedImage(prevImage);
+      return prevImage;
+    });
   };
 
   return (
@@ -367,20 +405,51 @@ export default function KonPekiReview() {
 
       <Dialog
         open={Boolean(zoomedImage)}
-        onClick={handleClose}
         onClose={handleClose}
-        style={{ cursor: "zoom-out" }}
+        className="flex center"
+        style={{ cursor: "zoom-out", maxWidth: "100vw" }}
         fullWidth
         maxWidth="xl"
       >
-        <img
-          src={zoomedImage || ""}
-          alt="Zoomed"
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
-        />
+        <Container className="flex center">
+          <IconButton
+            sx={{
+              opacity: imageArray.indexOf(currentImage) > 0 ? 1 : 0.3,
+              pointerEvents:
+                imageArray.indexOf(currentImage) > 0 ? "auto" : "none",
+              marginRight: "-50px",
+              color: "#ffffff",
+            }}
+            onClick={handlePreviousImage}
+          >
+            <ArrowBackIosOutlined />
+          </IconButton>
+          <img
+            src={zoomedImage || ""}
+            alt="Zoomed"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+          />
+          <IconButton
+            sx={{
+              opacity:
+                imageArray.indexOf(currentImage) < imageArray.length - 1
+                  ? 1
+                  : 0.3,
+              pointerEvents:
+                imageArray.indexOf(currentImage) < imageArray.length - 1
+                  ? "auto"
+                  : "none",
+              marginLeft: "-50px",
+              color: "#ffffff",
+            }}
+            onClick={handleNextImage}
+          >
+            <ArrowForwardIosOutlined />
+          </IconButton>
+        </Container>
       </Dialog>
     </>
   );

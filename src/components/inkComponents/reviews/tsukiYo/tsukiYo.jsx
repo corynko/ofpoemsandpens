@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useTheme } from "@emotion/react";
-import { Box, Dialog } from "@mui/material";
+import { Box, Dialog, IconButton, Container } from "@mui/material";
 import Typography from "@mui/material/Typography";
+import {
+  ArrowForwardIosOutlined,
+  ArrowBackIosOutlined,
+} from "@mui/icons-material";
 
 import TsukiYoSliders from "./tsukiYoSliders";
 
@@ -18,12 +22,46 @@ export default function TsukiYoReview() {
 
   const [zoomedImage, setZoomedImage] = useState(null);
 
+  const imageArray = [
+    bottle,
+    shading,
+    sheen,
+    takasago1,
+    tomoe1,
+    swatch,
+    detail,
+  ];
+
+  const [currentImage, setCurrentImage] = useState(imageArray[0]);
+
   const handleImageClick = (src) => {
+    setCurrentImage(src);
     setZoomedImage(src);
   };
 
   const handleClose = () => {
     setZoomedImage(null);
+  };
+
+  const handleNextImage = () => {
+    setCurrentImage((currentImage) => {
+      const currentIndex = imageArray.indexOf(currentImage);
+      const nextIndex = (currentIndex + 1) % imageArray.length;
+      const nextImage = imageArray[nextIndex];
+      setZoomedImage(nextImage);
+      return nextImage;
+    });
+  };
+
+  const handlePreviousImage = () => {
+    setCurrentImage((currentImage) => {
+      const currentIndex = imageArray.indexOf(currentImage);
+      const prevIndex =
+        (currentIndex - 1 + imageArray.length) % imageArray.length;
+      const prevImage = imageArray[prevIndex];
+      setZoomedImage(prevImage);
+      return prevImage;
+    });
   };
 
   return (
@@ -45,10 +83,10 @@ export default function TsukiYoReview() {
             personal favorite for it's enigmatic beauty
           </Typography>
         </Box>
-        <Box className="flex column textStart alignStart">
-          <Box className="flex center">
+        <Box className="flex column reviewBodyContent textStart alignStart">
+          <Box className="flex reviewBodyContent2 center">
             <img src={bottle} className="reviewBodyImageHead" />
-            <Box className="flex column textStart alignStart">
+            <Box className="flex reviewBodyContent textStart alignStart">
               <Typography variant="body1" className="reviewBody">
                 Tsuki-Yo is a beautiful ink. It is, it just is. But, it's
                 difficult to stand out when you're being compared to your
@@ -81,8 +119,8 @@ export default function TsukiYoReview() {
           <Box className="flex column between">
             <TsukiYoSliders />
           </Box>
-          <Box className="flex center">
-            <Box className="flex column textStart alignStart">
+          <Box className="flex reviewBodyContent2 center">
+            <Box className="flex column reviewTextMobile textStart alignStart">
               <Typography variant="h4" className="reviewTitle">
                 Color
               </Typography>
@@ -116,7 +154,7 @@ export default function TsukiYoReview() {
                 with. I'm simply obsessed with its depth and subtle intricacies.
               </Typography>
             </Box>
-            <Box className="flex">
+            <Box className="flex reviewBodyContent2">
               <div className="flex column">
                 <img
                   src={shading}
@@ -138,7 +176,7 @@ export default function TsukiYoReview() {
               </div>
             </Box>
           </Box>
-          <Box className="flex center">
+          <Box className="flex reviewBodyContent2 center">
             <div className="flex column">
               <img
                 src={sheen}
@@ -158,7 +196,7 @@ export default function TsukiYoReview() {
                 823 medium
               </Typography>
             </div>
-            <Box className="flex column textStart alignStart">
+            <Box className="flex column reviewTextMobile textStart alignStart">
               <Typography variant="h4" className="reviewTitle">
                 Performance
               </Typography>
@@ -201,8 +239,8 @@ export default function TsukiYoReview() {
               </Typography>
             </Box>
           </Box>
-          <Box className="flex center">
-            <Box className="flex column textStart alignStart">
+          <Box className="flex reviewBodyContent2 center">
+            <Box className="flex column reviewTextMobile textStart alignStart">
               <Typography variant="h4" className="reviewTitle">
                 Other Comments
               </Typography>
@@ -270,7 +308,7 @@ export default function TsukiYoReview() {
               </div>
             </Box>
           </Box>
-          <Box className="flex column">
+          <Box className="flex reviewInConclusion column">
             <Box className="flex column alignCenter">
               <Typography variant="h4" className="reviewTitle">
                 In Conclusion
@@ -308,8 +346,8 @@ export default function TsukiYoReview() {
             </Box>
           </Box>
 
-          <Box className="flex around reviewBottom">
-            <div className="flex column">
+          <Box className="flex around reviewBodyContent2 reviewBottom">
+            <div className="flex reviewBottomImages column">
               <img
                 src={tomoe1}
                 onClick={() => handleImageClick(tomoe1)}
@@ -327,12 +365,12 @@ export default function TsukiYoReview() {
                 tomoe river 's' paper, waterman carène (m)
               </Typography>
             </div>
-            <div className="flex column">
+            <div className="flex alignCenter reviewBottomImages column">
               <img
                 src={swatch}
                 onClick={() => handleImageClick(swatch)}
                 style={{ cursor: "zoom-in" }}
-                className="reviewMorePictures"
+                className="reviewMorePicturesSwatch"
               />
               <Typography
                 variant="body2"
@@ -345,7 +383,7 @@ export default function TsukiYoReview() {
                 wearingeul swatch paper, cotton swab
               </Typography>
             </div>
-            <div className="flex column">
+            <div className="flex reviewBottomImages column">
               <img
                 src={detail}
                 onClick={() => handleImageClick(detail)}
@@ -369,20 +407,51 @@ export default function TsukiYoReview() {
 
       <Dialog
         open={Boolean(zoomedImage)}
-        onClick={handleClose}
         onClose={handleClose}
-        style={{ cursor: "zoom-out" }}
+        className="flex center"
+        style={{ cursor: "zoom-out", maxWidth: "100vw" }}
         fullWidth
         maxWidth="xl"
       >
-        <img
-          src={zoomedImage || ""}
-          alt="Zoomed"
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
-        />
+        <Container className="flex center">
+          <IconButton
+            sx={{
+              opacity: imageArray.indexOf(currentImage) > 0 ? 1 : 0.3,
+              pointerEvents:
+                imageArray.indexOf(currentImage) > 0 ? "auto" : "none",
+              marginRight: "-50px",
+              color: "#ffffff",
+            }}
+            onClick={handlePreviousImage}
+          >
+            <ArrowBackIosOutlined />
+          </IconButton>
+          <img
+            src={zoomedImage || ""}
+            alt="Zoomed"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+          />
+          <IconButton
+            sx={{
+              opacity:
+                imageArray.indexOf(currentImage) < imageArray.length - 1
+                  ? 1
+                  : 0.3,
+              pointerEvents:
+                imageArray.indexOf(currentImage) < imageArray.length - 1
+                  ? "auto"
+                  : "none",
+              marginLeft: "-50px",
+              color: "#ffffff",
+            }}
+            onClick={handleNextImage}
+          >
+            <ArrowForwardIosOutlined />
+          </IconButton>
+        </Container>
       </Dialog>
     </>
   );

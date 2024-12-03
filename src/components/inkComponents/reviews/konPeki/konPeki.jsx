@@ -363,7 +363,7 @@ export default function KonPekiReview() {
                 takasago premium bank paper, pilot custom 912 waverly
               </Typography>
             </div>
-            <div className="flex reviewBottomImages column">
+            <div className="flex alignCenter reviewBottomImages column">
               <img
                 src={swatch}
                 onClick={() => handleImageClick(swatch)}

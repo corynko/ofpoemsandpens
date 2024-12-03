@@ -23,15 +23,15 @@ const InkArray = [
   //   author: "Ethan Kotel",
   //   urlAppend: "diamineBluePearl",
   // },
-  // {
-  //   title: "Iroshizuku Tsuki-Yo",
-  //   description:
-  //     "An Enigmatic Blue to Blue-Black, Full of Mystery and Subtle Qualities",
-  //   image: require("../../assets/images/png/ink/tsuki-yo/tsukiYoHeader.jpg?url"),
-  //   content: <TsukiYoReview />,
-  //   author: "Ethan Kotel",
-  //   urlAppend: "iroshizukuTsukiYo",
-  // },
+  {
+    title: "Iroshizuku Tsuki-Yo",
+    description:
+      "An Enigmatic Blue to Blue-Black, Full of Mystery and Subtle Qualities",
+    image: require("../../assets/images/png/ink/tsuki-yo/tsukiYoHeader.jpg?url"),
+    content: <TsukiYoReview />,
+    author: "Ethan Kotel",
+    urlAppend: "iroshizukuTsukiYo",
+  },
   // {
   //   title: "De Atramentis Alexander Hamilton",
   //   description:
@@ -41,15 +41,15 @@ const InkArray = [
   //   author: "Ethan Kotel",
   //   urlAppend: "deatramentisAlexanderHamilton",
   // },
-  // {
-  //   title: "Diamine Sherwood Green",
-  //   description:
-  //     "A forest green - actually, THE forest green - for lovers of summer pine",
-  //   image: require("../../assets/images/png/ink/sherwood/sherwoodHeader.jpg?url"),
-  //   content: <SherwoodReview />,
-  //   author: "Ethan Kotel",
-  //   urlAppend: "diamineSherwoodGreen",
-  // },
+  {
+    title: "Diamine Sherwood Green",
+    description:
+      "A forest green - actually, THE forest green - for lovers of summer pine",
+    image: require("../../assets/images/png/ink/sherwood/sherwoodHeader.jpg?url"),
+    content: <SherwoodReview />,
+    author: "Ethan Kotel",
+    urlAppend: "diamineSherwoodGreen",
+  },
   {
     title: "Iroshizuku Kon-Peki",
     description:

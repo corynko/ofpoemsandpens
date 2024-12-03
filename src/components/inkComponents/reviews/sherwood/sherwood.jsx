@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useTheme } from "@emotion/react";
-import { Box, Dialog } from "@mui/material";
+import { Box, Dialog, IconButton, Container } from "@mui/material";
 import Typography from "@mui/material/Typography";
+import {
+  ArrowForwardIosOutlined,
+  ArrowBackIosOutlined,
+} from "@mui/icons-material";
 
 import SherwoodSliders from "./sherwoodSliders";
 
@@ -18,12 +22,38 @@ export default function SherwoodReview() {
 
   const [zoomedImage, setZoomedImage] = useState(null);
 
+  const imageArray = [bottle, shading, sheen, takasago, tomoe1, swatch, tomoe2];
+
+  const [currentImage, setCurrentImage] = useState(imageArray[0]);
+
   const handleImageClick = (src) => {
+    setCurrentImage(src);
     setZoomedImage(src);
   };
 
   const handleClose = () => {
     setZoomedImage(null);
+  };
+
+  const handleNextImage = () => {
+    setCurrentImage((currentImage) => {
+      const currentIndex = imageArray.indexOf(currentImage);
+      const nextIndex = (currentIndex + 1) % imageArray.length;
+      const nextImage = imageArray[nextIndex];
+      setZoomedImage(nextImage);
+      return nextImage;
+    });
+  };
+
+  const handlePreviousImage = () => {
+    setCurrentImage((currentImage) => {
+      const currentIndex = imageArray.indexOf(currentImage);
+      const prevIndex =
+        (currentIndex - 1 + imageArray.length) % imageArray.length;
+      const prevImage = imageArray[prevIndex];
+      setZoomedImage(prevImage);
+      return prevImage;
+    });
   };
 
   return (
@@ -41,14 +71,14 @@ export default function SherwoodReview() {
             Diamine Sherwood Green
           </Typography>
           <Typography variant="h5" sx={{ marginBottom: "20px" }}>
-            a forest green - actually, THE forest green - for lovers of summer
+            a forest green - actually, *the* forest green - for lovers of summer
             pine.
           </Typography>
         </Box>
-        <Box className="flex column textStart alignStart">
-          <Box className="flex center">
+        <Box className="flex reviewBodyContent textStart alignStart">
+          <Box className="flex reviewBodyContent2 center">
             <img src={bottle} className="reviewBodyImageHead" />
-            <Box className="flex column textStart alignStart">
+            <Box className="flex reviewBodyContent textStart alignStart">
               <Typography variant="body1" className="reviewBody">
                 Diamine is a company that needs no introduction - their ability
                 to consistently release high quality, unique inks at a great
@@ -84,8 +114,8 @@ export default function SherwoodReview() {
           <Box className="flex column between">
             <SherwoodSliders />
           </Box>
-          <Box className="flex center">
-            <Box className="flex column textStart alignStart">
+          <Box className="flex reviewBodyContent2 center">
+            <Box className="flex column reviewTextMobile textStart alignStart">
               <Typography variant="h4" className="reviewTitle">
                 Color
               </Typography>
@@ -118,7 +148,7 @@ export default function SherwoodReview() {
                 especially for those living in forested areas.
               </Typography>
             </Box>
-            <Box className="flex">
+            <Box className="flex reviewBodyContent2">
               <div className="flex column">
                 <img
                   src={shading}
@@ -140,7 +170,7 @@ export default function SherwoodReview() {
               </div>
             </Box>
           </Box>
-          <Box className="flex center">
+          <Box className="flex reviewBodyContent2 center">
             <div className="flex column">
               <img
                 src={sheen}
@@ -160,7 +190,7 @@ export default function SherwoodReview() {
                 92 (m), natural light
               </Typography>
             </div>
-            <Box className="flex column textStart alignStart">
+            <Box className="flex column reviewTextMobile textStart alignStart">
               <Typography variant="h4" className="reviewTitle">
                 Performance
               </Typography>
@@ -195,8 +225,8 @@ export default function SherwoodReview() {
               </Typography>
             </Box>
           </Box>
-          <Box className="flex center">
-            <Box className="flex column textStart alignStart">
+          <Box className="flex reviewBodyContent2 center">
+            <Box className="flex column reviewTextMobile textStart alignStart">
               <Typography variant="h4" className="reviewTitle">
                 Other Comments
               </Typography>
@@ -259,7 +289,7 @@ export default function SherwoodReview() {
               </div>
             </Box>
           </Box>
-          <Box className="flex column">
+          <Box className="flex reviewInConclusion column">
             <Box className="flex column alignCenter">
               <Typography variant="h4" className="reviewTitle">
                 In Conclusion
@@ -290,8 +320,8 @@ export default function SherwoodReview() {
             </Box>
           </Box>
 
-          <Box className="flex around reviewBottom">
-            <div className="flex column">
+          <Box className="flex around reviewBodyContent2 reviewBottom">
+            <div className="flex reviewBottomImages column">
               <img
                 src={takasago}
                 onClick={() => handleImageClick(takasago)}
@@ -309,12 +339,12 @@ export default function SherwoodReview() {
                 takasago premium bank paper, pilot custom heritage 92 (m)
               </Typography>
             </div>
-            <div className="flex column">
+            <div className="flex reviewBottomImages alignCenter column">
               <img
                 src={swatch}
                 onClick={() => handleImageClick(swatch)}
                 style={{ cursor: "zoom-in" }}
-                className="reviewMorePictures"
+                className="reviewMorePicturesSwatch"
               />
               <Typography
                 variant="body2"
@@ -327,7 +357,7 @@ export default function SherwoodReview() {
                 wearingeul color swatch paper, cotton swab
               </Typography>
             </div>
-            <div className="flex column">
+            <div className="flex reviewBottomImages column">
               <img
                 src={tomoe2}
                 onClick={() => handleImageClick(tomoe2)}
@@ -351,20 +381,51 @@ export default function SherwoodReview() {
       {/* Zoom Modal */}
       <Dialog
         open={Boolean(zoomedImage)}
-        onClick={handleClose}
         onClose={handleClose}
-        style={{ cursor: "zoom-out" }}
+        className="flex center"
+        style={{ cursor: "zoom-out", maxWidth: "100vw" }}
         fullWidth
         maxWidth="xl"
       >
-        <img
-          src={zoomedImage || ""}
-          alt="Zoomed"
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
-        />
+        <Container className="flex center">
+          <IconButton
+            sx={{
+              opacity: imageArray.indexOf(currentImage) > 0 ? 1 : 0.3,
+              pointerEvents:
+                imageArray.indexOf(currentImage) > 0 ? "auto" : "none",
+              marginRight: "-50px",
+              color: "#ffffff",
+            }}
+            onClick={handlePreviousImage}
+          >
+            <ArrowBackIosOutlined />
+          </IconButton>
+          <img
+            src={zoomedImage || ""}
+            alt="Zoomed"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+          />
+          <IconButton
+            sx={{
+              opacity:
+                imageArray.indexOf(currentImage) < imageArray.length - 1
+                  ? 1
+                  : 0.3,
+              pointerEvents:
+                imageArray.indexOf(currentImage) < imageArray.length - 1
+                  ? "auto"
+                  : "none",
+              marginLeft: "-50px",
+              color: "#ffffff",
+            }}
+            onClick={handleNextImage}
+          >
+            <ArrowForwardIosOutlined />
+          </IconButton>
+        </Container>
       </Dialog>
     </>
   );

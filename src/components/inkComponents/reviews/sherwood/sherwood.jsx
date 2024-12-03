@@ -22,7 +22,7 @@ export default function SherwoodReview() {
 
   const [zoomedImage, setZoomedImage] = useState(null);
 
-  const imageArray = [bottle, shading, sheen, takasago, tomoe1, swatch, tomoe2];
+  const imageArray = [bottle, shading, sheen, tomoe1, takasago, swatch, tomoe2];
 
   const [currentImage, setCurrentImage] = useState(imageArray[0]);
 
@@ -231,41 +231,43 @@ export default function SherwoodReview() {
                 Other Comments
               </Typography>
               <Typography variant="body1" className="reviewBody">
-                De Atramentis really has a thing going with the whole
-                not-extravagant-but-still-functional vibe. At the risk of over
-                generalization, this is very much a facet of the German design
-                language, echoed as it is in LAMY products, Bock nibs, and many
-                others. In this spirit, De Atramentis inks come in a shapely
-                bottle of dark glass, too dark to see the ink within (which also
-                probably helps with color steadfastness when left in light),
-                packaged tightly in a simple folded cardboard box, just big
-                enough to fit the bottle.
+                Diamine is a company with a storied, 150-year history, and, as a
+                result, has possibly the most robust lineup of colors of any ink
+                company still running. While they offer oodles of sheeners,
+                shimmerers, and every shade of the rainbow, sometimes a simple
+                green is what's needed. On days like those, Sherwood is sure to
+                be a winner. Diamine inks are remarkably consistent batch to
+                batch, and Sherwood is no exception. However, it's shading does
+                not come through well on every paper - in the pictures here, it
+                is notably less pronounced on Tomoe 'S' Paper - still present,
+                but in a more muted way.
               </Typography>
               <Typography variant="body1" className="reviewBody">
-                De Atramentis inks also attach no frills when it comes to their
-                pricing, coming in rather cheap for their high quality. At time
-                of writing, you can expect to spend{" "}
-                <a href="https://vanness1938.com/products/deatramentis-standard-aubergine?_pos=1&_psq=alexander+ham&_ss=e&_v=1.0">
-                  ~$14 for 45mL's,
+                That said, even if you hate the ink, you won't regret buying it,
+                as Diamine's frankly insane bottom-shelf price point more or
+                less eliminates buyer's remorse. While I typically recommend Van
+                Ness for your ink purchases, when it comes to British companies,
+                a British supplier will likely treat you a bit better. At time
+                of writing, an 80mL bottle of Sherwood Green is available for{" "}
+                <a href="https://www.thepencompany.com/en-us/product/diamine-fountain-pen-ink/11062/">
+                  a jaw-dropping $6
                 </a>{" "}
-                ($17 from some retailers), giving it a per mL price of just
-                $0.31-0.37. This low price point, combined with the high quality
-                color, handmade, small-batch pedigree, and superb writing
-                experience earn it a solid 100/100 when it comes to value for
-                money.
+                from London-based The Pen Company, while it will cost{" "}
+                <a href="https://vanness1938.com/products/diamine-sherwood-green">
+                  $17 on Van Ness
+                </a>{" "}
+                and other American retailers. Buying in Britain gives you an
+                unbeatable per mL price of just $0.08. While one would expect a
+                compromise on quality with these prices, you'll find none with
+                Diamine.
               </Typography>
               <Typography variant="body1" className="reviewBody">
-                While offering no water resistance, De Atramentis has a robust
-                line of document inks for those who require a bit of future
-                proofing. All of their inks, however, neither feather nor bleed
-                through, and only exhibit mild-to-moderate ghosting on thinner
-                papers. While I haven't spent much writing time with this one on
-                non-fountain pen friendly papers, a few quick tests give me
-                little cause for suspicion that this performance wouldn't extend
-                to cheap copy paper and legal pads. While I can't say that this
-                is the most office-appropriate ink out there, it's absence of
-                shimmer and sheen would render it acceptable for all but the
-                most formal workplaces.
+                The standard line of Diamine inks offers no water resistance,
+                but they do have other offerings to satisfy that use-case.
+                Sherwood Green dries very quickly for its wet flow, but may
+                feather slightly on the cheapest copier paper and legal pads. On
+                fountain pen-friendly papers, however, it exhibits virtually no
+                feathering or bleed through of any kind.
               </Typography>
             </Box>
             <Box className="flex">
@@ -297,25 +299,27 @@ export default function SherwoodReview() {
             </Box>
             <Box className="flex column textStart alignStart">
               <Typography variant="body1" className="reviewBody">
-                This is the pink for those who don't like pinks, the red for
-                those who don't like reds, and has routinely piqued my interest
-                in not only the rest of the De Atramentis line, but non-blue
-                offerings from other ink houses as well.
+                An incredibly cheap, yet still incredibly good-looking and
+                well-performing ink, Sherwood Green is a must-have for lovers of
+                true forest green inks. While it doesn't have *much* sheen, it
+                does contain a small amount in the right light, which is perfect
+                for a subtle but exciting touch on an otherwise office
+                appropriate offering.
               </Typography>
               <Typography variant="body1" className="reviewBody">
-                Performing excellently in any pen I've put it in, Alexander
-                Hamilton is an ink I would rely on to always be ready to write,
-                and always be ready to impress. Well-saturated in a lovely
-                color, the shading offered provides just enough uniqueness to
-                counteract the relative simplicity of this ink, possessing low
-                sheen and no shimmer.
+                The real treat for me is in its robust yet unassuming shading,
+                covering the full range of green tones down to an almost-black
+                at the end of the stroke. Maybe it's just because it's a green,
+                but Sherwood's shading, despite being quite wide in spectrum
+                range, does not explode off the page, but rather gives a reason
+                to look twice and three times at the page written with it.
               </Typography>
               <Typography variant="body1" className="reviewBody">
-                A terrific value for money, this is an ink that is sure to
-                provide you many pages of writing pleasure. While not the
-                easiest to clean, this is nonetheless an ink that should be
-                strongly considered if you're looking for something out of your
-                normal palette realm that's sure to leave a lasting impression.
+                An incredible value for money, Diamine inks have yet to
+                disappoint me in both their writing experience offered or indeed
+                their impact on my wallet. If you're looking for a nice green,
+                this surely won't disappoint, and is often my first port-of-call
+                when I want to put something that isn't blue in one of my pens.
               </Typography>
             </Box>
           </Box>

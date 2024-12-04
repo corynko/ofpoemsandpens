@@ -3,6 +3,7 @@ import TsukiYoReview from "./reviews/tsukiYo/tsukiYo";
 import HamiltonReview from "./reviews/hamilton/hamilton";
 import SherwoodReview from "./reviews/sherwood/sherwood";
 import BluePearlReview from "./reviews/bluePearl/bluePearl";
+import HazelnutReview from "./reviews/hazelnut/hazelnut";
 
 const InkArray = [
   // {
@@ -31,6 +32,15 @@ const InkArray = [
     content: <TsukiYoReview />,
     author: "Ethan Kotel",
     urlAppend: "iroshizukuTsukiYo",
+  },
+  {
+    title: "Graf von Faber Castell Hazelnut Brown",
+    description:
+      "a soothing and professional brown ink at home in the office or at home",
+    image: require("../../assets/images/png/ink/hazelnut/hazelnutBottle.jpg?url"),
+    content: <HazelnutReview />,
+    author: "Ethan Kotel",
+    urlAppend: "gvfcHazelnutBrown",
   },
   // {
   //   title: "De Atramentis Alexander Hamilton",

@@ -141,19 +141,19 @@ const HomePage = () => {
                     </span>{" "}
                   </h2>
                   <div className="flex homeHeaderButtons between">
-                    <Button id="homeHeaderButton" href="/#/poems">
+                    <Button id="homeHeaderButton" href="/poems">
                       <Typography variant="h6">poems</Typography>
                     </Button>
-                    <Button id="homeHeaderButton" href="/#/pens">
+                    <Button id="homeHeaderButton" href="/pens">
                       <Typography variant="h6">pens</Typography>
                     </Button>
-                    <Button id="homeHeaderButton" href="/#/ink">
+                    <Button id="homeHeaderButton" href="/ink">
                       <Typography variant="h6">ink</Typography>
                     </Button>
-                    <Button id="homeHeaderButton" href="/#/paper">
+                    <Button id="homeHeaderButton" href="/paper">
                       <Typography variant="h6">paper</Typography>
                     </Button>
-                    <Button id="homeHeaderButton" href="/#/submit">
+                    <Button id="homeHeaderButton" href="/submit">
                       <Typography variant="h6">submit</Typography>
                     </Button>
                   </div>

@@ -263,15 +263,18 @@ export default function HazelnutReview() {
                 of a single order, and you'll love every moment of it. Since I
                 named the Iroshizuku's as good-not-great value for money, I'll
                 only knock this one down one notch, since the color isn't quite
-                my thing, and it lacks and particularly interesting sheening.
+                my thing, and it lacks dramatic shading or any particularly
+                interesting sheening.
               </Typography>
               <Typography variant="body1" className="reviewBody">
                 I have yet to use Hazelnut Brown extensively on non-fountain
                 pen-friendly papers, but its complete lack of feathering and
                 bleed-through makes me think it wouldn't have many issues on
-                them. It offers no significant water resistance, so if you are
-                using it in an office, keep that in mind if you need a
-                document-quality ink.
+                them. GvFC inks bill themselves as "water resistant," meaning
+                while the ink may run when exposed to water, the lines will
+                remain visible. Personally, I wouldn't describe that as archival
+                quality, but it definitely offer enough confidence to make it
+                useable in context where some degree of permanence is required.
               </Typography>
             </Box>
             <Box className="flex">

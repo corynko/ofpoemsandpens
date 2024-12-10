@@ -16,13 +16,13 @@ export default function Pens() {
         </Typography>
         <Typography
           style={{ color: theme.palette.background.inverse, marginTop: "40px" }}
-          variant="h3"
+          variant="h4"
         >
           Click here to return home:
         </Typography>
         <Button
           style={{
-            marginTop: "40px",
+            marginTop: "15px",
             height: "auto",
             width: "200px",
             fontSize: "24pt",

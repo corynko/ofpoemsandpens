@@ -11,6 +11,7 @@ import Ink from "./pages/ink/ink";
 import Paper from "./pages/paper/paper";
 import HomePage from "./pages/home/home";
 import Submit from "./pages/submit/submit";
+import Code404 from "./pages/404";
 import "./App.css";
 import "./index.css";
 import BackgroundImage from "./components/miscComponents/backgroundImage";
@@ -34,7 +35,8 @@ function App() {
             <Route path="/submit" element={<Submit />} />
             <Route path="/poems" element={<Poems />} />
             <Route path="/poems/:poemId" element={<Poems />} />
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="*" element={<Navigate to="/404" />} />
+            <Route path="/404" element={<Code404 />} />
           </Routes>
         </Box>
       </Router>

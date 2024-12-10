@@ -91,11 +91,17 @@ export default function HazelnutReview() {
                 Ah, brown inks. Truth told, I very rarely use brown ink, and
                 even more rarely can be said to be 'in the mood' to do so.
                 Recently, redditor /u/lost_demonn_ posted in the /r/fountainpens
-                subreddit with a video of her newly completed journal - a brown
-                leather cover, sitting on a deep wood writing desk, filled to
-                the brim in nothing but brown ink - and god damn, it looked
-                great. It inspired me to pull this bottle back out of the closet
-                and give the color another try.
+                subreddit{" "}
+                <a
+                  href="https://www.reddit.com/r/fountainpens/comments/1gsu9fy/finished_my_journal_today_started_it_a_year_ago/"
+                  target="_blank"
+                >
+                  a video of her newly completed journal
+                </a>{" "}
+                - a brown leather cover, sitting on a deep wood writing desk,
+                filled to the brim in nothing but Pelikan's brilliant brown ink
+                - and god damn, it looked great. It inspired me to pull this
+                bottle back out of the closet and give the color another try.
               </Typography>
               <Typography variant="body1" className="reviewBody">
                 I too have an affinity for old, wood-lined libraries full of

@@ -61,6 +61,7 @@ export default function Poems() {
             transcription={poem.transcription}
             author={poem.author}
             urlAppend={poem.urlAppend}
+            delay={index * 150}
           />
         ))}
       </Box>

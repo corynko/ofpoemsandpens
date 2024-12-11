@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import "animate.css";
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -63,12 +64,24 @@ export default function PoemCard({
   altText,
   author,
   urlAppend,
+  delay,
 }) {
   const [open, setOpen] = React.useState(false);
   const [currentImage, setCurrentImage] = useState(image);
   const theme = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
+  const [isPulsing, setIsPulsing] = useState(false);
+
+  React.useEffect(() => {
+    const timeout = setTimeout(() => setIsPulsing(true), delay + 600);
+    const cleanup = setTimeout(() => setIsPulsing(false), delay + 1850); // 300ms for the pulse
+
+    return () => {
+      clearTimeout(timeout);
+      clearTimeout(cleanup);
+    };
+  }, [delay]);
 
   const handleOpen = () => {
     setOpen(true);
@@ -128,8 +141,27 @@ export default function PoemCard({
 
   return (
     <Box className="flex center row" sx={{ margin: "20px" }}>
-      <motion.div initial="initial" animate="animate" variants={divVariants}>
-        <motion.div variants={cardVariants}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2, delay: delay / 1000 }} // Adjust fade-in timing
+      >
+        <motion.div
+          className="poemCard"
+          initial={false}
+          animate={{
+            scale: isPulsing ? 1.03 : 1, // Pulse effect
+            backgroundColor: isPulsing
+              ? theme.palette.button.alternateHover
+              : theme.palette.background.semiTrans,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 650,
+            duration: 1.9, // Pulse animation timing
+          }}
+        >
           <Card
             className="poemCard flex"
             sx={{

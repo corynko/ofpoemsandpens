@@ -10,6 +10,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import "animate.css";
+import Swal from "sweetalert2";
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -74,14 +75,52 @@ export default function PoemCard({
   const [isPulsing, setIsPulsing] = useState(false);
 
   React.useEffect(() => {
-    const timeout = setTimeout(() => setIsPulsing(true), delay + 600);
-    const cleanup = setTimeout(() => setIsPulsing(false), delay + 1850); // 300ms for the pulse
+    const timeout = setTimeout(
+      () => setIsPulsing(true),
+      delay + 1000,
+      fireSwal()
+    );
+    const cleanup = setTimeout(() => setIsPulsing(false), delay + 1450); // 300ms for the pulse
 
     return () => {
       clearTimeout(timeout);
       clearTimeout(cleanup);
     };
   }, [delay]);
+
+  const fireSwal = () => {
+    let swalConfirm = Swal.mixin({
+      toast: true,
+      timer: 4000,
+      timerProgressBar: true,
+      showConfirmButton: false,
+      position: "bottom-end",
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+      customClass: {
+        title: "swalTitle",
+        container: "swalContainer",
+        confirmButton: "swalButton",
+        popup: "swalPopup",
+      },
+      showClass: {
+        popup: `animate__animated
+        animate__bounceInDown
+        `,
+      },
+      hideClass: {
+        popup: `animate__animated
+        animate__backOutUp`,
+      },
+    });
+    swalConfirm.fire({
+      icon: "info",
+      title: "Can't Read Sloppy Handwriting?",
+      text: "Click on a card to read the typed version.",
+    });
+  };
 
   const handleOpen = () => {
     setOpen(true);
@@ -140,146 +179,164 @@ export default function PoemCard({
   };
 
   return (
-    <Box className="flex center row" sx={{ margin: "20px" }}>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.2, delay: delay / 1000 }} // Adjust fade-in timing
-      >
-        <motion.div
-          className="poemCard"
-          initial={false}
-          animate={{
-            scale: isPulsing ? 1.03 : 1, // Pulse effect
-            backgroundColor: isPulsing
-              ? theme.palette.button.alternateHover
-              : theme.palette.background.semiTrans,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 100,
-            damping: 650,
-            duration: 1.9, // Pulse animation timing
-          }}
-        >
-          <Card
-            className="poemCard flex"
-            sx={{
-              minWidth: "300px",
-              maxWidth: "400px",
-              backgroundColor: theme.palette.background.semiTrans,
-              color: theme.palette.background.inverse,
-              "&:hover": {
-                backgroundColor: theme.palette.button.alternateHover,
-                color: theme.palette.button.alternateText,
-              },
-              transition:
-                "background-color 0.7s ease-in-out, color 1s ease-in-out",
-              cursor: "pointer",
-            }}
-            onClick={handleOpen}
+    <>
+      <div>
+        <Box className="flex center row" sx={{ margin: "20px" }}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.2, delay: delay / 1000 }} // Adjust fade-in timing
           >
-            <CardContent sx={{ alignContent: "flexEnd", height: "600px" }}>
-              <img
-                src={image}
-                alt={altText}
-                style={{
-                  maxWidth: "350px",
-                  height: "auto",
+            <motion.div
+              className="poemCard"
+              initial={false}
+              animate={{
+                scale: isPulsing ? 1.01 : 1, // Pulse effect
+                backgroundColor: isPulsing
+                  ? theme.palette.button.alternateHoverSemiTrans
+                  : theme.palette.background.semiTrans,
+              }}
+              whileHover={{ scale: 1.03 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 60,
+                mass: 0.2,
+                bounce: 0.8,
+
+                // duration: 3, // Pulse animation timing
+              }}
+            >
+              <Card
+                className="poemCard flex"
+                sx={{
+                  minWidth: "300px",
+                  maxWidth: "400px",
+                  backgroundColor: theme.palette.background.semiTrans,
+                  color: theme.palette.background.inverse,
+                  "&:hover": {
+                    backgroundColor: theme.palette.button.alternateHover,
+                    color: theme.palette.button.alternateText,
+                  },
+                  transition:
+                    "background-color 0.7s ease-in-out, color 1s ease-in-out",
                 }}
-              />
-              <h2 className="alignEnd" style={{ maxWidth: "90%" }}>
-                {title}
-              </h2>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </motion.div>
-      <Modal
-        keepMounted
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="keep-mounted-modal-title"
-        aria-describedby="keep-mounted-modal-description"
-      >
-        <Fade in={open}>
-          <Box
-            className="flex"
-            sx={{
-              backgroundColor: theme.palette.background.default,
-              padding: "20px",
-              maxWidth: "90vw",
-              maxHeight: "90vh",
-              overflow: "auto",
-              margin: "50px auto",
-              borderRadius: "15px",
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-              color: theme.palette.background.inverse,
-            }}
-          >
-            <IconButton
-              sx={{
-                opacity: currentImage !== image ? 1 : 0.3,
-                pointerEvents: currentImage !== image ? "auto" : "none",
-                marginRight: "10px",
-                color: theme.palette.text.primary,
-              }}
-              onClick={handlePreviousImage}
-            >
-              <ArrowBackIosNewIcon />
-            </IconButton>
-            <Box sx={{ flexBasis: "50%", paddingRight: "20px" }}>
-              <img
-                src={currentImage}
-                alt={altText}
-                style={{ width: "80%", height: "auto", borderRadius: "8px" }}
-              />
-            </Box>
-            <IconButton
-              sx={{
-                opacity: currentImage !== images[images.length - 1] ? 1 : 0.3,
-                pointerEvents:
-                  currentImage !== images[images.length - 1] ? "auto" : "none",
-                marginLeft: "-50px",
-                color: theme.palette.text.primary,
-              }}
-              onClick={handleNextImage}
-            >
-              <ArrowForwardIosIcon />
-            </IconButton>
-            <Box
-              sx={{
-                flexBasis: "50%",
-                paddingLeft: "20px",
-                alignSelf: "flex-start",
-                textAlign: "start",
-              }}
-            >
-              <Typography
-                variant="h4"
-                id="keep-mounted-modal-title"
-                gutterBottom
+                onClick={handleOpen}
               >
-                {title}
-                <span>
-                  <Typography variant="body1">{author}</Typography>
-                </span>
-              </Typography>
-              <Typography variant="body1" id="keep-mounted-modal-description">
-                {transcription.split("\n").map((line, index) => (
-                  <React.Fragment key={index}>
-                    {line}
-                    <br />
-                  </React.Fragment>
-                ))}
-              </Typography>
-            </Box>
-          </Box>
-        </Fade>
-      </Modal>
-    </Box>
+                <CardContent sx={{ alignContent: "flexEnd", height: "600px" }}>
+                  <img
+                    src={image}
+                    alt={altText}
+                    style={{
+                      maxWidth: "350px",
+                      height: "auto",
+                    }}
+                  />
+                  <h2 className="alignEnd" style={{ maxWidth: "90%" }}>
+                    {title}
+                  </h2>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
+
+          <Modal
+            keepMounted
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="keep-mounted-modal-title"
+            aria-describedby="keep-mounted-modal-description"
+          >
+            <Fade in={open}>
+              <Box
+                className="flex"
+                sx={{
+                  backgroundColor: theme.palette.background.default,
+                  padding: "20px",
+                  maxWidth: "90vw",
+                  maxHeight: "90vh",
+                  overflow: "auto",
+                  margin: "50px auto",
+                  borderRadius: "15px",
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  color: theme.palette.background.inverse,
+                }}
+              >
+                <IconButton
+                  sx={{
+                    opacity: currentImage !== image ? 1 : 0.3,
+                    pointerEvents: currentImage !== image ? "auto" : "none",
+                    marginRight: "10px",
+                    color: theme.palette.text.primary,
+                  }}
+                  onClick={handlePreviousImage}
+                >
+                  <ArrowBackIosNewIcon />
+                </IconButton>
+                <Box sx={{ flexBasis: "50%", paddingRight: "20px" }}>
+                  <img
+                    src={currentImage}
+                    alt={altText}
+                    style={{
+                      width: "80%",
+                      height: "auto",
+                      borderRadius: "8px",
+                    }}
+                  />
+                </Box>
+                <IconButton
+                  sx={{
+                    opacity:
+                      currentImage !== images[images.length - 1] ? 1 : 0.3,
+                    pointerEvents:
+                      currentImage !== images[images.length - 1]
+                        ? "auto"
+                        : "none",
+                    marginLeft: "-50px",
+                    color: theme.palette.text.primary,
+                  }}
+                  onClick={handleNextImage}
+                >
+                  <ArrowForwardIosIcon />
+                </IconButton>
+                <Box
+                  sx={{
+                    flexBasis: "50%",
+                    paddingLeft: "20px",
+                    alignSelf: "flex-start",
+                    textAlign: "start",
+                  }}
+                >
+                  <Typography
+                    variant="h4"
+                    id="keep-mounted-modal-title"
+                    gutterBottom
+                  >
+                    {title}
+                    <span>
+                      <Typography variant="body1">{author}</Typography>
+                    </span>
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    id="keep-mounted-modal-description"
+                  >
+                    {transcription.split("\n").map((line, index) => (
+                      <React.Fragment key={index}>
+                        {line}
+                        <br />
+                      </React.Fragment>
+                    ))}
+                  </Typography>
+                </Box>
+              </Box>
+            </Fade>
+          </Modal>
+        </Box>
+      </div>
+    </>
   );
 }

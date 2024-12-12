@@ -30,6 +30,7 @@ declare module '@mui/material/styles' {
     backgroundColor?: string;
     default?: string;
     alternateHover?: string;
+    alternateHoverSemiTrans?: string;
   }
 
   interface PaletteOptions {
@@ -84,6 +85,7 @@ export const lightTheme = createTheme({
     button: {textColor: '#F2F3E2',
       backgroundColor: '#50587E',
       alternateHover: '#50587E',
+      alternateHoverSemiTrans: '#50587Eab',
       alternateText: '#F2F3E2',
       default: '#177bb588',
     }

@@ -33,6 +33,7 @@ declare module '@mui/material/styles' {
     backgroundColor?: string;
     default?: string;
     alternateHover?: string;
+    alternateHoverSemiTrans?: string;
     alternateText?: string;
   }
 
@@ -87,6 +88,7 @@ export const darkTheme = createTheme({
     button: {textColor: '#1d1c1e',
       backgroundColor: '#138287',
       alternateHover: '#38308e88',
+      alternateHoverSemiTrans: '#38308e88',
       alternateText: '#ffffff',
       default: "#B9057188",
     }

@@ -69,6 +69,7 @@ function NavItemsDesktop() {
             <Link className="m10" to="/poems">
               <Button
                 className="navLink"
+                id="stickNav"
                 sx={{
                   marginX: "1rem",
                   fontWeight: 300,

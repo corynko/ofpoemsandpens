@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
+// import AnimatedCursor from "react-animated-cursor";
 
 //poem page imports
 import PoemCard from "../../components/poemsComponents/poemCards";
@@ -61,6 +62,7 @@ export default function Poems() {
             transcription={poem.transcription}
             author={poem.author}
             urlAppend={poem.urlAppend}
+            delay={index * 150}
           />
         ))}
       </Box>

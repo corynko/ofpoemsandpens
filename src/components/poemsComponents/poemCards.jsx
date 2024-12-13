@@ -73,25 +73,51 @@ export default function PoemCard({
   const navigate = useNavigate();
   const location = useLocation();
   const [isPulsing, setIsPulsing] = useState(false);
+  const hasPulsed = localStorage.getItem("hasPulsed");
+
+  // localStorage.setItem("hasPulsed", "false");
 
   React.useEffect(() => {
+    const checkStorage = () => {
+      if (hasPulsed) {
+        localStorage.setItem("hasPulsed", "true");
+      } else {
+        localStorage.setItem("hasPulsed", "false"), fireSwal();
+      }
+    };
     const timeout = setTimeout(
       () => setIsPulsing(true),
-      delay + 1000,
-      fireSwal()
+      // localStorage.setItem("hasPulsed", "true"),
+      checkStorage(),
+      fireSwal(),
+      delay + 800
     );
-    const cleanup = setTimeout(() => setIsPulsing(false), delay + 1450); // 300ms for the pulse
+    const cleanup = setTimeout(
+      () => setIsPulsing(false),
+      checkStorage(),
+      delay + 1250
+      // setHasPulsed(true)
+    );
+    // const cleanupExtended = setTimeout(
+    //   () => setIsPulsing(false),
+    //   localStorage.setItem("hasPulsed", "false"),
+    //   delay + 300000
+    //   // setHasPulsed(true)
+    // );
 
     return () => {
       clearTimeout(timeout);
       clearTimeout(cleanup);
+      // clearTimeout(cleanupExtended);
     };
   }, [delay]);
+
+  //TODO: Add small info button icon that triggers swal toast to refire on click, by restting the local storage and firing the functions again
 
   const fireSwal = () => {
     let swalConfirm = Swal.mixin({
       toast: true,
-      timer: 4000,
+      timer: 5500,
       timerProgressBar: true,
       showConfirmButton: false,
       position: "bottom-end",
@@ -107,19 +133,24 @@ export default function PoemCard({
       },
       showClass: {
         popup: `animate__animated
-        animate__bounceInDown
+        animate__bounceInRight
         `,
       },
       hideClass: {
         popup: `animate__animated
-        animate__backOutUp`,
+        animate__backOutRight`,
       },
     });
-    swalConfirm.fire({
-      icon: "info",
-      title: "Can't Read Sloppy Handwriting?",
-      text: "Click on a card to read the typed version.",
-    });
+    if (hasPulsed !== "true") {
+      swalConfirm.fire({
+        icon: "info",
+        title: "Can't Read Sloppy Handwriting?",
+        text: "Click on a card to read the typed version.",
+      });
+      return localStorage.setItem("hasPulsed", "true");
+    } else {
+      return;
+    }
   };
 
   const handleOpen = () => {

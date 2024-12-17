@@ -72,26 +72,65 @@ export default function PoemCard({
   const theme = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
-  const [isPulsing, setIsPulsing] = useState(false);
+
+  const hasPulsed = localStorage.getItem("hasPulsed");
+
+  // localStorage.setItem("hasPulsed", "false");
+
+  const [pulseState, setPulseState] = React.useState(false);
 
   React.useEffect(() => {
+    const checkStorage = () => {
+      if (hasPulsed === "true") {
+        localStorage.setItem("hasPulsed", "true");
+      } else {
+        localStorage.setItem("hasPulsed", "false"), fireSwal();
+        console.log("b");
+      }
+    };
     const timeout = setTimeout(
-      () => setIsPulsing(true),
-      delay + 1000,
-      fireSwal()
+      () => localStorage.setItem("isPulsing", "true"),
+
+      // console.log(localStorage.getItem("isPulsing")),
+      checkStorage(),
+      delay + 800,
+      console.log(pulseState)
     );
-    const cleanup = setTimeout(() => setIsPulsing(false), delay + 1450); // 300ms for the pulse
+    const cleanup = setTimeout(
+      () => localStorage.setItem("isPulsing", "false"),
+      delay + 3250,
+      // console.log(localStorage.getItem("isPulsing")),
+      checkStorage()
+    );
+    const pulseStateTimeout = setTimeout(
+      () => setPulseState(false),
+      delay + 1100
+    );
+    const pulseStateInitial = setTimeout(
+      () => setPulseState(true),
+      delay + 750
+    );
+    const extCleanup = setTimeout(
+      () => localStorage.setItem("hasPulsed", "false"),
+      delay + 10000,
+      checkStorage()
+    );
 
     return () => {
       clearTimeout(timeout);
       clearTimeout(cleanup);
+      clearTimeout(extCleanup);
+      clearTimeout(pulseStateTimeout);
+      clearTimeout(pulseStateInitial);
     };
   }, [delay]);
+
+  //TODO: Add small info button icon that triggers swal toast to refire on click, by restting the local storage and firing the functions again
 
   const fireSwal = () => {
     let swalConfirm = Swal.mixin({
       toast: true,
-      timer: 4000,
+      timer: 5500,
       timerProgressBar: true,
       showConfirmButton: false,
       position: "bottom-end",
@@ -107,19 +146,24 @@ export default function PoemCard({
       },
       showClass: {
         popup: `animate__animated
-        animate__bounceInDown
+        animate__bounceInRight
         `,
       },
       hideClass: {
         popup: `animate__animated
-        animate__backOutUp`,
+        animate__backOutRight`,
       },
     });
-    swalConfirm.fire({
-      icon: "info",
-      title: "Can't Read Sloppy Handwriting?",
-      text: "Click on a card to read the typed version.",
-    });
+    if (hasPulsed !== "true") {
+      swalConfirm.fire({
+        icon: "question",
+        title: "Can't Read Sloppy Handwriting?",
+        text: "Click on a card to read the typed version.",
+      });
+      return localStorage.setItem("hasPulsed", "true");
+    } else {
+      return;
+    }
   };
 
   const handleOpen = () => {
@@ -178,6 +222,8 @@ export default function PoemCard({
     },
   };
 
+  const isPulsing = localStorage.getItem("isPulsing");
+
   return (
     <>
       <div>
@@ -191,8 +237,8 @@ export default function PoemCard({
               className="poemCard"
               initial={false}
               animate={{
-                scale: isPulsing ? 1.01 : 1, // Pulse effect
-                backgroundColor: isPulsing
+                scale: pulseState ? 1.01 : 1, // Pulse effect
+                backgroundColor: pulseState
                   ? theme.palette.button.alternateHoverSemiTrans
                   : theme.palette.background.semiTrans,
               }}

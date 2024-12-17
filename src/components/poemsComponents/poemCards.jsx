@@ -72,43 +72,56 @@ export default function PoemCard({
   const theme = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
-  const [isPulsing, setIsPulsing] = useState(false);
+
   const hasPulsed = localStorage.getItem("hasPulsed");
 
   // localStorage.setItem("hasPulsed", "false");
 
+  const [pulseState, setPulseState] = React.useState(false);
+
   React.useEffect(() => {
     const checkStorage = () => {
-      if (hasPulsed) {
+      if (hasPulsed === "true") {
         localStorage.setItem("hasPulsed", "true");
       } else {
         localStorage.setItem("hasPulsed", "false"), fireSwal();
+        console.log("b");
       }
     };
     const timeout = setTimeout(
-      () => setIsPulsing(true),
-      // localStorage.setItem("hasPulsed", "true"),
+      () => localStorage.setItem("isPulsing", "true"),
+
+      // console.log(localStorage.getItem("isPulsing")),
       checkStorage(),
-      fireSwal(),
-      delay + 800
+      delay + 800,
+      console.log(pulseState)
     );
     const cleanup = setTimeout(
-      () => setIsPulsing(false),
-      checkStorage(),
-      delay + 1250
-      // setHasPulsed(true)
+      () => localStorage.setItem("isPulsing", "false"),
+      delay + 3250,
+      // console.log(localStorage.getItem("isPulsing")),
+      checkStorage()
     );
-    // const cleanupExtended = setTimeout(
-    //   () => setIsPulsing(false),
-    //   localStorage.setItem("hasPulsed", "false"),
-    //   delay + 300000
-    //   // setHasPulsed(true)
-    // );
+    const pulseStateTimeout = setTimeout(
+      () => setPulseState(false),
+      delay + 1100
+    );
+    const pulseStateInitial = setTimeout(
+      () => setPulseState(true),
+      delay + 750
+    );
+    const extCleanup = setTimeout(
+      () => localStorage.setItem("hasPulsed", "false"),
+      delay + 10000,
+      checkStorage()
+    );
 
     return () => {
       clearTimeout(timeout);
       clearTimeout(cleanup);
-      // clearTimeout(cleanupExtended);
+      clearTimeout(extCleanup);
+      clearTimeout(pulseStateTimeout);
+      clearTimeout(pulseStateInitial);
     };
   }, [delay]);
 
@@ -143,7 +156,7 @@ export default function PoemCard({
     });
     if (hasPulsed !== "true") {
       swalConfirm.fire({
-        icon: "info",
+        icon: "question",
         title: "Can't Read Sloppy Handwriting?",
         text: "Click on a card to read the typed version.",
       });
@@ -209,6 +222,8 @@ export default function PoemCard({
     },
   };
 
+  const isPulsing = localStorage.getItem("isPulsing");
+
   return (
     <>
       <div>
@@ -222,8 +237,8 @@ export default function PoemCard({
               className="poemCard"
               initial={false}
               animate={{
-                scale: isPulsing ? 1.01 : 1, // Pulse effect
-                backgroundColor: isPulsing
+                scale: pulseState ? 1.01 : 1, // Pulse effect
+                backgroundColor: pulseState
                   ? theme.palette.button.alternateHoverSemiTrans
                   : theme.palette.background.semiTrans,
               }}

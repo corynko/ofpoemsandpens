@@ -214,7 +214,7 @@ const Submit = () => {
           },
           showClass: {
             popup: `animate__animated
-            animate__bounceInDown
+            animate__bounceInDown animate__headShake
             `,
           },
           hideClass: {

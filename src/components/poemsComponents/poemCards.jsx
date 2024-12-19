@@ -85,30 +85,27 @@ export default function PoemCard({
         localStorage.setItem("hasPulsed", "true");
       } else {
         localStorage.setItem("hasPulsed", "false"), fireSwal();
-        console.log("b");
       }
     };
     const timeout = setTimeout(
       () => localStorage.setItem("isPulsing", "true"),
 
-      // console.log(localStorage.getItem("isPulsing")),
       checkStorage(),
-      delay + 800,
-      console.log(pulseState)
+      delay + 800
     );
-    const cleanup = setTimeout(
-      () => localStorage.setItem("isPulsing", "false"),
-      delay + 3250,
-      // console.log(localStorage.getItem("isPulsing")),
-      checkStorage()
+    const pulseStateInitial = setTimeout(
+      () => setPulseState(true),
+      delay + 750
     );
     const pulseStateTimeout = setTimeout(
       () => setPulseState(false),
       delay + 1100
     );
-    const pulseStateInitial = setTimeout(
-      () => setPulseState(true),
-      delay + 750
+    const cleanup = setTimeout(
+      () => localStorage.setItem("isPulsing", "false"),
+      delay + 3250,
+
+      checkStorage()
     );
     const extCleanup = setTimeout(
       () => localStorage.setItem("hasPulsed", "false"),
@@ -158,7 +155,7 @@ export default function PoemCard({
       swalConfirm.fire({
         icon: "question",
         title: "Can't Read Sloppy Handwriting?",
-        text: "Click on a card to read the typed version.",
+        text: "Click on a card to read the typed transcription.",
       });
       return localStorage.setItem("hasPulsed", "true");
     } else {

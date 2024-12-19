@@ -57,7 +57,7 @@ export default function Poems() {
     swalConfirm.fire({
       icon: "question",
       title: "Can't Read Sloppy Handwriting?",
-      text: "Click on a card to read the typed version.",
+      text: "Click on a card to read the typed transcription.",
     });
   };
 
@@ -111,7 +111,7 @@ export default function Poems() {
               borderRadius: "35px",
               right: "5px",
               backgroundColor: "#00000000",
-              transition: "all 0.75s ease-in",
+              transition: "all 0.33s ease-in",
             }}
           >
             <HelpOutline
@@ -129,7 +129,7 @@ export default function Poems() {
                 color: textColor,
                 backgroundColor: defaultBackground,
                 borderRadius: "75px",
-                transition: "all 0.75s ease-in",
+                transition: "all 0.33s ease-in",
                 "&:hover": {
                   color: textColorHover,
                   backgroundColor: hoverBackground,

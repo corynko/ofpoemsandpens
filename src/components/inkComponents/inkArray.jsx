@@ -1,5 +1,7 @@
 import KonPekiReview from "./reviews/konPeki/konPeki";
 import TsukiYoReview from "./reviews/tsukiYo/tsukiYo";
+import RikkaReview from "./reviews/rikka/rikka";
+import LieDeTheReview from "./reviews/lieDeThe/lieDeThe";
 import HamiltonReview from "./reviews/hamilton/hamilton";
 import SherwoodReview from "./reviews/sherwood/sherwood";
 import BluePearlReview from "./reviews/bluePearl/bluePearl";
@@ -24,6 +26,22 @@ const InkArray = [
   //   author: "Ethan Kotel",
   //   urlAppend: "diamineBluePearl",
   // },
+  {
+    title: "Herbin Lie de Thé",
+    description: "The Saddle-Ridden-Through-Texas Type of Brown",
+    image: require("../../assets/images/png/ink/lieDeThe/lieDeTheBottle.jpg?url"),
+    content: <LieDeTheReview />,
+    author: "Ethan Kotel",
+    urlAppend: "herbinThe",
+  },
+  {
+    title: "Iroshizuku Rikka",
+    description: "A Deep Ocean Blue with a Dramatic Sheen",
+    image: require("../../assets/images/png/ink/rikka/rikkaBottle.jpg?url"),
+    content: <RikkaReview />,
+    author: "Ethan Kotel",
+    urlAppend: "iroshizukuRikka",
+  },
   {
     title: "Iroshizuku Tsuki-Yo",
     description:

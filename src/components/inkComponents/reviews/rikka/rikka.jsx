@@ -76,11 +76,11 @@ export default function RikkaReview() {
       >
         <Box className="flex column center textCenter">
           <Typography variant="h2" sx={{ margin: "20px" }}>
-            Iroshizuku Tsuki-Yo
+            Iroshizuku Rikka
           </Typography>
           <Typography variant="h5" sx={{ marginBottom: "20px" }}>
-            one of the more under-appreciated Iroshizukus, Tsuki-Yo is a
-            personal favorite for it's enigmatic beauty
+            one of three new Iroshizuku inks for 2024/25, Rikka does not
+            disappoint its forebears for quality nor beauty
           </Typography>
         </Box>
         <Box className="flex column reviewBodyContent textStart alignStart">
@@ -88,24 +88,27 @@ export default function RikkaReview() {
             <img src={bottle} className="reviewBodyImageHead" />
             <Box className="flex reviewBodyContent textStart alignStart">
               <Typography variant="body1" className="reviewBody">
-                Tsuki-Yo is a beautiful ink. It is, it just is. But, it's
-                difficult to stand out when you're being compared to your
-                siblings, and that is especially true when your siblings include
-                the likes of Kon-Peki, Ku-Jaku, and Yama-Budo. Still, Tsuki-Yo
-                deserves a serious look by anyone who enjoys a nice blue, and it
-                remains one of my all-time favorite inks.
+                I wasn't planning on doing another Iroshizuku ink, to say of no
+                less another blue, so soon after Tsuki-Yo, but my hands are
+                somewhat tied here. Rikka is one of the three new shades Pilot
+                has introduced to the line for the new year (the others being
+                Syun-gyo, a burgundy, and To-ro, warm lantern, an orange), and
+                recently arrived at my local paperie, so naturally I had to grab
+                it, ink it up, and try it out.
               </Typography>
               <Typography variant="body1" className="reviewBody">
-                Tsuki-Yo, when compared to other blues, trends more towards a
-                blue-black, but doesn't quite make it into that category. It
-                offers the characteristic buttery-smooth writing experience and
-                wet flow of an Iroshizuku ink, and maintains the line's
-                consistent craftsmanship and fascinating qualities. It offers a
-                slightly faster drying time than its siblings in my experience,
-                and is a joy to use.
+                Rikka translates to "snow crystal." I've heard it said that what
+                makes Iroshizuku inks so satisfying to use is that using them
+                truly 'feels' like whatever element lends them their namesake is
+                within the ink itself, and this is no exception. While it is a
+                bit darker, or at least more saturated, than 'snow crystal' may
+                make one suspect - and good thing, too, as I would have no use
+                for an almost-clear blue a la one of Ferris Wheel Press'
+                brighter offerings - it still captures the feeling of writing
+                with winter itself.
               </Typography>
               <Typography variant="body1" className="reviewBody">
-                Let's dive in, covering each of these factors one at a time.
+                Let's dive in, covering each of my usual metrics one at a time.
                 Pictures included, unless otherwise marked, are my own. Like any
                 other ink review, I have done my best to accurately portray the
                 colors and qualities as I see them, but as you know, it's
@@ -125,12 +128,9 @@ export default function RikkaReview() {
                 Color
               </Typography>
               <Typography variant="body1" className="reviewBody">
-                As stated, Tsuki-Yo lies somewhere between a blue and a
-                blue-black. To my eye, it's a bit closer to a blue, but contains
-                a dark, almost smokey quality that, while beautiful, may turn
-                off those who crave brighter inks. Iroshizukus characteristic
-                outline is present here, taking on a dark red, almost burgundy,
-                quality around lettering.
+                When Pilot announced the three new additions to their
+                well-regarded ink line, I was pleasantly surprised to see a blue
+                amongst them.
               </Typography>
               <Typography variant="body1" className="reviewBody">
                 Similar to its characteristic outline (which itself is a quality

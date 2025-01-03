@@ -299,7 +299,7 @@ export default function HazelnutReview() {
                     transition: "color 0.75s ease-in-out",
                   }}
                 >
-                  tomoe river 's' paper, pilot custom 912 waverly
+                  cosmo air light paper, pilot custom 823 medium
                 </Typography>
               </div>
             </Box>

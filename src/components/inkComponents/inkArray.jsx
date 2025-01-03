@@ -26,13 +26,22 @@ const InkArray = [
   //   author: "Ethan Kotel",
   //   urlAppend: "diamineBluePearl",
   // },
+  // {
+  //   title: "De Atramentis Alexander Hamilton",
+  //   description:
+  //     "An Enigmatic Blue to Blue-Black, Full of Mystery and Subtle Qualities",
+  //   image: require("../../assets/images/png/ink/hamilton/hamiltonHeader.jpg?url"),
+  //   content: <HamiltonReview />,
+  //   author: "Ethan Kotel",
+  //   urlAppend: "deatramentisAlexanderHamilton",
+  // },
   {
     title: "Herbin Lie de Thé",
-    description: "The Saddle-Ridden-Through-Texas Type of Brown",
+    description: "The Hunt for the Perfect Brown Continues",
     image: require("../../assets/images/png/ink/lieDeThe/lieDeTheBottle.jpg?url"),
     content: <LieDeTheReview />,
     author: "Ethan Kotel",
-    urlAppend: "herbinThe",
+    urlAppend: "herbinLieDeThé",
   },
   {
     title: "Iroshizuku Rikka",
@@ -60,15 +69,6 @@ const InkArray = [
     author: "Ethan Kotel",
     urlAppend: "gvfcHazelnutBrown",
   },
-  // {
-  //   title: "De Atramentis Alexander Hamilton",
-  //   description:
-  //     "An Enigmatic Blue to Blue-Black, Full of Mystery and Subtle Qualities",
-  //   image: require("../../assets/images/png/ink/hamilton/hamiltonHeader.jpg?url"),
-  //   content: <HamiltonReview />,
-  //   author: "Ethan Kotel",
-  //   urlAppend: "deatramentisAlexanderHamilton",
-  // },
   {
     title: "Diamine Sherwood Green",
     description:

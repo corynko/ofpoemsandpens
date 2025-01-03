@@ -292,7 +292,7 @@ export default function PoemCard({
           >
             <Fade in={open}>
               <Box
-                className="flex"
+                className="flex poemModal"
                 sx={{
                   backgroundColor: theme.palette.background.default,
                   padding: "20px",
@@ -301,25 +301,24 @@ export default function PoemCard({
                   overflow: "auto",
                   margin: "50px auto",
                   borderRadius: "15px",
-                  display: "flex",
-                  flexDirection: "row",
                   alignItems: "center",
-                  justifyContent: "space-between",
                   color: theme.palette.background.inverse,
                 }}
               >
                 <IconButton
                   sx={{
-                    opacity: currentImage !== image ? 1 : 0.3,
+                    opacity: currentImage !== image ? 1 : 0,
                     pointerEvents: currentImage !== image ? "auto" : "none",
                     marginRight: "10px",
+                    stroke: "black",
                     color: theme.palette.text.primary,
+                    transition: "opacity 0.6s ease-out",
                   }}
                   onClick={handlePreviousImage}
                 >
                   <ArrowBackIosNewIcon />
                 </IconButton>
-                <Box sx={{ flexBasis: "50%", paddingRight: "20px" }}>
+                <Box className="flex center" sx={{ flexBasis: "50%" }}>
                   <img
                     src={currentImage}
                     alt={altText}
@@ -332,14 +331,15 @@ export default function PoemCard({
                 </Box>
                 <IconButton
                   sx={{
-                    opacity:
-                      currentImage !== images[images.length - 1] ? 1 : 0.3,
+                    opacity: currentImage !== images[images.length - 1] ? 1 : 0,
                     pointerEvents:
                       currentImage !== images[images.length - 1]
                         ? "auto"
                         : "none",
-                    marginLeft: "-50px",
+                    // marginLeft: "-150px",
+                    stroke: "black",
                     color: theme.palette.text.primary,
+                    transition: "opacity 0.6s ease-out",
                   }}
                   onClick={handleNextImage}
                 >

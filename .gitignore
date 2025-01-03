@@ -155,3 +155,4 @@ yarn-error.log*
 .vscode*
 *.toml
 .dev.vars
+todo.txt

@@ -67,9 +67,9 @@ export default function RikkaSliders() {
             </Typography>
             <Slider
               aria-label="Saturation"
-              defaultValue={75}
+              defaultValue={100}
               step={null}
-              marks={getFilteredMarks("saturation", 75)}
+              marks={getFilteredMarks("saturation", 100)}
               valueLabelDisplay="auto"
               slots={{ ValueLabel: ValueLabelComponent }}
               slotProps={{
@@ -86,9 +86,9 @@ export default function RikkaSliders() {
             </Typography>
             <Slider
               aria-label="Shading"
-              defaultValue={50}
+              defaultValue={75}
               step={null}
-              marks={getFilteredMarks("shading", 50)}
+              marks={getFilteredMarks("shading", 75)}
               valueLabelDisplay="auto"
               slots={{ ValueLabel: ValueLabelComponent }}
               slotProps={{

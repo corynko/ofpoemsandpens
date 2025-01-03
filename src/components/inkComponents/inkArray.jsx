@@ -35,22 +35,22 @@ const InkArray = [
   //   author: "Ethan Kotel",
   //   urlAppend: "deatramentisAlexanderHamilton",
   // },
-  {
-    title: "Herbin Lie de Thé",
-    description: "The Hunt for the Perfect Brown Continues",
-    image: require("../../assets/images/png/ink/lieDeThe/lieDeTheBottle.jpg?url"),
-    content: <LieDeTheReview />,
-    author: "Ethan Kotel",
-    urlAppend: "herbinLieDeThé",
-  },
-  {
-    title: "Iroshizuku Rikka",
-    description: "A Deep Ocean Blue with a Dramatic Sheen",
-    image: require("../../assets/images/png/ink/rikka/rikkaBottle.jpg?url"),
-    content: <RikkaReview />,
-    author: "Ethan Kotel",
-    urlAppend: "iroshizukuRikka",
-  },
+  // {
+  //   title: "Herbin Lie de Thé",
+  //   description: "The Hunt for the Perfect Brown Continues",
+  //   image: require("../../assets/images/png/ink/lieDeThe/lieDeTheBottle.jpg?url"),
+  //   content: <LieDeTheReview />,
+  //   author: "Ethan Kotel",
+  //   urlAppend: "herbinLieDeThé",
+  // },
+  // {
+  //   title: "Iroshizuku Rikka",
+  //   description: "A Deep Ocean Blue with a Dramatic Sheen",
+  //   image: require("../../assets/images/png/ink/rikka/rikkaBottle.jpg?url"),
+  //   content: <RikkaReview />,
+  //   author: "Ethan Kotel",
+  //   urlAppend: "iroshizukuRikka",
+  // },
   {
     title: "Iroshizuku Tsuki-Yo",
     description:

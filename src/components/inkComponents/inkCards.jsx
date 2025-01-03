@@ -4,7 +4,7 @@ import { Box, Card, Modal } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import { useSpring, animated } from "@react-spring/web";
 import PropTypes from "prop-types";
-import { delay, motion, stagger } from "framer-motion";
+import { AnimatePresence, motion, stagger } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const Fade = React.forwardRef(function Fade(props, ref) {
@@ -97,9 +97,12 @@ export default function InkCard({ title, content, image, urlAppend }) {
   return (
     <Box className="flex center row" sx={{ margin: "20px" }}>
       <motion.div initial="initial" animate="animate" variants={divVariants}>
-        <motion.div variants={cardVariants}>
+        <AnimatePresence>
+          <motion.div variants={cardVariants} exit={{ opacity: 0 }} />
+        </AnimatePresence>
+        <motion.div>
           <Card
-            className="poemCard flex"
+            className="poemCard flex animate__animated animate__fadeInLeft "
             sx={{
               minWidth: "300px",
               maxWidth: "400px",

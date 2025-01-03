@@ -55,7 +55,7 @@ export default function Ink() {
           Coming Soon!
         </Typography>
       </Box> */}
-      <Box className="flex main-content wrap center">
+      <Box className="flex main-content inksBody wrap center">
         {inkArray.map((ink, index) => (
           <InkCard
             key={index}

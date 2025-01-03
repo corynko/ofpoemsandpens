@@ -1,5 +1,7 @@
 import KonPekiReview from "./reviews/konPeki/konPeki";
 import TsukiYoReview from "./reviews/tsukiYo/tsukiYo";
+import RikkaReview from "./reviews/rikka/rikka";
+import LieDeTheReview from "./reviews/lieDeThe/lieDeThe";
 import HamiltonReview from "./reviews/hamilton/hamilton";
 import SherwoodReview from "./reviews/sherwood/sherwood";
 import BluePearlReview from "./reviews/bluePearl/bluePearl";
@@ -24,6 +26,31 @@ const InkArray = [
   //   author: "Ethan Kotel",
   //   urlAppend: "diamineBluePearl",
   // },
+  // {
+  //   title: "De Atramentis Alexander Hamilton",
+  //   description:
+  //     "An Enigmatic Blue to Blue-Black, Full of Mystery and Subtle Qualities",
+  //   image: require("../../assets/images/png/ink/hamilton/hamiltonHeader.jpg?url"),
+  //   content: <HamiltonReview />,
+  //   author: "Ethan Kotel",
+  //   urlAppend: "deatramentisAlexanderHamilton",
+  // },
+  // {
+  //   title: "Herbin Lie de Thé",
+  //   description: "The Hunt for the Perfect Brown Continues",
+  //   image: require("../../assets/images/png/ink/lieDeThe/lieDeTheBottle.jpg?url"),
+  //   content: <LieDeTheReview />,
+  //   author: "Ethan Kotel",
+  //   urlAppend: "herbinLieDeThé",
+  // },
+  // {
+  //   title: "Iroshizuku Rikka",
+  //   description: "A Deep Ocean Blue with a Dramatic Sheen",
+  //   image: require("../../assets/images/png/ink/rikka/rikkaBottle.jpg?url"),
+  //   content: <RikkaReview />,
+  //   author: "Ethan Kotel",
+  //   urlAppend: "iroshizukuRikka",
+  // },
   {
     title: "Iroshizuku Tsuki-Yo",
     description:
@@ -42,15 +69,6 @@ const InkArray = [
     author: "Ethan Kotel",
     urlAppend: "gvfcHazelnutBrown",
   },
-  // {
-  //   title: "De Atramentis Alexander Hamilton",
-  //   description:
-  //     "An Enigmatic Blue to Blue-Black, Full of Mystery and Subtle Qualities",
-  //   image: require("../../assets/images/png/ink/hamilton/hamiltonHeader.jpg?url"),
-  //   content: <HamiltonReview />,
-  //   author: "Ethan Kotel",
-  //   urlAppend: "deatramentisAlexanderHamilton",
-  // },
   {
     title: "Diamine Sherwood Green",
     description:

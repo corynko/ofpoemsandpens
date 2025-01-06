@@ -20,8 +20,18 @@ export default defineConfig({
       makeWebp: {
         skipIfLargerThan: "smallest",
         plugins: {
-          jpg: imageminWebp({ preset: "photo", quality: 95, method: 10 }),
-          png: imageminWebp({ preset: "photo", quality: 95, method: 10 }),
+          jpg: imageminWebp({
+            preset: "photo",
+            quality: 95,
+            method: 6,
+            lossless: true | 9,
+          }),
+          png: imageminWebp({
+            preset: "photo",
+            quality: 95,
+            method: 6,
+            lossless: true | 9,
+          }),
         },
       },
     }),

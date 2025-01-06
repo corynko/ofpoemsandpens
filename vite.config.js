@@ -22,13 +22,13 @@ export default defineConfig({
         plugins: {
           jpg: imageminWebp({
             preset: "photo",
-            quality: 95,
+            quality: 70,
             method: 6,
             lossless: true | 9,
           }),
           png: imageminWebp({
             preset: "photo",
-            quality: 95,
+            quality: 70,
             method: 6,
             lossless: true | 9,
           }),

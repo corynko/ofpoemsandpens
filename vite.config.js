@@ -2,10 +2,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import commonjs from "vite-plugin-commonjs";
 import viteImagemin from "@vheemstra/vite-plugin-imagemin";
-import imageminGifsicle from "imagemin-gifsicle";
 import imageminMozjpeg from "imagemin-mozjpeg";
-import imageminOptipng from "imagemin-optipng";
 import imageminWebp from "imagemin-webp";
+import imageminPngquant from "imagemin-pngquant";
 
 export default defineConfig({
   plugins: [
@@ -15,13 +14,8 @@ export default defineConfig({
       verbose: true,
       onlyAssets: true,
       plugins: {
-        jpg: imageminMozjpeg({ quality: 95 }),
-        png: imageminOptipng({
-          optimizationLevel: 7,
-          bitDepthReduction: false,
-          colorTypeReduction: true,
-          paletteReduction: false,
-        }),
+        jpg: imageminMozjpeg({ quality: 100 }),
+        png: imageminPngquant({ quality: [0.2, 0.8], strip: true, speed: 6 }),
       },
       makeWebp: {
         skipIfLargerThan: "optimized",

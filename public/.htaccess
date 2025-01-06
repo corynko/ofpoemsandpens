@@ -14,8 +14,9 @@ RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
 RewriteRule (.+)\.(jpe?g|png|gif)$ $1.webp [T=image/webp,E=REQUEST_image]
 </IfModule>
 
+# Vary: Accept for all the requests to jpeg, png and gif
+
 <IfModule mod_headers.c>
-  # Vary: Accept for all the requests to jpeg, png and gif
   Header append Vary Accept env=REQUEST_image
 </IfModule>
 

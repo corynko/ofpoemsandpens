@@ -3,15 +3,16 @@
 
 # Check if browser supports WebP images
 
-RewriteCond %{HTTP_ACCEPT} image/webp
+RewriteCond %{HTTP_ACCEPT} image/avif
 
 # Check if WebP replacement image exists
 
-RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+RewriteCond %{REQUEST_FILENAME}.avif -f
 
 # Serve WebP image instead
 
-RewriteRule (.+)\.(jpe?g|png|gif)$ $1.webp [T=image/webp,E=REQUEST_image]
+RewriteRule ^ %{REQUEST_FILENAME}.avif [L]
+
 </IfModule>
 
 # Vary: Accept for all the requests to jpeg, png and gif
@@ -21,5 +22,5 @@ RewriteRule (.+)\.(jpe?g|png|gif)$ $1.webp [T=image/webp,E=REQUEST_image]
 </IfModule>
 
 <IfModule mod_mime.c>
-  AddType image/webp .webp
+  AddType image/avif .avif
 </IfModule>
